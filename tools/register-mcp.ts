@@ -14,6 +14,7 @@
  *   Windows: %APPDATA%/Claude/claude_desktop_config.json
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { homedir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -22,6 +23,22 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const SERVER_NAME = "poke-mate";
 const SERVER_ENTRY = join(repoRoot, "apps", "mcp-server", "dist", "index.js");
+const ELECTRON_PKG_DIR = join(repoRoot, "apps", "electron");
+
+function resolveElectronBinary(): string {
+  // apps/electron の node_modules から electron を解決する。
+  // electron パッケージは require() すると実行ファイルの絶対パスを返す。
+  // Electron ABI でビルドされた better-sqlite3 を MCP でも使うため、
+  // Electron バイナリを ELECTRON_RUN_AS_NODE=1 で Node 代わりに使う。
+  const requireFromElectron = createRequire(join(ELECTRON_PKG_DIR, "package.json"));
+  const exe = requireFromElectron("electron") as string;
+  if (typeof exe !== "string" || !existsSync(exe)) {
+    throw new Error(
+      `Electron binary not found at ${String(exe)}. Run \`pnpm install\` and ensure apps/electron is built.`,
+    );
+  }
+  return exe;
+}
 
 type Mode = "apply" | "dry" | "undo";
 
@@ -73,9 +90,12 @@ function main(): void {
     process.exit(1);
   }
 
+  const electronBin = mode !== "undo" ? resolveElectronBinary() : "";
+
   console.log(`poke-mate MCP registrar (mode=${mode})`);
-  console.log(`  config: ${path}`);
-  console.log(`  entry:  ${SERVER_ENTRY}`);
+  console.log(`  config:   ${path}`);
+  console.log(`  entry:    ${SERVER_ENTRY}`);
+  if (mode !== "undo") console.log(`  runtime:  ${electronBin} (ELECTRON_RUN_AS_NODE=1)`);
   console.log("");
 
   const cfg = readConfig(path);
@@ -94,8 +114,11 @@ function main(): void {
   }
 
   const newEntry = {
-    command: process.execPath,
+    command: electronBin,
     args: [SERVER_ENTRY],
+    env: {
+      ELECTRON_RUN_AS_NODE: "1",
+    },
   };
   mcpServers[SERVER_NAME] = newEntry;
   cfg.mcpServers = mcpServers;
@@ -108,6 +131,11 @@ function main(): void {
 
   writeConfig(path, cfg);
   console.log(`+ registered ${SERVER_NAME}. Restart Claude Desktop to load.`);
+  console.log("");
+  console.log("  note: MCP runs via the Electron binary (ELECTRON_RUN_AS_NODE=1)");
+  console.log("        so that native modules built for Electron (e.g. better-sqlite3)");
+  console.log("        are loadable. If you see NODE_MODULE_VERSION errors, run:");
+  console.log("          pnpm rebuild-native");
 }
 
 main();
