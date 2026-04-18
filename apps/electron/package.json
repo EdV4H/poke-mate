@@ -10,6 +10,7 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json",
     "typecheck": "pnpm typecheck:node && pnpm typecheck:web",
     "start": "electron-vite preview",
+    "rebuild-native": "electron-rebuild -f -w better-sqlite3",
     "clean": "rimraf out dist"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "zustand": "^5.0.2"
   },
   "devDependencies": {
+    "@electron/rebuild": "^4.0.3",
     "@types/node": "^22.10.0",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
