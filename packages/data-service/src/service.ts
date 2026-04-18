@@ -134,20 +134,22 @@ function applyMigrations(sqlite: Database.Database): void {
        applied_at TEXT NOT NULL
      );`,
   );
-  const appliedRows = sqlite
-    .prepare("SELECT version FROM schema_migrations")
-    .all() as { version: number }[];
-  const applied = new Set(appliedRows.map((r) => r.version));
+  // BEGIN IMMEDIATE で書き込みロックを取得してから version チェック/適用まで
+  // 1 トランザクションで行うことで、並行起動したプロセスとのレース条件を防ぐ。
+  // 二重 INSERT に対しては OR IGNORE で idempotent に倒す。
+  const checkApplied = sqlite.prepare(
+    "SELECT 1 FROM schema_migrations WHERE version = ?",
+  );
   const record = sqlite.prepare(
-    "INSERT INTO schema_migrations (version, applied_at) VALUES (?, ?)",
+    "INSERT OR IGNORE INTO schema_migrations (version, applied_at) VALUES (?, ?)",
   );
   for (const m of MIGRATIONS) {
-    if (applied.has(m.version)) continue;
     const tx = sqlite.transaction(() => {
+      if (checkApplied.get(m.version)) return;
       m.up(sqlite);
       record.run(m.version, new Date().toISOString());
     });
-    tx();
+    tx.immediate();
   }
 }
 

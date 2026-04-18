@@ -351,10 +351,11 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
             .run();
         }
 
-        db.update(parties)
-          .set({ updatedAt: ts, version: partyRow.version + 1 })
-          .where(eq(parties.id, partyId))
-          .run();
+        sqlite
+          .prepare(
+            "UPDATE parties SET updated_at = ?, version = version + 1 WHERE id = ?",
+          )
+          .run(ts, partyId);
 
         const setEventId = insertChangeEvent(db, "pokemon_set", setId, op, actor, ts);
         const partyEventId = insertChangeEvent(db, "party", partyId, "update", actor, ts);
@@ -398,10 +399,11 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
           throw new NotFoundError("pokemon_set", `${partyId}:${slot}`);
         }
         db.delete(pokemonSets).where(eq(pokemonSets.id, existing.id)).run();
-        db.update(parties)
-          .set({ updatedAt: ts, version: partyRow.version + 1 })
-          .where(eq(parties.id, partyId))
-          .run();
+        sqlite
+          .prepare(
+            "UPDATE parties SET updated_at = ?, version = version + 1 WHERE id = ?",
+          )
+          .run(ts, partyId);
         const setEventId = insertChangeEvent(db, "pokemon_set", existing.id, "delete", actor, ts);
         const partyEventId = insertChangeEvent(db, "party", partyId, "update", actor, ts);
         return { setEventId, partyEventId, setId: existing.id };

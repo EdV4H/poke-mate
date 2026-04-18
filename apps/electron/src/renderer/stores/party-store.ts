@@ -14,6 +14,7 @@ interface PartyStoreState {
   currentPartyId: string | null;
   currentParty: Party | null;
   lastEventId: number;
+  lastSlotEventTs: string | null;
   loading: boolean;
   flash: FlashState | null;
   toast: string | null;
@@ -46,6 +47,7 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
   currentPartyId: null,
   currentParty: null,
   lastEventId: 0,
+  lastSlotEventTs: null,
   loading: false,
   flash: null,
   toast: null,
@@ -124,8 +126,22 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
 
     if (event.actor !== "mcp") return;
 
-    const current = get().currentParty;
+    const state = get();
+    const current = state.currentParty;
     const isCurrent = event.entityType === "party" && event.entityId === current?.id;
+
+    // pokemon_set の mutation は PartyService が party:update イベントも発火する。
+    // 同じ ts を持つ直後の party:update は pokemon_set で既に処理済みなのでスキップ。
+    if (event.entityType === "pokemon_set") {
+      set({ lastSlotEventTs: event.ts });
+    } else if (
+      event.entityType === "party" &&
+      event.op === "update" &&
+      event.ts === state.lastSlotEventTs
+    ) {
+      await get().refreshList();
+      return;
+    }
 
     if (isCurrent && event.op === "update") {
       await get().openParty(current!.id);
@@ -149,21 +165,21 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
           break;
         }
       }
+      // pokemon_set イベントが現在のパーティに紐づかない場合、汎用トーストで
+      // ユーザーを混乱させないよう通知を出さず、state だけ同期する。
+      if (changedSlot === null) {
+        set({ currentParty: refreshed });
+        return;
+      }
       set({
         currentParty: refreshed,
-        toast: changedSlot
-          ? `Claude がスロット${changedSlot}を更新しました`
-          : "Claude がパーティを更新しました",
-        ...(changedSlot !== null && {
-          flash: { slot: changedSlot, at: Date.now(), message: "Claude の更新" },
-        }),
+        toast: `Claude がスロット${changedSlot}を更新しました`,
+        flash: { slot: changedSlot, at: Date.now(), message: "Claude の更新" },
       });
-      if (changedSlot !== null) {
-        setTimeout(() => {
-          const st = get();
-          if (st.flash && st.flash.slot === changedSlot) set({ flash: null });
-        }, FLASH_DURATION_MS);
-      }
+      setTimeout(() => {
+        const st = get();
+        if (st.flash && st.flash.slot === changedSlot) set({ flash: null });
+      }, FLASH_DURATION_MS);
     } else if (event.entityType === "party" && event.op === "create") {
       await get().refreshList();
       set({ toast: "Claude が新しいパーティを作成しました" });
