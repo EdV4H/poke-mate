@@ -41,7 +41,7 @@
 | `create_party_selection` | `party_id, scenario_name, picked_slots[], lead_slots?` | `{ selection: PartySelection, change_event_id }` | 3匹/4匹選出パターンの保存 |
 | `create_battle_session` | `workspace_id, my_party_id, format, my_selection_id?, ...` | `{ session: BattleSession, change_event_id }` | |
 | `append_battle_turn` | `session_id, turn` | `{ session: BattleSession, change_event_id }` | |
-| `import_battle_log` | `workspace_id, raw_text, source` | `{ log: BattleLog, change_event_id }` | `source: 'champions_replay' | 'text' | 'manual'` |
+| `import_battle_log` | `workspace_id, raw_text, source` | `{ log: BattleLog, change_event_id }` | `source: 'champions_replay' \| 'text' \| 'manual'` |
 | `save_note` | `target_type, target_id, body_md` | `{ note: Note, change_event_id }` | |
 
 ### Pure calc 系（DB書かない、Champions仕様）

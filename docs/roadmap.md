@@ -54,7 +54,7 @@
 - `apps/electron/src/renderer/routes/party/`: 構築画面（D&D、6スロット、技選択モーダル、SP配分UI、メガマーク、選出シナリオ保存）
 - `apps/electron/src/renderer/stores/party-store.ts`: Zustand + IPC 購読 + change-event 受信
 - `apps/mcp-server/src/tools/parties.ts`: Party CRUD + `create_party_selection`
-- `apps/electron/src/main/mcp-host.ts`: MCP 子プロセス起動、SQLite polling
+- `apps/electron/src/main/mcp-host.ts`: MCP 子プロセス起動、`change_events` polling（0.5秒間隔）
 - `packages/damage-calc` 初版（Lv50/IV31固定式、type-effectiveness、SP→実数値換算）
 - `apps/mcp-server/src/tools/calc.ts`: `compute_stats`, `analyze_type_coverage`, `analyze_selection_patterns`
 - `skills/review-party/SKILL.md`
