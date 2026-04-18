@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import type { PokemonMaster, PokemonSet } from "@edv4h/poke-mate-shared-types";
 import { usePartyStore } from "../stores/party-store.js";
+import { TYPE_NAME_JA } from "../i18n.js";
 
 interface Props {
   slot: number;
@@ -11,10 +12,12 @@ interface Props {
 export function SlotCard({ slot, set, flash }: Props): JSX.Element {
   const upsertSlot = usePartyStore((s) => s.upsertSlot);
   const clearSlot = usePartyStore((s) => s.clearSlot);
+  const masterIndex = usePartyStore((s) => s.masterIndex);
   const [searching, setSearching] = useState(false);
   const [query, setQuery] = useState("");
   const [candidates, setCandidates] = useState<PokemonMaster[]>([]);
   const searchTokenRef = useRef(0);
+  const master = set ? masterIndex[set.speciesId] : undefined;
 
   async function doSearch(q: string): Promise<void> {
     setQuery(q);
@@ -34,8 +37,9 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
     setCandidates(results);
   }
 
-  async function pick(master: PokemonMaster): Promise<void> {
-    await upsertSlot(slot, master.id);
+  async function pick(chosen: PokemonMaster): Promise<void> {
+    await upsertSlot(slot, chosen.id);
+    await usePartyStore.getState().ensureMasters([chosen.id]);
     setSearching(false);
     setQuery("");
     setCandidates([]);
@@ -54,9 +58,19 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
 
       {set ? (
         <div className="slot-body">
-          <strong>{set.speciesId}</strong>
+          <strong>{master?.nameJa ?? set.speciesId}</strong>
+          {master && (
+            <div className="slot-types">
+              {master.types.map((t) => (
+                <span key={t} className={`type type-${t}`}>
+                  {TYPE_NAME_JA[t]}
+                </span>
+              ))}
+            </div>
+          )}
           <div className="slot-meta">
-            {set.natureId ?? "—"} / {set.abilityId ?? "—"} / {set.itemId ?? "—"}
+            {set.natureId ?? "性格未設定"} / {set.abilityId ?? "特性未設定"} /{" "}
+            {set.itemId ?? "持ち物未設定"}
           </div>
           <div className="slot-moves">
             {set.movesJson.length === 0

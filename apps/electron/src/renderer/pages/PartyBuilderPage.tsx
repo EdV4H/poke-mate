@@ -56,8 +56,9 @@ export function PartyBuilderPage({ partyId, onBack }: Props): JSX.Element {
       </header>
 
       <p className="hint">
-        Claude Desktop に <code>build-party-with-me party_id={currentParty.id}</code>{" "}
-        のように依頼してください。AI が書き換えると即座に反映されます。
+        Claude Code で <code>/poke-mate-build-party-with-me party_id={currentParty.id}</code>{" "}
+        のように依頼してください。Claude Desktop の場合は自然文で「party_id={currentParty.id}{" "}
+        のパーティを一緒に組んで」と伝えれば OK です。AI が書き換えると即座に反映されます。
       </p>
 
       <div className="slot-grid">

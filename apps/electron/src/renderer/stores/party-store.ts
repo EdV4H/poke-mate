@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { ChangeEvent, Party } from "@edv4h/poke-mate-shared-types";
+import type { ChangeEvent, Party, PokemonMaster } from "@edv4h/poke-mate-shared-types";
 
 const DEFAULT_WORKSPACE_ID = "default";
 
@@ -18,6 +18,7 @@ interface PartyStoreState {
   loading: boolean;
   flash: FlashState | null;
   toast: string | null;
+  masterIndex: Record<string, PokemonMaster>;
 
   init(): Promise<void>;
   refreshList(): Promise<void>;
@@ -38,6 +39,7 @@ interface PartyStoreState {
   clearSlot(slot: number): Promise<void>;
   handleChangeEvent(event: ChangeEvent): Promise<void>;
   setToast(msg: string | null): void;
+  ensureMasters(speciesIds: string[]): Promise<void>;
 }
 
 const FLASH_DURATION_MS = 1800;
@@ -51,6 +53,7 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
   loading: false,
   flash: null,
   toast: null,
+  masterIndex: {},
 
   async init() {
     await get().refreshList();
@@ -77,6 +80,23 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
       return;
     }
     set({ currentPartyId: partyId, currentParty: party });
+    await get().ensureMasters(party.sets.map((s) => s.speciesId));
+  },
+
+  async ensureMasters(speciesIds) {
+    const { masterIndex } = get();
+    const missing = Array.from(new Set(speciesIds)).filter((id) => !(id in masterIndex));
+    if (missing.length === 0) return;
+    const fetched = await Promise.all(
+      missing.map((id) => window.pokeMate.getPokemonDetails({ speciesId: id })),
+    );
+    const updates: Record<string, PokemonMaster> = {};
+    fetched.forEach((m, i) => {
+      if (m) updates[missing[i]!] = m;
+    });
+    if (Object.keys(updates).length > 0) {
+      set((s) => ({ masterIndex: { ...s.masterIndex, ...updates } }));
+    }
   },
 
   closeParty() {
