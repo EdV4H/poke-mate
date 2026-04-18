@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { usePartyStore } from "../stores/party-store.js";
 
 interface Props {
@@ -12,7 +12,7 @@ export function PartyListPage({ onOpen }: Props): JSX.Element {
   const [format, setFormat] = useState<"single" | "double">("single");
   const [busy, setBusy] = useState(false);
 
-  async function submit(e: React.FormEvent): Promise<void> {
+  async function submit(e: FormEvent): Promise<void> {
     e.preventDefault();
     if (!name.trim() || busy) return;
     setBusy(true);

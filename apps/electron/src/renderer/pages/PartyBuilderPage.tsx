@@ -32,8 +32,12 @@ export function PartyBuilderPage({ partyId, onBack }: Props): JSX.Element {
   const slotsBySlot = new Map(currentParty.sets.map((s) => [s.slot, s]));
 
   async function copyId(): Promise<void> {
-    await navigator.clipboard.writeText(currentParty!.id);
-    setToast("パーティID をコピーしました");
+    try {
+      await navigator.clipboard.writeText(currentParty!.id);
+      setToast("パーティID をコピーしました");
+    } catch {
+      setToast("パーティID のコピーに失敗しました");
+    }
   }
 
   return (
