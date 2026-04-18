@@ -5,7 +5,7 @@ import { mkdirSync } from "node:fs";
 export function resolveDbPath(): string {
   const envPath = process.env.POKE_MATE_DB;
   if (envPath) return envPath;
-  const dir = app.getPath("userData");
+  const dir = join(app.getPath("appData"), "poke-mate");
   mkdirSync(dir, { recursive: true });
   return join(dir, "poke-mate.sqlite");
 }

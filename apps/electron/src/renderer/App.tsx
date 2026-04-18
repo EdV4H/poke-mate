@@ -8,10 +8,16 @@ export function App(): JSX.Element {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const trimmed = query.trim();
+    if (trimmed === "") {
+      setResults([]);
+      setLoading(false);
+      return;
+    }
     const controller = { cancelled: false };
     setLoading(true);
     void window.pokeMate
-      .searchPokemon({ query, championsOnly, limit: 50 })
+      .searchPokemon({ query: trimmed, championsOnly, limit: 50 })
       .then((r) => {
         if (!controller.cancelled) setResults(r);
       })
@@ -51,9 +57,7 @@ export function App(): JSX.Element {
       {loading ? (
         <p className="status">検索中…</p>
       ) : results.length === 0 ? (
-        <p className="status">
-          {query ? "該当なし" : `登録 ${results.length} 件。キーワードを入力してください`}
-        </p>
+        <p className="status">{query.trim() ? "該当なし" : "キーワードを入力してください"}</p>
       ) : (
         <ul className="results">
           {results.map((p) => (

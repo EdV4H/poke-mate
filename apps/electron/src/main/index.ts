@@ -1,7 +1,11 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
 import { createDataService, type DataService } from "@poke-mate/data-service";
-import { IPC, type SearchPokemonRequest } from "@poke-mate/shared-types";
+import {
+  IPC,
+  type GetPokemonDetailsRequest,
+  type SearchPokemonRequest,
+} from "@poke-mate/shared-types";
 import { resolveDbPath } from "./db-path.js";
 
 let dataService: DataService | null = null;
@@ -12,7 +16,7 @@ function createWindow(): BrowserWindow {
     height: 800,
     webPreferences: {
       preload: join(__dirname, "../preload/index.js"),
-      sandbox: false,
+      sandbox: true,
       contextIsolation: true,
       nodeIntegration: false,
     },
@@ -30,7 +34,7 @@ function registerIpc(service: DataService): void {
   ipcMain.handle(IPC.SEARCH_POKEMON, (_e, req: SearchPokemonRequest) => {
     return service.searchPokemon(req);
   });
-  ipcMain.handle(IPC.GET_POKEMON_DETAILS, (_e, req: { speciesId: string }) => {
+  ipcMain.handle(IPC.GET_POKEMON_DETAILS, (_e, req: GetPokemonDetailsRequest) => {
     return service.getPokemonDetails(req.speciesId);
   });
 }

@@ -156,8 +156,10 @@ export function createDataService(options: DataServiceOptions): DataService {
     bus,
 
     searchPokemon(req) {
+      const trimmed = req.query.trim();
+      if (trimmed === "") return [];
       const limit = Math.min(req.limit ?? 50, 200);
-      const q = `%${req.query.toLowerCase()}%`;
+      const q = `%${trimmed.toLowerCase()}%`;
       const nameMatch = or(
         like(masterPokemon.nameJa, q),
         like(masterPokemon.nameEn, q),
