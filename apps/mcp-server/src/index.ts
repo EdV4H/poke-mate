@@ -20,7 +20,7 @@ const GetPokemonDetailsInput = z.object({
 });
 
 async function main(): Promise<void> {
-  const data = createDataService({ dbPath: resolveDbPath(), actor: "mcp" });
+  const data = createDataService({ dbPath: resolveDbPath() });
 
   const server = new Server(
     { name: "poke-mate", version: "0.0.0" },

@@ -12,7 +12,6 @@ import { changeEvents, masterPokemon } from "./schema.js";
 
 export interface DataServiceOptions {
   dbPath: string;
-  actor: "gui" | "mcp";
 }
 
 export interface DataService {
@@ -94,17 +93,12 @@ CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_en ON master_pokemon(name_en)
 
 function applyMigrations(sqlite: Database.Database): void {
   sqlite.exec(MIGRATION_SQL);
-  const row = sqlite.prepare("SELECT version FROM schema_migrations WHERE version = 1").get();
-  if (!row) {
-    sqlite
-      .prepare("INSERT INTO schema_migrations (version, applied_at) VALUES (?, ?)")
-      .run(1, new Date().toISOString());
-  }
+  sqlite
+    .prepare("INSERT OR IGNORE INTO schema_migrations (version, applied_at) VALUES (?, ?)")
+    .run(1, new Date().toISOString());
 }
 
 function seedMasterPokemon(db: BetterSQLite3Database, sqlite: Database.Database): void {
-  const countRow = sqlite.prepare("SELECT COUNT(*) AS c FROM master_pokemon").get() as { c: number };
-  if (countRow.c > 0) return;
   const rows = loadPokemonMaster();
   const insertMany = sqlite.transaction((items: PokemonMaster[]) => {
     for (const p of items) {
@@ -120,6 +114,7 @@ function seedMasterPokemon(db: BetterSQLite3Database, sqlite: Database.Database)
           championsAvailable: p.championsAvailable,
           megaFormsJson: p.megaFormsJson ? JSON.stringify(p.megaFormsJson) : null,
         })
+        .onConflictDoNothing()
         .run();
     }
   });
@@ -158,7 +153,7 @@ export function createDataService(options: DataServiceOptions): DataService {
     searchPokemon(req) {
       const trimmed = req.query.trim();
       if (trimmed === "") return [];
-      const limit = Math.min(req.limit ?? 50, 200);
+      const limit = Math.min(Math.max(req.limit ?? 50, 1), 200);
       const q = `%${trimmed.toLowerCase()}%`;
       const nameMatch = or(
         like(masterPokemon.nameJa, q),

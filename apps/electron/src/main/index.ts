@@ -40,7 +40,7 @@ function registerIpc(service: DataService): void {
 }
 
 app.whenReady().then(() => {
-  dataService = createDataService({ dbPath: resolveDbPath(), actor: "gui" });
+  dataService = createDataService({ dbPath: resolveDbPath() });
   registerIpc(dataService);
   createWindow();
 
