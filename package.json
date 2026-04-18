@@ -14,7 +14,8 @@
     "lint": "pnpm -r lint",
     "clean": "pnpm -r exec rimraf dist node_modules/.cache",
     "install-skills": "tsx tools/install-skills.ts",
-    "register-mcp": "tsx tools/register-mcp.ts"
+    "register-mcp": "tsx tools/register-mcp.ts",
+    "rebuild-native": "pnpm --filter @edv4h/poke-mate-electron rebuild-native"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
