@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { ChangeEvent, Party, PokemonMaster } from "@edv4h/poke-mate-shared-types";
+import type { ChangeEvent, Party, PokemonMaster, StatPoints } from "@edv4h/poke-mate-shared-types";
 
 const DEFAULT_WORKSPACE_ID = "default";
 
@@ -34,6 +34,7 @@ interface PartyStoreState {
       itemId: string;
       moves: string[];
       isMegaTarget: boolean;
+      spJson: StatPoints;
     }>,
   ): Promise<void>;
   clearSlot(slot: number): Promise<void>;
@@ -126,6 +127,7 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
         ...(extra?.itemId !== undefined && { itemId: extra.itemId }),
         ...(extra?.moves !== undefined && { movesJson: extra.moves }),
         ...(extra?.isMegaTarget !== undefined && { isMegaTarget: extra.isMegaTarget }),
+        ...(extra?.spJson !== undefined && { spJson: extra.spJson }),
       },
       ...(existing !== undefined && { expectedVersion: existing.version }),
     });
