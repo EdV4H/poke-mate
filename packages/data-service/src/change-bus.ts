@@ -1,5 +1,5 @@
 import { EventEmitter } from "node:events";
-import type { ChangeEvent } from "@poke-mate/shared-types";
+import type { ChangeEvent } from "@edv4h/poke-mate-shared-types";
 
 export type ChangeEventPayload = ChangeEvent;
 

@@ -1,12 +1,12 @@
 import Database from "better-sqlite3";
 import { drizzle, type BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
 import { and, eq, gt, like, or } from "drizzle-orm";
-import { loadPokemonMaster } from "@poke-mate/master-data";
+import { loadPokemonMaster } from "@edv4h/poke-mate-master-data";
 import type {
   ChangeEvent,
   PokemonMaster,
   SearchPokemonRequest,
-} from "@poke-mate/shared-types";
+} from "@edv4h/poke-mate-shared-types";
 import { ChangeBus } from "./change-bus.js";
 import { changeEvents, masterPokemon } from "./schema.js";
 

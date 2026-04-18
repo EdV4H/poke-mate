@@ -6,7 +6,7 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
-import { createDataService } from "@poke-mate/data-service";
+import { createDataService } from "@edv4h/poke-mate-data-service";
 import { resolveDbPath } from "./db-path.js";
 
 const SearchPokemonInput = z.object({

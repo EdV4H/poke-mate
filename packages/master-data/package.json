@@ -1,5 +1,5 @@
 {
-  "name": "@poke-mate/master-data",
+  "name": "@edv4h/poke-mate-master-data",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -19,7 +19,7 @@
   },
   "files": ["dist", "data"],
   "dependencies": {
-    "@poke-mate/shared-types": "workspace:*"
+    "@edv4h/poke-mate-shared-types": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.7.2"

@@ -5,7 +5,7 @@ import {
   type GetPokemonDetailsResponse,
   type SearchPokemonRequest,
   type SearchPokemonResponse,
-} from "@poke-mate/shared-types";
+} from "@edv4h/poke-mate-shared-types";
 
 const api = {
   searchPokemon: (req: SearchPokemonRequest): Promise<SearchPokemonResponse> =>

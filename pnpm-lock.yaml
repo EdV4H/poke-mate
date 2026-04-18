@@ -20,10 +20,10 @@ importers:
 
   apps/electron:
     dependencies:
-      '@poke-mate/data-service':
+      '@edv4h/poke-mate-data-service':
         specifier: workspace:*
         version: link:../../packages/data-service
-      '@poke-mate/shared-types':
+      '@edv4h/poke-mate-shared-types':
         specifier: workspace:*
         version: link:../../packages/shared-types
       better-sqlite3:
@@ -63,15 +63,15 @@ importers:
 
   apps/mcp-server:
     dependencies:
+      '@edv4h/poke-mate-data-service':
+        specifier: workspace:*
+        version: link:../../packages/data-service
+      '@edv4h/poke-mate-shared-types':
+        specifier: workspace:*
+        version: link:../../packages/shared-types
       '@modelcontextprotocol/sdk':
         specifier: ^1.0.4
         version: 1.29.0(zod@3.25.76)
-      '@poke-mate/data-service':
-        specifier: workspace:*
-        version: link:../../packages/data-service
-      '@poke-mate/shared-types':
-        specifier: workspace:*
-        version: link:../../packages/shared-types
       zod:
         specifier: ^3.24.1
         version: 3.25.76
@@ -88,10 +88,10 @@ importers:
 
   packages/data-service:
     dependencies:
-      '@poke-mate/master-data':
+      '@edv4h/poke-mate-master-data':
         specifier: workspace:*
         version: link:../master-data
-      '@poke-mate/shared-types':
+      '@edv4h/poke-mate-shared-types':
         specifier: workspace:*
         version: link:../shared-types
       better-sqlite3:
@@ -116,7 +116,7 @@ importers:
 
   packages/master-data:
     dependencies:
-      '@poke-mate/shared-types':
+      '@edv4h/poke-mate-shared-types':
         specifier: workspace:*
         version: link:../shared-types
     devDependencies:

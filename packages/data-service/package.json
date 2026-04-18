@@ -1,5 +1,5 @@
 {
-  "name": "@poke-mate/data-service",
+  "name": "@edv4h/poke-mate-data-service",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -17,8 +17,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@poke-mate/shared-types": "workspace:*",
-    "@poke-mate/master-data": "workspace:*",
+    "@edv4h/poke-mate-shared-types": "workspace:*",
+    "@edv4h/poke-mate-master-data": "workspace:*",
     "better-sqlite3": "^11.7.0",
     "drizzle-orm": "^0.38.2",
     "nanoid": "^5.0.9"

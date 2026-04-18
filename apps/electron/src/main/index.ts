@@ -1,11 +1,11 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
-import { createDataService, type DataService } from "@poke-mate/data-service";
+import { createDataService, type DataService } from "@edv4h/poke-mate-data-service";
 import {
   IPC,
   type GetPokemonDetailsRequest,
   type SearchPokemonRequest,
-} from "@poke-mate/shared-types";
+} from "@edv4h/poke-mate-shared-types";
 import { resolveDbPath } from "./db-path.js";
 
 let dataService: DataService | null = null;

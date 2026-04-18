@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { PokemonMaster } from "@poke-mate/shared-types";
+import type { PokemonMaster } from "@edv4h/poke-mate-shared-types";
 
 export function App(): JSX.Element {
   const [query, setQuery] = useState("");
