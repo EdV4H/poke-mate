@@ -106,11 +106,15 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
     // 空文字は「未設定」扱いとして extra に入れずに送る。空文字を送ると DB 側で
     // null ではなく "" が残り、表示側の `?? "未設定"` フォールバックが効かない。
     const trimmedItem = draftItem.trim();
+    // upsert は現状「全フィールド書き戻し」動作なので、編集 UI が触らない
+    // formeId / isMegaTarget は既存値を明示的に送り、データ消失を防ぐ。
     await upsertSlot(slot, set.speciesId, {
+      ...(set.formeId !== undefined && { formeId: set.formeId }),
       ...(draftNature !== "" && { natureId: draftNature }),
       ...(draftAbility !== "" && { abilityId: draftAbility }),
       ...(trimmedItem !== "" && { itemId: trimmedItem }),
       moves,
+      isMegaTarget: set.isMegaTarget,
       spJson,
     });
     setEditing(false);

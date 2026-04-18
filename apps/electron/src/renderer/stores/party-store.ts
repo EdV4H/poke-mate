@@ -19,6 +19,7 @@ interface PartyStoreState {
   flash: FlashState | null;
   toast: string | null;
   masterIndex: Record<string, PokemonMaster>;
+  missingMasters: Set<string>;
 
   init(): Promise<void>;
   refreshList(): Promise<void>;
@@ -29,6 +30,7 @@ interface PartyStoreState {
     slot: number,
     speciesId: string,
     extra?: Partial<{
+      formeId: string;
       natureId: string;
       abilityId: string;
       itemId: string;
@@ -55,6 +57,7 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
   flash: null,
   toast: null,
   masterIndex: {},
+  missingMasters: new Set<string>(),
 
   async init() {
     await get().refreshList();
@@ -85,18 +88,32 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
   },
 
   async ensureMasters(speciesIds) {
-    const { masterIndex } = get();
-    const missing = Array.from(new Set(speciesIds)).filter((id) => !(id in masterIndex));
+    const { masterIndex, missingMasters } = get();
+    // DB に存在しない (alias 不一致など) speciesId は missingMasters にネガティブ
+    // キャッシュして、openParty のたびに getPokemonDetails を叩き続けないようにする。
+    const missing = Array.from(new Set(speciesIds)).filter(
+      (id) => !(id in masterIndex) && !missingMasters.has(id),
+    );
     if (missing.length === 0) return;
     const fetched = await Promise.all(
       missing.map((id) => window.pokeMate.getPokemonDetails({ speciesId: id })),
     );
     const updates: Record<string, PokemonMaster> = {};
+    const nullIds: string[] = [];
     fetched.forEach((m, i) => {
-      if (m) updates[missing[i]!] = m;
+      const id = missing[i]!;
+      if (m) updates[id] = m;
+      else nullIds.push(id);
     });
-    if (Object.keys(updates).length > 0) {
-      set((s) => ({ masterIndex: { ...s.masterIndex, ...updates } }));
+    if (Object.keys(updates).length > 0 || nullIds.length > 0) {
+      set((s) => {
+        const nextMissing = nullIds.length > 0 ? new Set(s.missingMasters) : s.missingMasters;
+        for (const id of nullIds) nextMissing.add(id);
+        return {
+          masterIndex: { ...s.masterIndex, ...updates },
+          missingMasters: nextMissing,
+        };
+      });
     }
   },
 
@@ -122,6 +139,7 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
       slot,
       set: {
         speciesId,
+        ...(extra?.formeId !== undefined && { formeId: extra.formeId }),
         ...(extra?.natureId !== undefined && { natureId: extra.natureId }),
         ...(extra?.abilityId !== undefined && { abilityId: extra.abilityId }),
         ...(extra?.itemId !== undefined && { itemId: extra.itemId }),
