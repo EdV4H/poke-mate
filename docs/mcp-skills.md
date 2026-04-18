@@ -21,7 +21,7 @@
 | `list_battle_sessions` | `workspace_id, status?` | BattleSession[] |
 | `get_battle_session` | `session_id` | BattleSession |
 | `list_battle_logs` | `workspace_id, tags?` | BattleLog[] |
-| `get_battle_log` | `log_id, format: "raw" \| "parsed"` | BattleLog |
+| `get_battle_log` | `log_id, representation: "raw" \| "parsed"` | BattleLog（`format` は対戦形式 single/double と衝突するため `representation` を使う） |
 | `get_meta_snapshot` | `period?` | MetaSnapshot |
 | `search_pokemon` | `query, regulation?` | PokemonMaster[] |
 | `get_pokemon_details` | `species_id` | PokemonMaster |
@@ -29,18 +29,20 @@
 
 ### Write 系
 
-| ツール | 引数 | 備考 |
-|---|---|---|
-| `create_party` | `workspace_id, name, format` | format: `'single'` \| `'double'` |
-| `update_party` | `party_id, {name?, notes?, format?}` | |
-| `update_party_slot` | `party_id, slot, patch` | AI提案の主役。`species_id, forme_id, nature_id, ability_id, item_id, sp_json, moves_json, is_mega_target` を変更 |
-| `update_training` | `party_id, slot, {sp_json?, nature_id?, ability_id?, moves_json?}` | Champions独自の「トレーニング（VP消費）」概念に対応。SP最適化の提案適用に使う |
-| `delete_party` | `party_id` | |
-| `create_party_selection` | `party_id, scenario_name, picked_slots[], lead_slots?` | 3匹/4匹選出パターンの保存 |
-| `create_battle_session` | `workspace_id, my_party_id, format, my_selection_id?, ...` | |
-| `append_battle_turn` | `session_id, turn` | |
-| `import_battle_log` | `workspace_id, raw_text, source` | `source: 'champions_replay' | 'text' | 'manual'` |
-| `save_note` | `target_type, target_id, body_md` | |
+すべての書き込み系ツールは `change_event_id`（`change_events` テーブルのID）を返り値に含め、GUI 側の通知・監査と紐付けられるようにする。
+
+| ツール | 引数 | 返り値 | 備考 |
+|---|---|---|---|
+| `create_party` | `workspace_id, name, format` | `{ party: Party, change_event_id }` | format: `'single'` \| `'double'` |
+| `update_party` | `party_id, {name?, notes?, format?}` | `{ party: Party, change_event_id }` | |
+| `update_party_slot` | `party_id, slot, patch` | `{ party: Party, change_event_id }` | AI提案の主役。`species_id, forme_id, nature_id, ability_id, item_id, sp_json, moves_json, is_mega_target` を変更 |
+| `update_training` | `party_id, slot, {sp_json?, nature_id?, ability_id?, moves_json?}` | `{ party: Party, change_event_id }` | Champions独自の「トレーニング（VP消費）」概念に対応。SP最適化の提案適用に使う |
+| `delete_party` | `party_id` | `{ success: true, change_event_id }` | |
+| `create_party_selection` | `party_id, scenario_name, picked_slots[], lead_slots?` | `{ selection: PartySelection, change_event_id }` | 3匹/4匹選出パターンの保存 |
+| `create_battle_session` | `workspace_id, my_party_id, format, my_selection_id?, ...` | `{ session: BattleSession, change_event_id }` | |
+| `append_battle_turn` | `session_id, turn` | `{ session: BattleSession, change_event_id }` | |
+| `import_battle_log` | `workspace_id, raw_text, source` | `{ log: BattleLog, change_event_id }` | `source: 'champions_replay' | 'text' | 'manual'` |
+| `save_note` | `target_type, target_id, body_md` | `{ note: Note, change_event_id }` | |
 
 ### Pure calc 系（DB書かない、Champions仕様）
 

@@ -12,7 +12,7 @@
 | **MCP と GUI の状態同期複雑化** | バグの温床 | Single writer 原則（DataService 経由のみ）、`change_events` テーブルで監査、楽観ロック。Renderer は「サーバ状態の投影」と割り切る |
 | **Claude Desktop 更新で MCP 仕様が変わる** | 動かなくなる | MCP SDK をピン留め、`@modelcontextprotocol/inspector` で E2E テストを CI 化 |
 | **Skill が長すぎて動作不安定** | UX 劣化 | 1 Skill は 10 ステップ以内。複雑な処理は MCP ツール側に寄せる（計算はツール、判断は Skill） |
-| **SQLite 同時書き込み競合（Electron + standalone MCP）** | データ破損 | WAL モード、書き込みは常に DataService 経由、`BEGIN IMMEDIATE` でロック取得、リトライ。Electron 実行中は standalone MCP を自動 shutdown |
+| **SQLite 同時書き込み競合（Electron + standalone MCP）** | データ破損 | WAL モード、書き込みは常に DataService 経由、`BEGIN IMMEDIATE` + `busy_timeout` + 指数バックオフのリトライ。standalone MCP は Claude Desktop が起動する別プロセスのため Electron から自動 shutdown は前提にしない。pid入り `lockfile` で他方の起動を検知し、競合時はユーザーへ警告 / 切替案内を出す |
 | **Electron 配布のコード署名・公証** | インストール不可 | 最初から `electron-builder` + Apple 公証フロー。Phase 0 で一度配布まで通す |
 | **Zustand / IPC スキーマ不整合** | 型エラー地獄 | `@poke-mate/shared-types` パッケージで IPC チャンネル契約を一元化 |
 | **モバイル版クロスプラットフォーム化（2026年夏）時のアプリ棲み分け** | アプリのスコープ曖昧化 | 本アプリはあくまで**思考支援/分析ツール**（対戦相手はゲーム本体）。モバイル版発売後もポジションは変わらない |

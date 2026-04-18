@@ -25,7 +25,7 @@
 5. **apps/electron**
    - electron-vite 雛形
    - Main/Preload/Renderer 最小配線
-   - IPC で `list_pokemon`, `search_pokemon` を呼べる
+   - IPC で `search_pokemon` / `get_pokemon_details` を呼べる（MCPツール名と合わせる）
    - 「ポケモン検索画面」のみ
 6. **apps/mcp-server**
    - MCP SDK 雛形、stdio transport
