@@ -139,8 +139,11 @@ const MIGRATIONS: Migration[] = [
     up: () => {
       // Marker: seedMasterPokemon now additionally flips champions_available
       // to 0 for rows that are no longer present in the allowlist (pokemon.json).
-      // Needed to remove stale entries like pikachu / starmie that the earlier
-      // loose allowlist had seeded as championsAvailable=true.
+      // Needed to drop stale rows that the earlier loose allowlist seeded as
+      // championsAvailable=true — e.g. sceptile / blaziken / swampert / mawile /
+      // salamence, plus the legacy poke-mate compat entries (gholdengo /
+      // iron-valiant / landorus-therian / ogerpon-wellspring) that are not in
+      // the official Champions roster.
     },
   },
 ];

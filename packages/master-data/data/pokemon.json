@@ -828,7 +828,7 @@
   {
     "id": "tauros-paldea-aqua-breed",
     "dexNo": 128,
-    "nameJa": "ケンタロス(パルデアのすがた)",
+    "nameJa": "ケンタロス(パルデアのすがた・ウォーター種)",
     "nameEn": "Paldean Tauros (Aqua Breed)",
     "types": [
       "fighting",
@@ -852,7 +852,7 @@
   {
     "id": "tauros-paldea-blaze-breed",
     "dexNo": 128,
-    "nameJa": "ケンタロス(パルデアのすがた)",
+    "nameJa": "ケンタロス(パルデアのすがた・ブレイズ種)",
     "nameEn": "Paldean Tauros (Blaze Breed)",
     "types": [
       "fighting",
@@ -876,7 +876,7 @@
   {
     "id": "tauros-paldea-combat",
     "dexNo": 128,
-    "nameJa": "ケンタロス(パルデアのすがた)",
+    "nameJa": "ケンタロス(パルデアのすがた・コンバット種)",
     "nameEn": "Paldean Tauros (Combat Breed)",
     "types": [
       "fighting"
@@ -4063,7 +4063,7 @@
   {
     "id": "floette",
     "dexNo": 670,
-    "nameJa": "フラエッテ",
+    "nameJa": "フラエッテ(えいえんのはな)",
     "nameEn": "Eternal Floette",
     "types": [
       "fairy"
@@ -4171,7 +4171,7 @@
   {
     "id": "meowstic",
     "dexNo": 678,
-    "nameJa": "ニャオニクス",
+    "nameJa": "ニャオニクス(♂)",
     "nameEn": "Meowstic",
     "types": [
       "psychic"
@@ -4217,7 +4217,7 @@
   {
     "id": "aegislash",
     "dexNo": 681,
-    "nameJa": "ギルガルド",
+    "nameJa": "ギルガルド(シールドフォルム)",
     "nameEn": "Aegislash",
     "types": [
       "steel",
@@ -4835,7 +4835,7 @@
   {
     "id": "lycanroc",
     "dexNo": 745,
-    "nameJa": "ルガルガン",
+    "nameJa": "ルガルガン(まひるのすがた)",
     "nameEn": "Lycanroc",
     "types": [
       "rock"
@@ -5363,7 +5363,7 @@
   {
     "id": "morpeko",
     "dexNo": 877,
-    "nameJa": "モルペコ",
+    "nameJa": "モルペコ(まんぷくもよう)",
     "nameEn": "Morpeko",
     "types": [
       "electric",
