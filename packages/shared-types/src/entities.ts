@@ -34,10 +34,13 @@ export interface PokemonSet {
   spJson: StatPoints;
   movesJson: string[];
   isMegaTarget: boolean;
-  origin: "home" | "scout";
+  origin: SetOrigin;
   originMetaJson?: unknown;
   version: number;
 }
+
+export type SetOrigin = "gui" | "mcp" | "scout";
+export type Actor = "gui" | "mcp";
 
 export interface Party {
   id: string;
@@ -63,6 +66,36 @@ export interface ChangeEvent {
   entityType: string;
   entityId: string;
   op: "create" | "update" | "delete";
-  actor: "gui" | "mcp";
+  actor: Actor;
   ts: string;
+}
+
+export interface PartyCreateInput {
+  workspaceId?: string;
+  name: string;
+  format: BattleFormat;
+  notes?: string;
+}
+
+export interface PartyPatch {
+  name?: string;
+  format?: BattleFormat;
+  notes?: string;
+}
+
+export interface PokemonSetInput {
+  speciesId: string;
+  formeId?: string;
+  natureId?: string;
+  abilityId?: string;
+  itemId?: string;
+  spJson?: StatPoints;
+  movesJson?: string[];
+  isMegaTarget?: boolean;
+  origin?: SetOrigin;
+  originMetaJson?: unknown;
+}
+
+export interface ChangeEventReceipt {
+  changeEventId: number;
 }
