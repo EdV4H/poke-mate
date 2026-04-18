@@ -45,6 +45,10 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
     hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0,
   });
 
+  // 編集パネルを開いた瞬間、または別のポケモンに差し替わった (set.id 変化) タイミング
+  // でのみ draft を set から同期する。editing 中に MCP の更新イベント等で set の
+  // 中身が書き換わっても、ユーザーが編集中の draft を上書きしない。
+  const setId = set?.id;
   useEffect(() => {
     if (!editing || !set) return;
     setDraftNature(set.natureId ?? "");
@@ -56,7 +60,9 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
     const evs: Record<StatKey, number> = { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
     for (const k of STAT_KEYS) evs[k] = set.spJson[k] ?? 0;
     setDraftEvs(evs);
-  }, [editing, set]);
+    // set 全体ではなく set.id のみに依存させる。set の中身変更では再 sync しない。
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editing, setId]);
 
   const evTotal = STAT_KEYS.reduce((a, k) => a + (draftEvs[k] ?? 0), 0);
   const evOver = evTotal > MAX_EV_TOTAL;
@@ -202,8 +208,14 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
             <select
               value={draftAbility}
               onChange={(e) => setDraftAbility(e.target.value)}
+              disabled={!master}
+              aria-busy={!master}
             >
-              <option value="">(未設定)</option>
+              <option value="">{master ? "(未設定)" : "読み込み中…"}</option>
+              {/* master が未ロードの間に DB から読んだ既存 abilityId を維持表示する */}
+              {!master && draftAbility !== "" && (
+                <option value={draftAbility}>{draftAbility}</option>
+              )}
               {(master?.abilities ?? []).map((a) => (
                 <option key={a} value={a}>
                   {a}
