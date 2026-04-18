@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "source": "ユーザー提供の Pokémon Champions 全278件内定ポケモンリスト (2026-04)。ただし公式リストにないため gholdengo / iron-valiant / landorus-therian / ogerpon-wellspring は除外済み (DB 行は残るが champions_available=0 に落ちる)。",
+  "source": "ユーザー提供の Pokémon Champions 全278件内定ポケモンリスト (2026-04)。公式リストにない gholdengo / iron-valiant / landorus-therian / ogerpon-wellspring は除外。新規 DB では該当行は作成されず、過去の allowlist で seed 済みの既存 DB では cleanup により champions_available=0 に落ちる。",
   "entries": [
     { "speciesId": "venusaur", "dexNo": 3, "megas": ["venusaur-mega"] },
     { "speciesId": "charizard", "dexNo": 6, "megas": ["charizard-mega-x", "charizard-mega-y"] },
