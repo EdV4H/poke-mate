@@ -1,5 +1,5 @@
 ---
-name: build-party-with-me
+name: poke-mate-build-party-with-me
 description: ユーザーと対話しながら poke-mate のパーティを6匹埋めて完成させる。評価ではなく「一緒に組む」ループ。
 ---
 
@@ -63,7 +63,7 @@ intent = {
 
 > 6匹揃いました。最終チェックしますか？
 
-Yes なら `review-party` Skill に委譲する（そちらのスキルを呼び出す）。No なら終了。
+Yes なら `poke-mate-review-party` Skill に委譲する（そちらのスキルを呼び出す）。No なら終了。
 
 ## エラー対応
 

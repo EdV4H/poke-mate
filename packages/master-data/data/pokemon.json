@@ -1,22 +1,5222 @@
 [
   {
-    "id": "garchomp",
-    "dexNo": 445,
-    "nameJa": "ガブリアス",
-    "nameEn": "Garchomp",
-    "types": ["dragon", "ground"],
-    "baseStats": { "hp": 108, "atk": 130, "def": 95, "spa": 80, "spd": 85, "spe": 102 },
-    "abilities": ["sand-veil", "rough-skin"],
-    "championsAvailable": true
+    "id": "venusaur",
+    "dexNo": 3,
+    "nameJa": "フシギバナ",
+    "nameEn": "Venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 83,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "abilities": [
+      "overgrow",
+      "chlorophyll"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "venusaur-mega",
+        "nameJa": "メガフシギバナ",
+        "nameEn": "Mega Venusaur",
+        "types": [
+          "grass",
+          "poison"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 100,
+          "def": 123,
+          "spa": 122,
+          "spd": 120,
+          "spe": 80
+        },
+        "ability": "thick-fat"
+      }
+    ]
   },
   {
     "id": "charizard",
     "dexNo": 6,
     "nameJa": "リザードン",
     "nameEn": "Charizard",
-    "types": ["fire", "flying"],
-    "baseStats": { "hp": 78, "atk": 84, "def": 78, "spa": 109, "spd": 85, "spe": 100 },
-    "abilities": ["blaze", "solar-power"],
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
+    "abilities": [
+      "blaze",
+      "solar-power"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "charizard-mega-x",
+        "nameJa": "メガリザードンＸ",
+        "nameEn": "Mega Charizard X",
+        "types": [
+          "fire",
+          "dragon"
+        ],
+        "baseStats": {
+          "hp": 78,
+          "atk": 130,
+          "def": 111,
+          "spa": 130,
+          "spd": 85,
+          "spe": 100
+        },
+        "ability": "tough-claws"
+      },
+      {
+        "id": "charizard-mega-y",
+        "nameJa": "メガリザードンＹ",
+        "nameEn": "Mega Charizard Y",
+        "types": [
+          "fire",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 78,
+          "atk": 104,
+          "def": 78,
+          "spa": 159,
+          "spd": 115,
+          "spe": 100
+        },
+        "ability": "drought"
+      }
+    ]
+  },
+  {
+    "id": "blastoise",
+    "dexNo": 9,
+    "nameJa": "カメックス",
+    "nameEn": "Blastoise",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 79,
+      "atk": 83,
+      "def": 100,
+      "spa": 85,
+      "spd": 105,
+      "spe": 78
+    },
+    "abilities": [
+      "torrent",
+      "rain-dish"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "blastoise-mega",
+        "nameJa": "メガカメックス",
+        "nameEn": "Mega Blastoise",
+        "types": [
+          "water"
+        ],
+        "baseStats": {
+          "hp": 79,
+          "atk": 103,
+          "def": 120,
+          "spa": 135,
+          "spd": 115,
+          "spe": 78
+        },
+        "ability": "mega-launcher"
+      }
+    ]
+  },
+  {
+    "id": "beedrill",
+    "dexNo": 15,
+    "nameJa": "スピアー",
+    "nameEn": "Beedrill",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 40,
+      "spa": 45,
+      "spd": 80,
+      "spe": 75
+    },
+    "abilities": [
+      "swarm",
+      "sniper"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "beedrill-mega",
+        "nameJa": "メガスピアー",
+        "nameEn": "Mega Beedrill",
+        "types": [
+          "bug",
+          "poison"
+        ],
+        "baseStats": {
+          "hp": 65,
+          "atk": 150,
+          "def": 40,
+          "spa": 15,
+          "spd": 80,
+          "spe": 145
+        },
+        "ability": "adaptability"
+      }
+    ]
+  },
+  {
+    "id": "pidgeot",
+    "dexNo": 18,
+    "nameJa": "ピジョット",
+    "nameEn": "Pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 80,
+      "def": 75,
+      "spa": 70,
+      "spd": 70,
+      "spe": 101
+    },
+    "abilities": [
+      "keen-eye",
+      "tangled-feet",
+      "big-pecks"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "pidgeot-mega",
+        "nameJa": "メガピジョット",
+        "nameEn": "Mega Pidgeot",
+        "types": [
+          "normal",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 83,
+          "atk": 80,
+          "def": 80,
+          "spa": 135,
+          "spd": 80,
+          "spe": 121
+        },
+        "ability": "no-guard"
+      }
+    ]
+  },
+  {
+    "id": "arbok",
+    "dexNo": 24,
+    "nameJa": "アーボック",
+    "nameEn": "Arbok",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 95,
+      "def": 69,
+      "spa": 65,
+      "spd": 79,
+      "spe": 80
+    },
+    "abilities": [
+      "intimidate",
+      "shed-skin",
+      "unnerve"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "pikachu",
+    "dexNo": 25,
+    "nameJa": "ピカチュウ",
+    "nameEn": "Pikachu",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "atk": 55,
+      "def": 40,
+      "spa": 50,
+      "spd": 50,
+      "spe": 90
+    },
+    "abilities": [
+      "static",
+      "lightning-rod"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "raichu",
+    "dexNo": 26,
+    "nameJa": "ライチュウ",
+    "nameEn": "Raichu",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 90,
+      "def": 55,
+      "spa": 90,
+      "spd": 80,
+      "spe": 110
+    },
+    "abilities": [
+      "static",
+      "lightning-rod"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "raichu-alola",
+    "dexNo": 26,
+    "nameJa": "ライチュウ(アローラのすがた)",
+    "nameEn": "Alolan Raichu",
+    "types": [
+      "electric",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 50,
+      "spa": 95,
+      "spd": 85,
+      "spe": 110
+    },
+    "abilities": [
+      "surge-surfer"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "clefable",
+    "dexNo": 36,
+    "nameJa": "ピクシー",
+    "nameEn": "Clefable",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 70,
+      "def": 73,
+      "spa": 95,
+      "spd": 90,
+      "spe": 60
+    },
+    "abilities": [
+      "cute-charm",
+      "magic-guard",
+      "unaware"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "clefable-mega",
+        "nameJa": "Clefable Mega",
+        "nameEn": "Mega Clefable",
+        "types": [
+          "fairy",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 95,
+          "atk": 80,
+          "def": 93,
+          "spa": 135,
+          "spd": 110,
+          "spe": 70
+        },
+        "ability": "magic-bounce"
+      }
+    ]
+  },
+  {
+    "id": "ninetales",
+    "dexNo": 38,
+    "nameJa": "キュウコン",
+    "nameEn": "Ninetales",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "atk": 76,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 100
+    },
+    "abilities": [
+      "flash-fire",
+      "drought"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "ninetales-alola",
+    "dexNo": 38,
+    "nameJa": "キュウコン(アローラのすがた)",
+    "nameEn": "Alolan Ninetales",
+    "types": [
+      "ice",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "atk": 67,
+      "def": 75,
+      "spa": 81,
+      "spd": 100,
+      "spe": 109
+    },
+    "abilities": [
+      "snow-cloak",
+      "snow-warning"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "arcanine",
+    "dexNo": 59,
+    "nameJa": "ウインディ",
+    "nameEn": "Arcanine",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 110,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 95
+    },
+    "abilities": [
+      "intimidate",
+      "flash-fire",
+      "justified"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "arcanine-hisui",
+    "dexNo": 59,
+    "nameJa": "ウインディ(ヒスイのすがた)",
+    "nameEn": "Hisuian Arcanine",
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 80,
+      "spa": 95,
+      "spd": 80,
+      "spe": 90
+    },
+    "abilities": [
+      "intimidate",
+      "flash-fire",
+      "rock-head"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "alakazam",
+    "dexNo": 65,
+    "nameJa": "フーディン",
+    "nameEn": "Alakazam",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 50,
+      "def": 45,
+      "spa": 135,
+      "spd": 95,
+      "spe": 120
+    },
+    "abilities": [
+      "synchronize",
+      "inner-focus",
+      "magic-guard"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "alakazam-mega",
+        "nameJa": "メガフーディン",
+        "nameEn": "Mega Alakazam",
+        "types": [
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 55,
+          "atk": 50,
+          "def": 65,
+          "spa": 175,
+          "spd": 105,
+          "spe": 150
+        },
+        "ability": "trace"
+      }
+    ]
+  },
+  {
+    "id": "machamp",
+    "dexNo": 68,
+    "nameJa": "カイリキー",
+    "nameEn": "Machamp",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 130,
+      "def": 80,
+      "spa": 65,
+      "spd": 85,
+      "spe": 55
+    },
+    "abilities": [
+      "guts",
+      "no-guard",
+      "steadfast"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "victreebel",
+    "dexNo": 71,
+    "nameJa": "ウツボット",
+    "nameEn": "Victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 100,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": [
+      "chlorophyll",
+      "gluttony"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "victreebel-mega",
+        "nameJa": "Victreebel Mega",
+        "nameEn": "Mega Victreebel",
+        "types": [
+          "grass",
+          "poison"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 125,
+          "def": 85,
+          "spa": 135,
+          "spd": 95,
+          "spe": 70
+        },
+        "ability": "innards-out"
+      }
+    ]
+  },
+  {
+    "id": "slowbro",
+    "dexNo": 80,
+    "nameJa": "ヤドラン",
+    "nameEn": "Slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 110,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "abilities": [
+      "oblivious",
+      "own-tempo",
+      "regenerator"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "slowbro-mega",
+        "nameJa": "メガヤドラン",
+        "nameEn": "Mega Slowbro",
+        "types": [
+          "water",
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 95,
+          "atk": 75,
+          "def": 180,
+          "spa": 130,
+          "spd": 80,
+          "spe": 30
+        },
+        "ability": "shell-armor"
+      }
+    ]
+  },
+  {
+    "id": "slowbro-galar",
+    "dexNo": 80,
+    "nameJa": "ヤドラン(ガラルのすがた)",
+    "nameEn": "Galarian Slowbro",
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 100,
+      "def": 95,
+      "spa": 100,
+      "spd": 70,
+      "spe": 30
+    },
+    "abilities": [
+      "quick-draw",
+      "own-tempo",
+      "regenerator"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "gengar",
+    "dexNo": 94,
+    "nameJa": "ゲンガー",
+    "nameEn": "Gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 75,
+      "spe": 110
+    },
+    "abilities": [
+      "cursed-body"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "gengar-mega",
+        "nameJa": "メガゲンガー",
+        "nameEn": "Mega Gengar",
+        "types": [
+          "ghost",
+          "poison"
+        ],
+        "baseStats": {
+          "hp": 60,
+          "atk": 65,
+          "def": 80,
+          "spa": 170,
+          "spd": 95,
+          "spe": 130
+        },
+        "ability": "shadow-tag"
+      }
+    ]
+  },
+  {
+    "id": "kangaskhan",
+    "dexNo": 115,
+    "nameJa": "ガルーラ",
+    "nameEn": "Kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "atk": 95,
+      "def": 80,
+      "spa": 40,
+      "spd": 80,
+      "spe": 90
+    },
+    "abilities": [
+      "early-bird",
+      "scrappy",
+      "inner-focus"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "kangaskhan-mega",
+        "nameJa": "メガガルーラ",
+        "nameEn": "Mega Kangaskhan",
+        "types": [
+          "normal"
+        ],
+        "baseStats": {
+          "hp": 105,
+          "atk": 125,
+          "def": 100,
+          "spa": 60,
+          "spd": 100,
+          "spe": 100
+        },
+        "ability": "parental-bond"
+      }
+    ]
+  },
+  {
+    "id": "starmie",
+    "dexNo": 121,
+    "nameJa": "スターミー",
+    "nameEn": "Starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 75,
+      "def": 85,
+      "spa": 100,
+      "spd": 85,
+      "spe": 115
+    },
+    "abilities": [
+      "illuminate",
+      "natural-cure",
+      "analytic"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "starmie-mega",
+        "nameJa": "Starmie Mega",
+        "nameEn": "Mega Starmie",
+        "types": [
+          "water",
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 60,
+          "atk": 100,
+          "def": 105,
+          "spa": 130,
+          "spd": 105,
+          "spe": 120
+        },
+        "ability": "huge-power"
+      }
+    ]
+  },
+  {
+    "id": "pinsir",
+    "dexNo": 127,
+    "nameJa": "カイロス",
+    "nameEn": "Pinsir",
+    "types": [
+      "bug"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 125,
+      "def": 100,
+      "spa": 55,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": [
+      "hyper-cutter",
+      "mold-breaker",
+      "moxie"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "pinsir-mega",
+        "nameJa": "メガカイロス",
+        "nameEn": "Mega Pinsir",
+        "types": [
+          "bug",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 65,
+          "atk": 155,
+          "def": 120,
+          "spa": 65,
+          "spd": 90,
+          "spe": 105
+        },
+        "ability": "aerilate"
+      }
+    ]
+  },
+  {
+    "id": "tauros",
+    "dexNo": 128,
+    "nameJa": "ケンタロス",
+    "nameEn": "Tauros",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 100,
+      "def": 95,
+      "spa": 40,
+      "spd": 70,
+      "spe": 110
+    },
+    "abilities": [
+      "intimidate",
+      "anger-point",
+      "sheer-force"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "tauros-paldea-combat",
+    "dexNo": 128,
+    "nameJa": "ケンタロス(パルデアのすがた)",
+    "nameEn": "Paldean Tauros (Combat Breed)",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "abilities": [
+      "intimidate",
+      "anger-point",
+      "cud-chew"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "gyarados",
+    "dexNo": 130,
+    "nameJa": "ギャラドス",
+    "nameEn": "Gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 125,
+      "def": 79,
+      "spa": 60,
+      "spd": 100,
+      "spe": 81
+    },
+    "abilities": [
+      "intimidate",
+      "moxie"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "gyarados-mega",
+        "nameJa": "メガギャラドス",
+        "nameEn": "Mega Gyarados",
+        "types": [
+          "water",
+          "dark"
+        ],
+        "baseStats": {
+          "hp": 95,
+          "atk": 155,
+          "def": 109,
+          "spa": 70,
+          "spd": 130,
+          "spe": 81
+        },
+        "ability": "mold-breaker"
+      }
+    ]
+  },
+  {
+    "id": "ditto",
+    "dexNo": 132,
+    "nameJa": "メタモン",
+    "nameEn": "Ditto",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 48,
+      "atk": 48,
+      "def": 48,
+      "spa": 48,
+      "spd": 48,
+      "spe": 48
+    },
+    "abilities": [
+      "limber",
+      "imposter"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "vaporeon",
+    "dexNo": 134,
+    "nameJa": "シャワーズ",
+    "nameEn": "Vaporeon",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 130,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 65
+    },
+    "abilities": [
+      "water-absorb",
+      "hydration"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "jolteon",
+    "dexNo": 135,
+    "nameJa": "サンダース",
+    "nameEn": "Jolteon",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 110,
+      "spd": 95,
+      "spe": 130
+    },
+    "abilities": [
+      "volt-absorb",
+      "quick-feet"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "flareon",
+    "dexNo": 136,
+    "nameJa": "ブースター",
+    "nameEn": "Flareon",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 95,
+      "spd": 110,
+      "spe": 65
+    },
+    "abilities": [
+      "flash-fire",
+      "guts"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "aerodactyl",
+    "dexNo": 142,
+    "nameJa": "プテラ",
+    "nameEn": "Aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 65,
+      "spa": 60,
+      "spd": 75,
+      "spe": 130
+    },
+    "abilities": [
+      "rock-head",
+      "pressure",
+      "unnerve"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "aerodactyl-mega",
+        "nameJa": "メガプテラ",
+        "nameEn": "Mega Aerodactyl",
+        "types": [
+          "rock",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 135,
+          "def": 85,
+          "spa": 70,
+          "spd": 95,
+          "spe": 150
+        },
+        "ability": "tough-claws"
+      }
+    ]
+  },
+  {
+    "id": "snorlax",
+    "dexNo": 143,
+    "nameJa": "カビゴン",
+    "nameEn": "Snorlax",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 160,
+      "atk": 110,
+      "def": 65,
+      "spa": 65,
+      "spd": 110,
+      "spe": 30
+    },
+    "abilities": [
+      "immunity",
+      "thick-fat",
+      "gluttony"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "dragonite",
+    "dexNo": 149,
+    "nameJa": "カイリュー",
+    "nameEn": "Dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 91,
+      "atk": 134,
+      "def": 95,
+      "spa": 100,
+      "spd": 100,
+      "spe": 80
+    },
+    "abilities": [
+      "inner-focus",
+      "multiscale"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "dragonite-mega",
+        "nameJa": "Dragonite Mega",
+        "nameEn": "Mega Dragonite",
+        "types": [
+          "dragon",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 91,
+          "atk": 124,
+          "def": 115,
+          "spa": 145,
+          "spd": 125,
+          "spe": 100
+        },
+        "ability": "multiscale"
+      }
+    ]
+  },
+  {
+    "id": "meganium",
+    "dexNo": 154,
+    "nameJa": "メガニウム",
+    "nameEn": "Meganium",
+    "types": [
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 100,
+      "spa": 83,
+      "spd": 100,
+      "spe": 80
+    },
+    "abilities": [
+      "overgrow",
+      "leaf-guard"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "meganium-mega",
+        "nameJa": "Meganium Mega",
+        "nameEn": "Mega Meganium",
+        "types": [
+          "grass",
+          "fairy"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 92,
+          "def": 115,
+          "spa": 143,
+          "spd": 115,
+          "spe": 80
+        },
+        "ability": "mega-sol"
+      }
+    ]
+  },
+  {
+    "id": "typhlosion",
+    "dexNo": 157,
+    "nameJa": "バクフーン",
+    "nameEn": "Typhlosion",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spa": 109,
+      "spd": 85,
+      "spe": 100
+    },
+    "abilities": [
+      "blaze",
+      "flash-fire"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "typhlosion-hisui",
+    "dexNo": 157,
+    "nameJa": "バクフーン(ヒスイのすがた)",
+    "nameEn": "Hisuian Typhlosion",
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "atk": 84,
+      "def": 78,
+      "spa": 119,
+      "spd": 85,
+      "spe": 95
+    },
+    "abilities": [
+      "blaze",
+      "frisk"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "feraligatr",
+    "dexNo": 160,
+    "nameJa": "オーダイル",
+    "nameEn": "Feraligatr",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 105,
+      "def": 100,
+      "spa": 79,
+      "spd": 83,
+      "spe": 78
+    },
+    "abilities": [
+      "torrent",
+      "sheer-force"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "feraligatr-mega",
+        "nameJa": "Feraligatr Mega",
+        "nameEn": "Mega Feraligatr",
+        "types": [
+          "water",
+          "dragon"
+        ],
+        "baseStats": {
+          "hp": 85,
+          "atk": 160,
+          "def": 125,
+          "spa": 89,
+          "spd": 93,
+          "spe": 78
+        },
+        "ability": "dragonize"
+      }
+    ]
+  },
+  {
+    "id": "ariados",
+    "dexNo": 168,
+    "nameJa": "アリアドス",
+    "nameEn": "Ariados",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 90,
+      "def": 70,
+      "spa": 60,
+      "spd": 70,
+      "spe": 40
+    },
+    "abilities": [
+      "swarm",
+      "insomnia",
+      "sniper"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "ampharos",
+    "dexNo": 181,
+    "nameJa": "デンリュウ",
+    "nameEn": "Ampharos",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 85,
+      "spa": 115,
+      "spd": 90,
+      "spe": 55
+    },
+    "abilities": [
+      "static",
+      "plus"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "ampharos-mega",
+        "nameJa": "メガデンリュウ",
+        "nameEn": "Mega Ampharos",
+        "types": [
+          "electric",
+          "dragon"
+        ],
+        "baseStats": {
+          "hp": 90,
+          "atk": 95,
+          "def": 105,
+          "spa": 165,
+          "spd": 110,
+          "spe": 45
+        },
+        "ability": "mold-breaker"
+      }
+    ]
+  },
+  {
+    "id": "azumarill",
+    "dexNo": 184,
+    "nameJa": "マリルリ",
+    "nameEn": "Azumarill",
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 50,
+      "def": 80,
+      "spa": 60,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": [
+      "thick-fat",
+      "huge-power",
+      "sap-sipper"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "politoed",
+    "dexNo": 186,
+    "nameJa": "ニョロトノ",
+    "nameEn": "Politoed",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 75,
+      "spa": 90,
+      "spd": 100,
+      "spe": 70
+    },
+    "abilities": [
+      "water-absorb",
+      "damp",
+      "drizzle"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "espeon",
+    "dexNo": 196,
+    "nameJa": "エーフィ",
+    "nameEn": "Espeon",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spa": 130,
+      "spd": 95,
+      "spe": 110
+    },
+    "abilities": [
+      "synchronize",
+      "magic-bounce"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "umbreon",
+    "dexNo": 197,
+    "nameJa": "ブラッキー",
+    "nameEn": "Umbreon",
+    "types": [
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 110,
+      "spa": 60,
+      "spd": 130,
+      "spe": 65
+    },
+    "abilities": [
+      "synchronize",
+      "inner-focus"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "slowking",
+    "dexNo": 199,
+    "nameJa": "ヤドキング",
+    "nameEn": "Slowking",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 80,
+      "spa": 100,
+      "spd": 110,
+      "spe": 30
+    },
+    "abilities": [
+      "oblivious",
+      "own-tempo",
+      "regenerator"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "slowking-galar",
+    "dexNo": 199,
+    "nameJa": "ヤドキング(ガラルのすがた)",
+    "nameEn": "Galarian Slowking",
+    "types": [
+      "poison",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 80,
+      "spa": 110,
+      "spd": 110,
+      "spe": 30
+    },
+    "abilities": [
+      "curious-medicine",
+      "own-tempo",
+      "regenerator"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "forretress",
+    "dexNo": 205,
+    "nameJa": "フォレトス",
+    "nameEn": "Forretress",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 140,
+      "spa": 60,
+      "spd": 60,
+      "spe": 40
+    },
+    "abilities": [
+      "sturdy",
+      "overcoat"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "steelix",
+    "dexNo": 208,
+    "nameJa": "ハガネール",
+    "nameEn": "Steelix",
+    "types": [
+      "steel",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 85,
+      "def": 200,
+      "spa": 55,
+      "spd": 65,
+      "spe": 30
+    },
+    "abilities": [
+      "rock-head",
+      "sturdy",
+      "sheer-force"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "steelix-mega",
+        "nameJa": "メガハガネール",
+        "nameEn": "Mega Steelix",
+        "types": [
+          "steel",
+          "ground"
+        ],
+        "baseStats": {
+          "hp": 75,
+          "atk": 125,
+          "def": 230,
+          "spa": 55,
+          "spd": 95,
+          "spe": 30
+        },
+        "ability": "sand-force"
+      }
+    ]
+  },
+  {
+    "id": "scizor",
+    "dexNo": 212,
+    "nameJa": "ハッサム",
+    "nameEn": "Scizor",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 130,
+      "def": 100,
+      "spa": 55,
+      "spd": 80,
+      "spe": 65
+    },
+    "abilities": [
+      "swarm",
+      "technician",
+      "light-metal"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "scizor-mega",
+        "nameJa": "メガハッサム",
+        "nameEn": "Mega Scizor",
+        "types": [
+          "bug",
+          "steel"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 150,
+          "def": 140,
+          "spa": 65,
+          "spd": 100,
+          "spe": 75
+        },
+        "ability": "technician"
+      }
+    ]
+  },
+  {
+    "id": "heracross",
+    "dexNo": 214,
+    "nameJa": "ヘラクロス",
+    "nameEn": "Heracross",
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 125,
+      "def": 75,
+      "spa": 40,
+      "spd": 95,
+      "spe": 85
+    },
+    "abilities": [
+      "swarm",
+      "guts",
+      "moxie"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "heracross-mega",
+        "nameJa": "メガヘラクロス",
+        "nameEn": "Mega Heracross",
+        "types": [
+          "bug",
+          "fighting"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 185,
+          "def": 115,
+          "spa": 40,
+          "spd": 105,
+          "spe": 75
+        },
+        "ability": "skill-link"
+      }
+    ]
+  },
+  {
+    "id": "skarmory",
+    "dexNo": 227,
+    "nameJa": "エアームド",
+    "nameEn": "Skarmory",
+    "types": [
+      "steel",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 140,
+      "spa": 40,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": [
+      "keen-eye",
+      "sturdy",
+      "weak-armor"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "skarmory-mega",
+        "nameJa": "Skarmory Mega",
+        "nameEn": "Mega Skarmory",
+        "types": [
+          "steel",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 65,
+          "atk": 140,
+          "def": 110,
+          "spa": 40,
+          "spd": 100,
+          "spe": 110
+        },
+        "ability": "stalwart"
+      }
+    ]
+  },
+  {
+    "id": "houndoom",
+    "dexNo": 229,
+    "nameJa": "ヘルガー",
+    "nameEn": "Houndoom",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 50,
+      "spa": 110,
+      "spd": 80,
+      "spe": 95
+    },
+    "abilities": [
+      "early-bird",
+      "flash-fire",
+      "unnerve"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "houndoom-mega",
+        "nameJa": "メガヘルガー",
+        "nameEn": "Mega Houndoom",
+        "types": [
+          "dark",
+          "fire"
+        ],
+        "baseStats": {
+          "hp": 75,
+          "atk": 90,
+          "def": 90,
+          "spa": 140,
+          "spd": 90,
+          "spe": 115
+        },
+        "ability": "solar-power"
+      }
+    ]
+  },
+  {
+    "id": "tyranitar",
+    "dexNo": 248,
+    "nameJa": "バンギラス",
+    "nameEn": "Tyranitar",
+    "types": [
+      "rock",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 134,
+      "def": 110,
+      "spa": 95,
+      "spd": 100,
+      "spe": 61
+    },
+    "abilities": [
+      "sand-stream",
+      "unnerve"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "tyranitar-mega",
+        "nameJa": "メガバンギラス",
+        "nameEn": "Mega Tyranitar",
+        "types": [
+          "rock",
+          "dark"
+        ],
+        "baseStats": {
+          "hp": 100,
+          "atk": 164,
+          "def": 150,
+          "spa": 95,
+          "spd": 120,
+          "spe": 71
+        },
+        "ability": "sand-stream"
+      }
+    ]
+  },
+  {
+    "id": "pelipper",
+    "dexNo": 279,
+    "nameJa": "ペリッパー",
+    "nameEn": "Pelipper",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 100,
+      "spa": 95,
+      "spd": 70,
+      "spe": 65
+    },
+    "abilities": [
+      "keen-eye",
+      "drizzle",
+      "rain-dish"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "gardevoir",
+    "dexNo": 282,
+    "nameJa": "サーナイト",
+    "nameEn": "Gardevoir",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 65,
+      "def": 65,
+      "spa": 125,
+      "spd": 115,
+      "spe": 80
+    },
+    "abilities": [
+      "synchronize",
+      "trace",
+      "telepathy"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "gardevoir-mega",
+        "nameJa": "メガサーナイト",
+        "nameEn": "Mega Gardevoir",
+        "types": [
+          "psychic",
+          "fairy"
+        ],
+        "baseStats": {
+          "hp": 68,
+          "atk": 85,
+          "def": 65,
+          "spa": 165,
+          "spd": 135,
+          "spe": 100
+        },
+        "ability": "pixilate"
+      }
+    ]
+  },
+  {
+    "id": "sableye",
+    "dexNo": 302,
+    "nameJa": "ヤミラミ",
+    "nameEn": "Sableye",
+    "types": [
+      "dark",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 75,
+      "def": 75,
+      "spa": 65,
+      "spd": 65,
+      "spe": 50
+    },
+    "abilities": [
+      "keen-eye",
+      "stall",
+      "prankster"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "sableye-mega",
+        "nameJa": "メガヤミラミ",
+        "nameEn": "Mega Sableye",
+        "types": [
+          "dark",
+          "ghost"
+        ],
+        "baseStats": {
+          "hp": 50,
+          "atk": 85,
+          "def": 125,
+          "spa": 85,
+          "spd": 115,
+          "spe": 20
+        },
+        "ability": "magic-bounce"
+      }
+    ]
+  },
+  {
+    "id": "aggron",
+    "dexNo": 306,
+    "nameJa": "ボスゴドラ",
+    "nameEn": "Aggron",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 180,
+      "spa": 60,
+      "spd": 60,
+      "spe": 50
+    },
+    "abilities": [
+      "sturdy",
+      "rock-head",
+      "heavy-metal"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "aggron-mega",
+        "nameJa": "メガボスゴドラ",
+        "nameEn": "Mega Aggron",
+        "types": [
+          "steel"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 140,
+          "def": 230,
+          "spa": 60,
+          "spd": 80,
+          "spe": 50
+        },
+        "ability": "filter"
+      }
+    ]
+  },
+  {
+    "id": "medicham",
+    "dexNo": 308,
+    "nameJa": "チャーレム",
+    "nameEn": "Medicham",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 60,
+      "def": 75,
+      "spa": 60,
+      "spd": 75,
+      "spe": 80
+    },
+    "abilities": [
+      "pure-power",
+      "telepathy"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "medicham-mega",
+        "nameJa": "メガチャーレム",
+        "nameEn": "Mega Medicham",
+        "types": [
+          "fighting",
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 60,
+          "atk": 100,
+          "def": 85,
+          "spa": 80,
+          "spd": 85,
+          "spe": 100
+        },
+        "ability": "pure-power"
+      }
+    ]
+  },
+  {
+    "id": "manectric",
+    "dexNo": 310,
+    "nameJa": "ライボルト",
+    "nameEn": "Manectric",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 75,
+      "def": 60,
+      "spa": 105,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": [
+      "static",
+      "lightning-rod",
+      "minus"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "manectric-mega",
+        "nameJa": "メガライボルト",
+        "nameEn": "Mega Manectric",
+        "types": [
+          "electric"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 75,
+          "def": 80,
+          "spa": 135,
+          "spd": 80,
+          "spe": 135
+        },
+        "ability": "intimidate"
+      }
+    ]
+  },
+  {
+    "id": "sharpedo",
+    "dexNo": 319,
+    "nameJa": "サメハダー",
+    "nameEn": "Sharpedo",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 40,
+      "spa": 95,
+      "spd": 40,
+      "spe": 95
+    },
+    "abilities": [
+      "rough-skin",
+      "speed-boost"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "sharpedo-mega",
+        "nameJa": "メガサメハダー",
+        "nameEn": "Mega Sharpedo",
+        "types": [
+          "water",
+          "dark"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 140,
+          "def": 70,
+          "spa": 110,
+          "spd": 65,
+          "spe": 105
+        },
+        "ability": "strong-jaw"
+      }
+    ]
+  },
+  {
+    "id": "camerupt",
+    "dexNo": 323,
+    "nameJa": "バクーダ",
+    "nameEn": "Camerupt",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 100,
+      "def": 70,
+      "spa": 105,
+      "spd": 75,
+      "spe": 40
+    },
+    "abilities": [
+      "magma-armor",
+      "solid-rock",
+      "anger-point"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "camerupt-mega",
+        "nameJa": "メガバクーダ",
+        "nameEn": "Mega Camerupt",
+        "types": [
+          "fire",
+          "ground"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 120,
+          "def": 100,
+          "spa": 145,
+          "spd": 105,
+          "spe": 20
+        },
+        "ability": "sheer-force"
+      }
+    ]
+  },
+  {
+    "id": "torkoal",
+    "dexNo": 324,
+    "nameJa": "コータス",
+    "nameEn": "Torkoal",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 140,
+      "spa": 85,
+      "spd": 70,
+      "spe": 20
+    },
+    "abilities": [
+      "white-smoke",
+      "drought",
+      "shell-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "altaria",
+    "dexNo": 334,
+    "nameJa": "チルタリス",
+    "nameEn": "Altaria",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 70,
+      "def": 90,
+      "spa": 70,
+      "spd": 105,
+      "spe": 80
+    },
+    "abilities": [
+      "natural-cure",
+      "cloud-nine"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "altaria-mega",
+        "nameJa": "メガチルタリス",
+        "nameEn": "Mega Altaria",
+        "types": [
+          "dragon",
+          "fairy"
+        ],
+        "baseStats": {
+          "hp": 75,
+          "atk": 110,
+          "def": 110,
+          "spa": 110,
+          "spd": 105,
+          "spe": 80
+        },
+        "ability": "pixilate"
+      }
+    ]
+  },
+  {
+    "id": "milotic",
+    "dexNo": 350,
+    "nameJa": "ミロカロス",
+    "nameEn": "Milotic",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 79,
+      "spa": 100,
+      "spd": 125,
+      "spe": 81
+    },
+    "abilities": [
+      "marvel-scale",
+      "competitive",
+      "cute-charm"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "castform",
+    "dexNo": 351,
+    "nameJa": "ポワルン",
+    "nameEn": "Castform",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 70,
+      "spa": 70,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": [
+      "forecast"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "banette",
+    "dexNo": 354,
+    "nameJa": "ジュペッタ",
+    "nameEn": "Banette",
+    "types": [
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 64,
+      "atk": 115,
+      "def": 65,
+      "spa": 83,
+      "spd": 63,
+      "spe": 65
+    },
+    "abilities": [
+      "insomnia",
+      "frisk",
+      "cursed-body"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "banette-mega",
+        "nameJa": "メガジュペッタ",
+        "nameEn": "Mega Banette",
+        "types": [
+          "ghost"
+        ],
+        "baseStats": {
+          "hp": 64,
+          "atk": 165,
+          "def": 75,
+          "spa": 93,
+          "spd": 83,
+          "spe": 75
+        },
+        "ability": "prankster"
+      }
+    ]
+  },
+  {
+    "id": "chimecho",
+    "dexNo": 358,
+    "nameJa": "チリーン",
+    "nameEn": "Chimecho",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 50,
+      "def": 80,
+      "spa": 95,
+      "spd": 90,
+      "spe": 65
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "chimecho-mega",
+        "nameJa": "Chimecho Mega",
+        "nameEn": "Mega Chimecho",
+        "types": [
+          "psychic",
+          "steel"
+        ],
+        "baseStats": {
+          "hp": 75,
+          "atk": 50,
+          "def": 110,
+          "spa": 135,
+          "spd": 120,
+          "spe": 65
+        },
+        "ability": "levitate"
+      }
+    ]
+  },
+  {
+    "id": "absol",
+    "dexNo": 359,
+    "nameJa": "アブソル",
+    "nameEn": "Absol",
+    "types": [
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 130,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 75
+    },
+    "abilities": [
+      "pressure",
+      "super-luck",
+      "justified"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "absol-mega",
+        "nameJa": "メガアブソル",
+        "nameEn": "Mega Absol",
+        "types": [
+          "dark"
+        ],
+        "baseStats": {
+          "hp": 65,
+          "atk": 150,
+          "def": 60,
+          "spa": 115,
+          "spd": 60,
+          "spe": 115
+        },
+        "ability": "magic-bounce"
+      }
+    ]
+  },
+  {
+    "id": "glalie",
+    "dexNo": 362,
+    "nameJa": "オニゴーリ",
+    "nameEn": "Glalie",
+    "types": [
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 80,
+      "def": 80,
+      "spa": 80,
+      "spd": 80,
+      "spe": 80
+    },
+    "abilities": [
+      "inner-focus",
+      "ice-body",
+      "moody"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "glalie-mega",
+        "nameJa": "メガオニゴーリ",
+        "nameEn": "Mega Glalie",
+        "types": [
+          "ice"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 120,
+          "def": 80,
+          "spa": 120,
+          "spd": 80,
+          "spe": 100
+        },
+        "ability": "refrigerate"
+      }
+    ]
+  },
+  {
+    "id": "metagross",
+    "dexNo": 376,
+    "nameJa": "メタグロス",
+    "nameEn": "Metagross",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 135,
+      "def": 130,
+      "spa": 95,
+      "spd": 90,
+      "spe": 70
+    },
+    "abilities": [
+      "clear-body",
+      "light-metal"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "metagross-mega",
+        "nameJa": "メガメタグロス",
+        "nameEn": "Mega Metagross",
+        "types": [
+          "steel",
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 80,
+          "atk": 145,
+          "def": 150,
+          "spa": 105,
+          "spd": 110,
+          "spe": 110
+        },
+        "ability": "tough-claws"
+      }
+    ]
+  },
+  {
+    "id": "torterra",
+    "dexNo": 389,
+    "nameJa": "ドダイトス",
+    "nameEn": "Torterra",
+    "types": [
+      "grass",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 109,
+      "def": 105,
+      "spa": 75,
+      "spd": 85,
+      "spe": 56
+    },
+    "abilities": [
+      "overgrow",
+      "shell-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "infernape",
+    "dexNo": 392,
+    "nameJa": "ゴウカザル",
+    "nameEn": "Infernape",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 76,
+      "atk": 104,
+      "def": 71,
+      "spa": 104,
+      "spd": 71,
+      "spe": 108
+    },
+    "abilities": [
+      "blaze",
+      "iron-fist"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "empoleon",
+    "dexNo": 395,
+    "nameJa": "エンペルト",
+    "nameEn": "Empoleon",
+    "types": [
+      "water",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 84,
+      "atk": 86,
+      "def": 88,
+      "spa": 111,
+      "spd": 101,
+      "spe": 60
+    },
+    "abilities": [
+      "torrent",
+      "competitive"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "luxray",
+    "dexNo": 405,
+    "nameJa": "レントラー",
+    "nameEn": "Luxray",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 79,
+      "spa": 95,
+      "spd": 79,
+      "spe": 70
+    },
+    "abilities": [
+      "rivalry",
+      "intimidate",
+      "guts"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "roserade",
+    "dexNo": 407,
+    "nameJa": "ロズレイド",
+    "nameEn": "Roserade",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 70,
+      "def": 65,
+      "spa": 125,
+      "spd": 105,
+      "spe": 90
+    },
+    "abilities": [
+      "natural-cure",
+      "poison-point",
+      "technician"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rampardos",
+    "dexNo": 409,
+    "nameJa": "ラムパルド",
+    "nameEn": "Rampardos",
+    "types": [
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 97,
+      "atk": 165,
+      "def": 60,
+      "spa": 65,
+      "spd": 50,
+      "spe": 58
+    },
+    "abilities": [
+      "mold-breaker",
+      "sheer-force"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "bastiodon",
+    "dexNo": 411,
+    "nameJa": "トリデプス",
+    "nameEn": "Bastiodon",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 52,
+      "def": 168,
+      "spa": 47,
+      "spd": 138,
+      "spe": 30
+    },
+    "abilities": [
+      "sturdy",
+      "soundproof"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "lopunny",
+    "dexNo": 428,
+    "nameJa": "ミミロップ",
+    "nameEn": "Lopunny",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 76,
+      "def": 84,
+      "spa": 54,
+      "spd": 96,
+      "spe": 105
+    },
+    "abilities": [
+      "cute-charm",
+      "klutz",
+      "limber"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "lopunny-mega",
+        "nameJa": "メガミミロップ",
+        "nameEn": "Mega Lopunny",
+        "types": [
+          "normal",
+          "fighting"
+        ],
+        "baseStats": {
+          "hp": 65,
+          "atk": 136,
+          "def": 94,
+          "spa": 54,
+          "spd": 96,
+          "spe": 135
+        },
+        "ability": "scrappy"
+      }
+    ]
+  },
+  {
+    "id": "spiritomb",
+    "dexNo": 442,
+    "nameJa": "ミカルゲ",
+    "nameEn": "Spiritomb",
+    "types": [
+      "ghost",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 92,
+      "def": 108,
+      "spa": 92,
+      "spd": 108,
+      "spe": 35
+    },
+    "abilities": [
+      "pressure",
+      "infiltrator"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "garchomp",
+    "dexNo": 445,
+    "nameJa": "ガブリアス",
+    "nameEn": "Garchomp",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 108,
+      "atk": 130,
+      "def": 95,
+      "spa": 80,
+      "spd": 85,
+      "spe": 102
+    },
+    "abilities": [
+      "sand-veil",
+      "rough-skin"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "garchomp-mega",
+        "nameJa": "メガガブリアス",
+        "nameEn": "Mega Garchomp",
+        "types": [
+          "dragon",
+          "ground"
+        ],
+        "baseStats": {
+          "hp": 108,
+          "atk": 170,
+          "def": 115,
+          "spa": 120,
+          "spd": 95,
+          "spe": 92
+        },
+        "ability": "sand-force"
+      }
+    ]
+  },
+  {
+    "id": "lucario",
+    "dexNo": 448,
+    "nameJa": "ルカリオ",
+    "nameEn": "Lucario",
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 70,
+      "spa": 115,
+      "spd": 70,
+      "spe": 90
+    },
+    "abilities": [
+      "steadfast",
+      "inner-focus",
+      "justified"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "lucario-mega",
+        "nameJa": "メガルカリオ",
+        "nameEn": "Mega Lucario",
+        "types": [
+          "fighting",
+          "steel"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 145,
+          "def": 88,
+          "spa": 140,
+          "spd": 70,
+          "spe": 112
+        },
+        "ability": "adaptability"
+      }
+    ]
+  },
+  {
+    "id": "hippowdon",
+    "dexNo": 450,
+    "nameJa": "カバルドン",
+    "nameEn": "Hippowdon",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 108,
+      "atk": 112,
+      "def": 118,
+      "spa": 68,
+      "spd": 72,
+      "spe": 47
+    },
+    "abilities": [
+      "sand-stream",
+      "sand-force"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "toxicroak",
+    "dexNo": 454,
+    "nameJa": "ドクロッグ",
+    "nameEn": "Toxicroak",
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 106,
+      "def": 65,
+      "spa": 86,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": [
+      "anticipation",
+      "dry-skin",
+      "poison-touch"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "abomasnow",
+    "dexNo": 460,
+    "nameJa": "ユキノオー",
+    "nameEn": "Abomasnow",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 92,
+      "def": 75,
+      "spa": 92,
+      "spd": 85,
+      "spe": 60
+    },
+    "abilities": [
+      "snow-warning",
+      "soundproof"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "abomasnow-mega",
+        "nameJa": "メガユキノオー",
+        "nameEn": "Mega Abomasnow",
+        "types": [
+          "grass",
+          "ice"
+        ],
+        "baseStats": {
+          "hp": 90,
+          "atk": 132,
+          "def": 105,
+          "spa": 132,
+          "spd": 105,
+          "spe": 30
+        },
+        "ability": "snow-warning"
+      }
+    ]
+  },
+  {
+    "id": "weavile",
+    "dexNo": 461,
+    "nameJa": "マニューラ",
+    "nameEn": "Weavile",
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 65,
+      "spa": 45,
+      "spd": 85,
+      "spe": 125
+    },
+    "abilities": [
+      "pressure",
+      "pickpocket"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rhyperior",
+    "dexNo": 464,
+    "nameJa": "ドサイドン",
+    "nameEn": "Rhyperior",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 115,
+      "atk": 140,
+      "def": 130,
+      "spa": 55,
+      "spd": 55,
+      "spe": 40
+    },
+    "abilities": [
+      "lightning-rod",
+      "solid-rock",
+      "reckless"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "leafeon",
+    "dexNo": 470,
+    "nameJa": "リーフィア",
+    "nameEn": "Leafeon",
+    "types": [
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 110,
+      "def": 130,
+      "spa": 60,
+      "spd": 65,
+      "spe": 95
+    },
+    "abilities": [
+      "leaf-guard",
+      "chlorophyll"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "glaceon",
+    "dexNo": 471,
+    "nameJa": "グレイシア",
+    "nameEn": "Glaceon",
+    "types": [
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 110,
+      "spa": 130,
+      "spd": 95,
+      "spe": 65
+    },
+    "abilities": [
+      "snow-cloak",
+      "ice-body"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "gliscor",
+    "dexNo": 472,
+    "nameJa": "グライオン",
+    "nameEn": "Gliscor",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 125,
+      "spa": 45,
+      "spd": 75,
+      "spe": 95
+    },
+    "abilities": [
+      "hyper-cutter",
+      "sand-veil",
+      "poison-heal"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "mamoswine",
+    "dexNo": 473,
+    "nameJa": "マンムー",
+    "nameEn": "Mamoswine",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 130,
+      "def": 80,
+      "spa": 70,
+      "spd": 60,
+      "spe": 80
+    },
+    "abilities": [
+      "oblivious",
+      "snow-cloak",
+      "thick-fat"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "gallade",
+    "dexNo": 475,
+    "nameJa": "エルレイド",
+    "nameEn": "Gallade",
+    "types": [
+      "psychic",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 125,
+      "def": 65,
+      "spa": 65,
+      "spd": 115,
+      "spe": 80
+    },
+    "abilities": [
+      "steadfast",
+      "sharpness",
+      "justified"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "gallade-mega",
+        "nameJa": "メガエルレイド",
+        "nameEn": "Mega Gallade",
+        "types": [
+          "psychic",
+          "fighting"
+        ],
+        "baseStats": {
+          "hp": 68,
+          "atk": 165,
+          "def": 95,
+          "spa": 65,
+          "spd": 115,
+          "spe": 110
+        },
+        "ability": "inner-focus"
+      }
+    ]
+  },
+  {
+    "id": "froslass",
+    "dexNo": 478,
+    "nameJa": "ユキメノコ",
+    "nameEn": "Froslass",
+    "types": [
+      "ice",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 70,
+      "spa": 80,
+      "spd": 70,
+      "spe": 110
+    },
+    "abilities": [
+      "snow-cloak",
+      "cursed-body"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "froslass-mega",
+        "nameJa": "Froslass Mega",
+        "nameEn": "Mega Froslass",
+        "types": [
+          "ice",
+          "ghost"
+        ],
+        "baseStats": {
+          "hp": 70,
+          "atk": 80,
+          "def": 70,
+          "spa": 140,
+          "spd": 100,
+          "spe": 120
+        },
+        "ability": "snow-warning"
+      }
+    ]
+  },
+  {
+    "id": "rotom",
+    "dexNo": 479,
+    "nameJa": "ロトム",
+    "nameEn": "Rotom",
+    "types": [
+      "electric",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 50,
+      "def": 77,
+      "spa": 95,
+      "spd": 77,
+      "spe": 91
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "serperior",
+    "dexNo": 497,
+    "nameJa": "ジャローダ",
+    "nameEn": "Serperior",
+    "types": [
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 75,
+      "def": 95,
+      "spa": 75,
+      "spd": 95,
+      "spe": 113
+    },
+    "abilities": [
+      "overgrow",
+      "contrary"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "emboar",
+    "dexNo": 500,
+    "nameJa": "エンブオー",
+    "nameEn": "Emboar",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 123,
+      "def": 65,
+      "spa": 100,
+      "spd": 65,
+      "spe": 65
+    },
+    "abilities": [
+      "blaze",
+      "reckless"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "emboar-mega",
+        "nameJa": "Emboar Mega",
+        "nameEn": "Mega Emboar",
+        "types": [
+          "fire",
+          "fighting"
+        ],
+        "baseStats": {
+          "hp": 110,
+          "atk": 148,
+          "def": 75,
+          "spa": 110,
+          "spd": 110,
+          "spe": 75
+        },
+        "ability": "mold-breaker"
+      }
+    ]
+  },
+  {
+    "id": "samurott",
+    "dexNo": 503,
+    "nameJa": "ダイケンキ",
+    "nameEn": "Samurott",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 100,
+      "def": 85,
+      "spa": 108,
+      "spd": 70,
+      "spe": 70
+    },
+    "abilities": [
+      "torrent",
+      "shell-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "samurott-hisui",
+    "dexNo": 503,
+    "nameJa": "ダイケンキ(ヒスイのすがた)",
+    "nameEn": "Hisuian Samurott",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 108,
+      "def": 80,
+      "spa": 100,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": [
+      "torrent",
+      "sharpness"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "watchog",
+    "dexNo": 505,
+    "nameJa": "ミルホッグ",
+    "nameEn": "Watchog",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 69,
+      "spa": 60,
+      "spd": 69,
+      "spe": 77
+    },
+    "abilities": [
+      "illuminate",
+      "keen-eye",
+      "analytic"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "liepard",
+    "dexNo": 510,
+    "nameJa": "レパルダス",
+    "nameEn": "Liepard",
+    "types": [
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 64,
+      "atk": 88,
+      "def": 50,
+      "spa": 88,
+      "spd": 50,
+      "spe": 106
+    },
+    "abilities": [
+      "limber",
+      "unburden",
+      "prankster"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "simisage",
+    "dexNo": 512,
+    "nameJa": "ヤナッキー",
+    "nameEn": "Simisage",
+    "types": [
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "abilities": [
+      "gluttony",
+      "overgrow"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "simisear",
+    "dexNo": 514,
+    "nameJa": "バオッキー",
+    "nameEn": "Simisear",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "abilities": [
+      "gluttony",
+      "blaze"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "simipour",
+    "dexNo": 516,
+    "nameJa": "ヒヤッキー",
+    "nameEn": "Simipour",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 63,
+      "spa": 98,
+      "spd": 63,
+      "spe": 101
+    },
+    "abilities": [
+      "gluttony",
+      "torrent"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "excadrill",
+    "dexNo": 530,
+    "nameJa": "ドリュウズ",
+    "nameEn": "Excadrill",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 135,
+      "def": 60,
+      "spa": 50,
+      "spd": 65,
+      "spe": 88
+    },
+    "abilities": [
+      "sand-rush",
+      "sand-force",
+      "mold-breaker"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "excadrill-mega",
+        "nameJa": "Excadrill Mega",
+        "nameEn": "Mega Excadrill",
+        "types": [
+          "ground",
+          "steel"
+        ],
+        "baseStats": {
+          "hp": 110,
+          "atk": 165,
+          "def": 100,
+          "spa": 65,
+          "spd": 65,
+          "spe": 103
+        },
+        "ability": "piercing-drill"
+      }
+    ]
+  },
+  {
+    "id": "audino",
+    "dexNo": 531,
+    "nameJa": "タブンネ",
+    "nameEn": "Audino",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 103,
+      "atk": 60,
+      "def": 86,
+      "spa": 60,
+      "spd": 86,
+      "spe": 50
+    },
+    "abilities": [
+      "healer",
+      "regenerator",
+      "klutz"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "audino-mega",
+        "nameJa": "メガタブンネ",
+        "nameEn": "Mega Audino",
+        "types": [
+          "normal",
+          "fairy"
+        ],
+        "baseStats": {
+          "hp": 103,
+          "atk": 60,
+          "def": 126,
+          "spa": 80,
+          "spd": 126,
+          "spe": 50
+        },
+        "ability": "healer"
+      }
+    ]
+  },
+  {
+    "id": "conkeldurr",
+    "dexNo": 534,
+    "nameJa": "ローブシン",
+    "nameEn": "Conkeldurr",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "atk": 140,
+      "def": 95,
+      "spa": 55,
+      "spd": 65,
+      "spe": 45
+    },
+    "abilities": [
+      "guts",
+      "sheer-force",
+      "iron-fist"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "whimsicott",
+    "dexNo": 547,
+    "nameJa": "エルフーン",
+    "nameEn": "Whimsicott",
+    "types": [
+      "grass",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 67,
+      "def": 85,
+      "spa": 77,
+      "spd": 75,
+      "spe": 116
+    },
+    "abilities": [
+      "prankster",
+      "infiltrator",
+      "chlorophyll"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "krookodile",
+    "dexNo": 553,
+    "nameJa": "ワルビアル",
+    "nameEn": "Krookodile",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 117,
+      "def": 80,
+      "spa": 65,
+      "spd": 70,
+      "spe": 92
+    },
+    "abilities": [
+      "intimidate",
+      "moxie",
+      "anger-point"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "cofagrigus",
+    "dexNo": 563,
+    "nameJa": "デスカーン",
+    "nameEn": "Cofagrigus",
+    "types": [
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 50,
+      "def": 145,
+      "spa": 95,
+      "spd": 105,
+      "spe": 30
+    },
+    "abilities": [
+      "mummy"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "garbodor",
+    "dexNo": 569,
+    "nameJa": "ダストダス",
+    "nameEn": "Garbodor",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 95,
+      "def": 82,
+      "spa": 60,
+      "spd": 82,
+      "spe": 75
+    },
+    "abilities": [
+      "stench",
+      "weak-armor",
+      "aftermath"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "zoroark",
+    "dexNo": 571,
+    "nameJa": "ゾロアーク",
+    "nameEn": "Zoroark",
+    "types": [
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 105,
+      "def": 60,
+      "spa": 120,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": [
+      "illusion"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "zoroark-hisui",
+    "dexNo": 571,
+    "nameJa": "ゾロアーク(ヒスイのすがた)",
+    "nameEn": "Hisuian Zoroark",
+    "types": [
+      "normal",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 100,
+      "def": 60,
+      "spa": 125,
+      "spd": 60,
+      "spe": 110
+    },
+    "abilities": [
+      "illusion"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "reuniclus",
+    "dexNo": 579,
+    "nameJa": "ランクルス",
+    "nameEn": "Reuniclus",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 65,
+      "def": 75,
+      "spa": 125,
+      "spd": 85,
+      "spe": 30
+    },
+    "abilities": [
+      "overcoat",
+      "magic-guard",
+      "regenerator"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "vanilluxe",
+    "dexNo": 584,
+    "nameJa": "バイバニラ",
+    "nameEn": "Vanilluxe",
+    "types": [
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 95,
+      "def": 85,
+      "spa": 110,
+      "spd": 95,
+      "spe": 79
+    },
+    "abilities": [
+      "ice-body",
+      "snow-warning",
+      "weak-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "emolga",
+    "dexNo": 587,
+    "nameJa": "エモンガ",
+    "nameEn": "Emolga",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 75,
+      "def": 60,
+      "spa": 75,
+      "spd": 60,
+      "spe": 103
+    },
+    "abilities": [
+      "static",
+      "motor-drive"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "chandelure",
+    "dexNo": 609,
+    "nameJa": "シャンデラ",
+    "nameEn": "Chandelure",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 90,
+      "spa": 145,
+      "spd": 90,
+      "spe": 80
+    },
+    "abilities": [
+      "flash-fire",
+      "flame-body",
+      "infiltrator"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "chandelure-mega",
+        "nameJa": "Chandelure Mega",
+        "nameEn": "Mega Chandelure",
+        "types": [
+          "ghost",
+          "fire"
+        ],
+        "baseStats": {
+          "hp": 60,
+          "atk": 75,
+          "def": 110,
+          "spa": 175,
+          "spd": 110,
+          "spe": 90
+        },
+        "ability": "infiltrator"
+      }
+    ]
+  },
+  {
+    "id": "beartic",
+    "dexNo": 614,
+    "nameJa": "ツンベアー",
+    "nameEn": "Beartic",
+    "types": [
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 130,
+      "def": 80,
+      "spa": 70,
+      "spd": 80,
+      "spe": 50
+    },
+    "abilities": [
+      "snow-cloak",
+      "slush-rush",
+      "swift-swim"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "stunfisk",
+    "dexNo": 618,
+    "nameJa": "マッギョ",
+    "nameEn": "Stunfisk",
+    "types": [
+      "ground",
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 109,
+      "atk": 66,
+      "def": 84,
+      "spa": 81,
+      "spd": 99,
+      "spe": 32
+    },
+    "abilities": [
+      "static",
+      "limber",
+      "sand-veil"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "stunfisk-galar",
+    "dexNo": 618,
+    "nameJa": "マッギョ(ガラルのすがた)",
+    "nameEn": "Galarian Stunfisk",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 109,
+      "atk": 81,
+      "def": 99,
+      "spa": 66,
+      "spd": 84,
+      "spe": 32
+    },
+    "abilities": [
+      "mimicry"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "golurk",
+    "dexNo": 623,
+    "nameJa": "ゴルーグ",
+    "nameEn": "Golurk",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 89,
+      "atk": 124,
+      "def": 80,
+      "spa": 55,
+      "spd": 80,
+      "spe": 55
+    },
+    "abilities": [
+      "iron-fist",
+      "klutz",
+      "no-guard"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "golurk-mega",
+        "nameJa": "Golurk Mega",
+        "nameEn": "Mega Golurk",
+        "types": [
+          "ground",
+          "ghost"
+        ],
+        "baseStats": {
+          "hp": 89,
+          "atk": 159,
+          "def": 105,
+          "spa": 70,
+          "spd": 105,
+          "spe": 55
+        },
+        "ability": "unseen-fist"
+      }
+    ]
+  },
+  {
+    "id": "hydreigon",
+    "dexNo": 635,
+    "nameJa": "サザンドラ",
+    "nameEn": "Hydreigon",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 92,
+      "atk": 105,
+      "def": 90,
+      "spa": 125,
+      "spd": 90,
+      "spe": 98
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "volcarona",
+    "dexNo": 637,
+    "nameJa": "ウルガモス",
+    "nameEn": "Volcarona",
+    "types": [
+      "bug",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 65,
+      "spa": 135,
+      "spd": 105,
+      "spe": 100
+    },
+    "abilities": [
+      "flame-body",
+      "swarm"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "landorus-therian",
+    "dexNo": 645,
+    "nameJa": "ランドロス(れいじゅうフォルム)",
+    "nameEn": "Therian Landorus",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 89,
+      "atk": 145,
+      "def": 90,
+      "spa": 105,
+      "spd": 80,
+      "spe": 91
+    },
+    "abilities": [
+      "intimidate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "chesnaught",
+    "dexNo": 652,
+    "nameJa": "ブリガロン",
+    "nameEn": "Chesnaught",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 107,
+      "def": 122,
+      "spa": 74,
+      "spd": 75,
+      "spe": 64
+    },
+    "abilities": [
+      "overgrow",
+      "bulletproof"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "chesnaught-mega",
+        "nameJa": "Chesnaught Mega",
+        "nameEn": "Mega Chesnaught",
+        "types": [
+          "grass",
+          "fighting"
+        ],
+        "baseStats": {
+          "hp": 88,
+          "atk": 137,
+          "def": 172,
+          "spa": 74,
+          "spd": 115,
+          "spe": 44
+        },
+        "ability": "bulletproof"
+      }
+    ]
+  },
+  {
+    "id": "delphox",
+    "dexNo": 655,
+    "nameJa": "マフォクシー",
+    "nameEn": "Delphox",
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 69,
+      "def": 72,
+      "spa": 114,
+      "spd": 100,
+      "spe": 104
+    },
+    "abilities": [
+      "blaze",
+      "magician"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "delphox-mega",
+        "nameJa": "Delphox Mega",
+        "nameEn": "Mega Delphox",
+        "types": [
+          "fire",
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 75,
+          "atk": 69,
+          "def": 72,
+          "spa": 159,
+          "spd": 125,
+          "spe": 134
+        },
+        "ability": "levitate"
+      }
+    ]
+  },
+  {
+    "id": "greninja",
+    "dexNo": 658,
+    "nameJa": "ゲッコウガ",
+    "nameEn": "Greninja",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 95,
+      "def": 67,
+      "spa": 103,
+      "spd": 71,
+      "spe": 122
+    },
+    "abilities": [
+      "torrent",
+      "protean"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "greninja-mega",
+        "nameJa": "Greninja Mega",
+        "nameEn": "Mega Greninja",
+        "types": [
+          "water",
+          "dark"
+        ],
+        "baseStats": {
+          "hp": 72,
+          "atk": 125,
+          "def": 77,
+          "spa": 133,
+          "spd": 81,
+          "spe": 142
+        },
+        "ability": "protean"
+      }
+    ]
+  },
+  {
+    "id": "diggersby",
+    "dexNo": 660,
+    "nameJa": "ホルード",
+    "nameEn": "Diggersby",
+    "types": [
+      "normal",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 56,
+      "def": 77,
+      "spa": 50,
+      "spd": 77,
+      "spe": 78
+    },
+    "abilities": [
+      "pickup",
+      "cheek-pouch",
+      "huge-power"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "talonflame",
+    "dexNo": 663,
+    "nameJa": "ファイアロー",
+    "nameEn": "Talonflame",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 81,
+      "def": 71,
+      "spa": 74,
+      "spd": 69,
+      "spe": 126
+    },
+    "abilities": [
+      "flame-body",
+      "gale-wings"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "vivillon",
+    "dexNo": 666,
+    "nameJa": "ビビヨン",
+    "nameEn": "Vivillon",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 52,
+      "def": 50,
+      "spa": 90,
+      "spd": 50,
+      "spe": 89
+    },
+    "abilities": [
+      "shield-dust",
+      "compound-eyes",
+      "friend-guard"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "floette",
+    "dexNo": 670,
+    "nameJa": "フラエッテ",
+    "nameEn": "Floette",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 54,
+      "atk": 45,
+      "def": 47,
+      "spa": 75,
+      "spd": 98,
+      "spe": 52
+    },
+    "abilities": [
+      "flower-veil",
+      "symbiosis"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "floette-mega",
+        "nameJa": "Floette Mega",
+        "nameEn": "Mega Floette",
+        "types": [
+          "fairy"
+        ],
+        "baseStats": {
+          "hp": 74,
+          "atk": 85,
+          "def": 87,
+          "spa": 155,
+          "spd": 148,
+          "spe": 102
+        },
+        "ability": "fairy-aura"
+      }
+    ]
+  },
+  {
+    "id": "florges",
+    "dexNo": 671,
+    "nameJa": "フラージェス",
+    "nameEn": "Florges",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 65,
+      "def": 68,
+      "spa": 112,
+      "spd": 154,
+      "spe": 75
+    },
+    "abilities": [
+      "flower-veil",
+      "symbiosis"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "pangoro",
+    "dexNo": 675,
+    "nameJa": "ゴロンダ",
+    "nameEn": "Pangoro",
+    "types": [
+      "fighting",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 124,
+      "def": 78,
+      "spa": 69,
+      "spd": 71,
+      "spe": 58
+    },
+    "abilities": [
+      "iron-fist",
+      "mold-breaker",
+      "scrappy"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "furfrou",
+    "dexNo": 676,
+    "nameJa": "トリミアン",
+    "nameEn": "Furfrou",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 60,
+      "spa": 65,
+      "spd": 90,
+      "spe": 102
+    },
+    "abilities": [
+      "fur-coat"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "meowstic",
+    "dexNo": 678,
+    "nameJa": "ニャオニクス",
+    "nameEn": "Meowstic",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "abilities": [
+      "keen-eye",
+      "infiltrator",
+      "prankster"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "meowstic-mega",
+        "nameJa": "Meowstic Mega",
+        "nameEn": "Mega Meowstic",
+        "types": [
+          "psychic"
+        ],
+        "baseStats": {
+          "hp": 74,
+          "atk": 48,
+          "def": 76,
+          "spa": 143,
+          "spd": 101,
+          "spe": 124
+        },
+        "ability": "trace"
+      }
+    ]
+  },
+  {
+    "id": "aegislash",
+    "dexNo": 681,
+    "nameJa": "ギルガルド",
+    "nameEn": "Aegislash",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 140,
+      "spa": 50,
+      "spd": 140,
+      "spe": 60
+    },
+    "abilities": [
+      "stance-change"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "aromatisse",
+    "dexNo": 683,
+    "nameJa": "フレフワン",
+    "nameEn": "Aromatisse",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 101,
+      "atk": 72,
+      "def": 72,
+      "spa": 99,
+      "spd": 89,
+      "spe": 29
+    },
+    "abilities": [
+      "healer",
+      "aroma-veil"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "slurpuff",
+    "dexNo": 685,
+    "nameJa": "ペロリーム",
+    "nameEn": "Slurpuff",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 80,
+      "def": 86,
+      "spa": 85,
+      "spd": 75,
+      "spe": 72
+    },
+    "abilities": [
+      "sweet-veil",
+      "unburden"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "clawitzer",
+    "dexNo": 693,
+    "nameJa": "ブロスター",
+    "nameEn": "Clawitzer",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 73,
+      "def": 88,
+      "spa": 120,
+      "spd": 89,
+      "spe": 59
+    },
+    "abilities": [
+      "mega-launcher"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "heliolisk",
+    "dexNo": 695,
+    "nameJa": "エレザード",
+    "nameEn": "Heliolisk",
+    "types": [
+      "electric",
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 62,
+      "atk": 55,
+      "def": 52,
+      "spa": 109,
+      "spd": 94,
+      "spe": 109
+    },
+    "abilities": [
+      "dry-skin",
+      "sand-veil",
+      "solar-power"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "tyrantrum",
+    "dexNo": 697,
+    "nameJa": "ガチゴラス",
+    "nameEn": "Tyrantrum",
+    "types": [
+      "rock",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 82,
+      "atk": 121,
+      "def": 119,
+      "spa": 69,
+      "spd": 59,
+      "spe": 71
+    },
+    "abilities": [
+      "strong-jaw",
+      "rock-head"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "aurorus",
+    "dexNo": 699,
+    "nameJa": "アマルルガ",
+    "nameEn": "Aurorus",
+    "types": [
+      "rock",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 123,
+      "atk": 77,
+      "def": 72,
+      "spa": 99,
+      "spd": 92,
+      "spe": 58
+    },
+    "abilities": [
+      "refrigerate",
+      "snow-warning"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "sylveon",
+    "dexNo": 700,
+    "nameJa": "ニンフィア",
+    "nameEn": "Sylveon",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 65,
+      "spa": 110,
+      "spd": 130,
+      "spe": 60
+    },
+    "abilities": [
+      "cute-charm",
+      "pixilate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "hawlucha",
+    "dexNo": 701,
+    "nameJa": "ルチャブル",
+    "nameEn": "Hawlucha",
+    "types": [
+      "fighting",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 92,
+      "def": 75,
+      "spa": 74,
+      "spd": 63,
+      "spe": 118
+    },
+    "abilities": [
+      "limber",
+      "unburden",
+      "mold-breaker"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "hawlucha-mega",
+        "nameJa": "Hawlucha Mega",
+        "nameEn": "Mega Hawlucha",
+        "types": [
+          "fighting",
+          "flying"
+        ],
+        "baseStats": {
+          "hp": 78,
+          "atk": 137,
+          "def": 100,
+          "spa": 74,
+          "spd": 93,
+          "spe": 118
+        },
+        "ability": "no-guard"
+      }
+    ]
+  },
+  {
+    "id": "dedenne",
+    "dexNo": 702,
+    "nameJa": "デデンネ",
+    "nameEn": "Dedenne",
+    "types": [
+      "electric",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 67,
+      "atk": 58,
+      "def": 57,
+      "spa": 81,
+      "spd": 67,
+      "spe": 101
+    },
+    "abilities": [
+      "cheek-pouch",
+      "pickup",
+      "plus"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "goodra",
+    "dexNo": 706,
+    "nameJa": "ヌメルゴン",
+    "nameEn": "Goodra",
+    "types": [
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 70,
+      "spa": 110,
+      "spd": 150,
+      "spe": 80
+    },
+    "abilities": [
+      "sap-sipper",
+      "hydration",
+      "gooey"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "goodra-hisui",
+    "dexNo": 706,
+    "nameJa": "ヌメルゴン(ヒスイのすがた)",
+    "nameEn": "Hisuian Goodra",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 100,
+      "def": 100,
+      "spa": 110,
+      "spd": 150,
+      "spe": 60
+    },
+    "abilities": [
+      "sap-sipper",
+      "shell-armor",
+      "gooey"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "klefki",
+    "dexNo": 707,
+    "nameJa": "クレッフィ",
+    "nameEn": "Klefki",
+    "types": [
+      "steel",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 57,
+      "atk": 80,
+      "def": 91,
+      "spa": 80,
+      "spd": 87,
+      "spe": 75
+    },
+    "abilities": [
+      "prankster",
+      "magician"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "trevenant",
+    "dexNo": 709,
+    "nameJa": "オーロット",
+    "nameEn": "Trevenant",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 110,
+      "def": 76,
+      "spa": 65,
+      "spd": 82,
+      "spe": 56
+    },
+    "abilities": [
+      "natural-cure",
+      "frisk",
+      "harvest"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "gourgeist",
+    "dexNo": 711,
+    "nameJa": "パンプジン",
+    "nameEn": "Gourgeist",
+    "types": [
+      "ghost",
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 90,
+      "def": 122,
+      "spa": 58,
+      "spd": 75,
+      "spe": 84
+    },
+    "abilities": [
+      "pickup",
+      "frisk",
+      "insomnia"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "avalugg",
+    "dexNo": 713,
+    "nameJa": "クレベース",
+    "nameEn": "Avalugg",
+    "types": [
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 117,
+      "def": 184,
+      "spa": 44,
+      "spd": 46,
+      "spe": 28
+    },
+    "abilities": [
+      "own-tempo",
+      "ice-body",
+      "sturdy"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "avalugg-hisui",
+    "dexNo": 713,
+    "nameJa": "クレベース(ヒスイのすがた)",
+    "nameEn": "Hisuian Avalugg",
+    "types": [
+      "ice",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 127,
+      "def": 184,
+      "spa": 34,
+      "spd": 36,
+      "spe": 38
+    },
+    "abilities": [
+      "strong-jaw",
+      "ice-body",
+      "sturdy"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "noivern",
+    "dexNo": 715,
+    "nameJa": "オンバーン",
+    "nameEn": "Noivern",
+    "types": [
+      "flying",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 70,
+      "def": 80,
+      "spa": 97,
+      "spd": 80,
+      "spe": 123
+    },
+    "abilities": [
+      "frisk",
+      "infiltrator",
+      "telepathy"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "decidueye",
+    "dexNo": 724,
+    "nameJa": "ジュナイパー",
+    "nameEn": "Decidueye",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 107,
+      "def": 75,
+      "spa": 100,
+      "spd": 100,
+      "spe": 70
+    },
+    "abilities": [
+      "overgrow",
+      "long-reach"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "decidueye-hisui",
+    "dexNo": 724,
+    "nameJa": "ジュナイパー(ヒスイのすがた)",
+    "nameEn": "Hisuian Decidueye",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 112,
+      "def": 80,
+      "spa": 95,
+      "spd": 95,
+      "spe": 60
+    },
+    "abilities": [
+      "overgrow",
+      "scrappy"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "incineroar",
+    "dexNo": 727,
+    "nameJa": "ガオガエン",
+    "nameEn": "Incineroar",
+    "types": [
+      "fire",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 115,
+      "def": 90,
+      "spa": 80,
+      "spd": 90,
+      "spe": 60
+    },
+    "abilities": [
+      "blaze",
+      "intimidate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "primarina",
+    "dexNo": 730,
+    "nameJa": "アシレーヌ",
+    "nameEn": "Primarina",
+    "types": [
+      "water",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 74,
+      "def": 74,
+      "spa": 126,
+      "spd": 116,
+      "spe": 60
+    },
+    "abilities": [
+      "torrent",
+      "liquid-voice"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "toucannon",
+    "dexNo": 733,
+    "nameJa": "ドデカバシ",
+    "nameEn": "Toucannon",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 75,
+      "spa": 75,
+      "spd": 75,
+      "spe": 60
+    },
+    "abilities": [
+      "keen-eye",
+      "skill-link",
+      "sheer-force"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "crabominable",
+    "dexNo": 740,
+    "nameJa": "ケケンカニ",
+    "nameEn": "Crabominable",
+    "types": [
+      "fighting",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 97,
+      "atk": 132,
+      "def": 77,
+      "spa": 62,
+      "spd": 67,
+      "spe": 43
+    },
+    "abilities": [
+      "hyper-cutter",
+      "iron-fist",
+      "anger-point"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "crabominable-mega",
+        "nameJa": "Crabominable Mega",
+        "nameEn": "Mega Crabominable",
+        "types": [
+          "fighting",
+          "ice"
+        ],
+        "baseStats": {
+          "hp": 97,
+          "atk": 157,
+          "def": 122,
+          "spa": 62,
+          "spd": 107,
+          "spe": 33
+        },
+        "ability": "iron-fist"
+      }
+    ]
+  },
+  {
+    "id": "lycanroc",
+    "dexNo": 745,
+    "nameJa": "ルガルガン",
+    "nameEn": "Lycanroc",
+    "types": [
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 115,
+      "def": 65,
+      "spa": 55,
+      "spd": 65,
+      "spe": 112
+    },
+    "abilities": [
+      "keen-eye",
+      "sand-rush",
+      "steadfast"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "toxapex",
+    "dexNo": 748,
+    "nameJa": "ドヒドイデ",
+    "nameEn": "Toxapex",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 63,
+      "def": 152,
+      "spa": 53,
+      "spd": 142,
+      "spe": 35
+    },
+    "abilities": [
+      "merciless",
+      "limber",
+      "regenerator"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "mudsdale",
+    "dexNo": 750,
+    "nameJa": "バンバドロ",
+    "nameEn": "Mudsdale",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 100,
+      "spa": 55,
+      "spd": 85,
+      "spe": 35
+    },
+    "abilities": [
+      "own-tempo",
+      "stamina",
+      "inner-focus"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "araquanid",
+    "dexNo": 752,
+    "nameJa": "オニシズクモ",
+    "nameEn": "Araquanid",
+    "types": [
+      "water",
+      "bug"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 70,
+      "def": 92,
+      "spa": 50,
+      "spd": 132,
+      "spe": 42
+    },
+    "abilities": [
+      "water-bubble",
+      "water-absorb"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "salazzle",
+    "dexNo": 758,
+    "nameJa": "エンニュート",
+    "nameEn": "Salazzle",
+    "types": [
+      "poison",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 68,
+      "atk": 64,
+      "def": 60,
+      "spa": 111,
+      "spd": 60,
+      "spe": 117
+    },
+    "abilities": [
+      "corrosion",
+      "oblivious"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "tsareena",
+    "dexNo": 763,
+    "nameJa": "アマージョ",
+    "nameEn": "Tsareena",
+    "types": [
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 120,
+      "def": 98,
+      "spa": 50,
+      "spd": 98,
+      "spe": 72
+    },
+    "abilities": [
+      "leaf-guard",
+      "queenly-majesty",
+      "sweet-veil"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "oranguru",
+    "dexNo": 765,
+    "nameJa": "ヤレユータン",
+    "nameEn": "Oranguru",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 60,
+      "def": 80,
+      "spa": 90,
+      "spd": 110,
+      "spe": 60
+    },
+    "abilities": [
+      "inner-focus",
+      "telepathy",
+      "symbiosis"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "passimian",
+    "dexNo": 766,
+    "nameJa": "ナゲツケサル",
+    "nameEn": "Passimian",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 120,
+      "def": 90,
+      "spa": 40,
+      "spd": 60,
+      "spe": 80
+    },
+    "abilities": [
+      "receiver",
+      "defiant"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "mimikyu",
+    "dexNo": 778,
+    "nameJa": "ミミッキュ",
+    "nameEn": "Mimikyu",
+    "types": [
+      "ghost",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "atk": 90,
+      "def": 80,
+      "spa": 50,
+      "spd": 105,
+      "spe": 96
+    },
+    "abilities": [
+      "disguise"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "drampa",
+    "dexNo": 780,
+    "nameJa": "ジジーロン",
+    "nameEn": "Drampa",
+    "types": [
+      "normal",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "atk": 60,
+      "def": 85,
+      "spa": 135,
+      "spd": 91,
+      "spe": 36
+    },
+    "abilities": [
+      "berserk",
+      "sap-sipper",
+      "cloud-nine"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "drampa-mega",
+        "nameJa": "Drampa Mega",
+        "nameEn": "Mega Drampa",
+        "types": [
+          "normal",
+          "dragon"
+        ],
+        "baseStats": {
+          "hp": 78,
+          "atk": 85,
+          "def": 110,
+          "spa": 160,
+          "spd": 116,
+          "spe": 36
+        },
+        "ability": "berserk"
+      }
+    ]
+  },
+  {
+    "id": "kommo-o",
+    "dexNo": 784,
+    "nameJa": "ジャラランガ",
+    "nameEn": "Kommo-o",
+    "types": [
+      "dragon",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 125,
+      "spa": 100,
+      "spd": 105,
+      "spe": 85
+    },
+    "abilities": [
+      "bulletproof",
+      "soundproof",
+      "overcoat"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "corviknight",
+    "dexNo": 823,
+    "nameJa": "アーマーガア",
+    "nameEn": "Corviknight",
+    "types": [
+      "flying",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 98,
+      "atk": 87,
+      "def": 105,
+      "spa": 53,
+      "spd": 85,
+      "spe": 67
+    },
+    "abilities": [
+      "pressure",
+      "unnerve",
+      "mirror-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "flapple",
+    "dexNo": 841,
+    "nameJa": "アップリュー",
+    "nameEn": "Flapple",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 80,
+      "spa": 95,
+      "spd": 60,
+      "spe": 70
+    },
+    "abilities": [
+      "ripen",
+      "gluttony",
+      "hustle"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "appletun",
+    "dexNo": 842,
+    "nameJa": "タルップル",
+    "nameEn": "Appletun",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 110,
+      "atk": 85,
+      "def": 80,
+      "spa": 100,
+      "spd": 80,
+      "spe": 30
+    },
+    "abilities": [
+      "ripen",
+      "gluttony",
+      "thick-fat"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "sandaconda",
+    "dexNo": 844,
+    "nameJa": "サダイジャ",
+    "nameEn": "Sandaconda",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 72,
+      "atk": 107,
+      "def": 125,
+      "spa": 65,
+      "spd": 70,
+      "spe": 71
+    },
+    "abilities": [
+      "sand-spit",
+      "shed-skin",
+      "sand-veil"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "polteageist",
+    "dexNo": 855,
+    "nameJa": "ポットデス",
+    "nameEn": "Polteageist",
+    "types": [
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spa": 134,
+      "spd": 114,
+      "spe": 70
+    },
+    "abilities": [
+      "weak-armor",
+      "cursed-body"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "hatterene",
+    "dexNo": 858,
+    "nameJa": "ブリムオン",
+    "nameEn": "Hatterene",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 57,
+      "atk": 90,
+      "def": 95,
+      "spa": 136,
+      "spd": 103,
+      "spe": 29
+    },
+    "abilities": [
+      "healer",
+      "anticipation",
+      "magic-bounce"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "mr-rime",
+    "dexNo": 866,
+    "nameJa": "バリコオル",
+    "nameEn": "Mr. Rime",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 85,
+      "def": 75,
+      "spa": 110,
+      "spd": 100,
+      "spe": 70
+    },
+    "abilities": [
+      "tangled-feet",
+      "screen-cleaner",
+      "ice-body"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "runerigus",
+    "dexNo": 867,
+    "nameJa": "デスバーン",
+    "nameEn": "Runerigus",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 145,
+      "spa": 50,
+      "spd": 105,
+      "spe": 30
+    },
+    "abilities": [
+      "wandering-spirit"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "alcremie",
+    "dexNo": 869,
+    "nameJa": "マホイップ",
+    "nameEn": "Alcremie",
+    "types": [
+      "fairy"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 75,
+      "spa": 110,
+      "spd": 121,
+      "spe": 64
+    },
+    "abilities": [
+      "sweet-veil",
+      "aroma-veil"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "morpeko",
+    "dexNo": 877,
+    "nameJa": "モルペコ",
+    "nameEn": "Morpeko",
+    "types": [
+      "electric",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spa": 70,
+      "spd": 58,
+      "spe": 97
+    },
+    "abilities": [
+      "hunger-switch"
+    ],
     "championsAvailable": true
   },
   {
@@ -24,49 +5224,504 @@
     "dexNo": 887,
     "nameJa": "ドラパルト",
     "nameEn": "Dragapult",
-    "types": ["dragon", "ghost"],
-    "baseStats": { "hp": 88, "atk": 120, "def": 75, "spa": 100, "spd": 75, "spe": 142 },
-    "abilities": ["clear-body", "infiltrator", "cursed-body"],
+    "types": [
+      "dragon",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 88,
+      "atk": 120,
+      "def": 75,
+      "spa": 100,
+      "spd": 75,
+      "spe": 142
+    },
+    "abilities": [
+      "clear-body",
+      "infiltrator",
+      "cursed-body"
+    ],
     "championsAvailable": true
   },
   {
-    "id": "gholdengo",
-    "dexNo": 1000,
-    "nameJa": "サーフゴー",
-    "nameEn": "Gholdengo",
-    "types": ["steel", "ghost"],
-    "baseStats": { "hp": 87, "atk": 60, "def": 95, "spa": 133, "spd": 91, "spe": 84 },
-    "abilities": ["good-as-gold"],
+    "id": "wyrdeer",
+    "dexNo": 899,
+    "nameJa": "アヤシシ",
+    "nameEn": "Wyrdeer",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 103,
+      "atk": 105,
+      "def": 72,
+      "spa": 105,
+      "spd": 75,
+      "spe": 65
+    },
+    "abilities": [
+      "intimidate",
+      "frisk",
+      "sap-sipper"
+    ],
     "championsAvailable": true
   },
   {
-    "id": "landorus-therian",
-    "dexNo": 645,
-    "nameJa": "ランドロス(れいじゅう)",
-    "nameEn": "Landorus-Therian",
-    "types": ["ground", "flying"],
-    "baseStats": { "hp": 89, "atk": 145, "def": 90, "spa": 105, "spd": 80, "spe": 91 },
-    "abilities": ["intimidate"],
+    "id": "kleavor",
+    "dexNo": 900,
+    "nameJa": "バサギリ",
+    "nameEn": "Kleavor",
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 135,
+      "def": 95,
+      "spa": 45,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": [
+      "swarm",
+      "sheer-force",
+      "sharpness"
+    ],
     "championsAvailable": true
   },
   {
-    "id": "iron-valiant",
-    "dexNo": 1006,
-    "nameJa": "テツノブジン",
-    "nameEn": "Iron Valiant",
-    "types": ["fairy", "fighting"],
-    "baseStats": { "hp": 74, "atk": 130, "def": 90, "spa": 120, "spd": 60, "spe": 116 },
-    "abilities": ["quark-drive"],
+    "id": "basculegion",
+    "dexNo": 902,
+    "nameJa": "イダイトウ",
+    "nameEn": "Basculegion",
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 120,
+      "atk": 112,
+      "def": 65,
+      "spa": 80,
+      "spd": 75,
+      "spe": 78
+    },
+    "abilities": [
+      "swift-swim",
+      "adaptability",
+      "mold-breaker"
+    ],
     "championsAvailable": true
   },
   {
-    "id": "ogerpon-wellspring",
-    "dexNo": 1017,
-    "nameJa": "オーガポン(いど)",
-    "nameEn": "Ogerpon-Wellspring",
-    "types": ["grass", "water"],
-    "baseStats": { "hp": 80, "atk": 120, "def": 84, "spa": 60, "spd": 96, "spe": 110 },
-    "abilities": ["water-absorb"],
+    "id": "sneasler",
+    "dexNo": 903,
+    "nameJa": "オオニューラ",
+    "nameEn": "Sneasler",
+    "types": [
+      "fighting",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 130,
+      "def": 60,
+      "spa": 40,
+      "spd": 80,
+      "spe": 120
+    },
+    "abilities": [
+      "pressure",
+      "unburden",
+      "poison-touch"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "meowscarada",
+    "dexNo": 908,
+    "nameJa": "マスカーニャ",
+    "nameEn": "Meowscarada",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 76,
+      "atk": 110,
+      "def": 70,
+      "spa": 81,
+      "spd": 70,
+      "spe": 123
+    },
+    "abilities": [
+      "overgrow",
+      "protean"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "skeledirge",
+    "dexNo": 911,
+    "nameJa": "ラウドボーン",
+    "nameEn": "Skeledirge",
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 104,
+      "atk": 75,
+      "def": 100,
+      "spa": 110,
+      "spd": 75,
+      "spe": 66
+    },
+    "abilities": [
+      "blaze",
+      "unaware"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "quaquaval",
+    "dexNo": 914,
+    "nameJa": "ウェーニバル",
+    "nameEn": "Quaquaval",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 120,
+      "def": 80,
+      "spa": 85,
+      "spd": 75,
+      "spe": 85
+    },
+    "abilities": [
+      "torrent",
+      "moxie"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "maushold",
+    "dexNo": 925,
+    "nameJa": "イッカネズミ",
+    "nameEn": "Maushold",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 75,
+      "def": 70,
+      "spa": 65,
+      "spd": 75,
+      "spe": 111
+    },
+    "abilities": [
+      "friend-guard",
+      "cheek-pouch",
+      "technician"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "garganacl",
+    "dexNo": 934,
+    "nameJa": "キョジオーン",
+    "nameEn": "Garganacl",
+    "types": [
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 130,
+      "spa": 45,
+      "spd": 90,
+      "spe": 35
+    },
+    "abilities": [
+      "purifying-salt",
+      "sturdy",
+      "clear-body"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "armarouge",
+    "dexNo": 936,
+    "nameJa": "グレンアルマ",
+    "nameEn": "Armarouge",
+    "types": [
+      "fire",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 60,
+      "def": 100,
+      "spa": 125,
+      "spd": 80,
+      "spe": 75
+    },
+    "abilities": [
+      "flash-fire",
+      "weak-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "ceruledge",
+    "dexNo": 937,
+    "nameJa": "ソウブレイズ",
+    "nameEn": "Ceruledge",
+    "types": [
+      "fire",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 80,
+      "spa": 60,
+      "spd": 100,
+      "spe": 85
+    },
+    "abilities": [
+      "flash-fire",
+      "weak-armor"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "bellibolt",
+    "dexNo": 939,
+    "nameJa": "ハラバリー",
+    "nameEn": "Bellibolt",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 109,
+      "atk": 64,
+      "def": 91,
+      "spa": 103,
+      "spd": 83,
+      "spe": 45
+    },
+    "abilities": [
+      "electromorphosis",
+      "static",
+      "damp"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "scovillain",
+    "dexNo": 952,
+    "nameJa": "スコヴィラン",
+    "nameEn": "Scovillain",
+    "types": [
+      "grass",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "atk": 108,
+      "def": 65,
+      "spa": 108,
+      "spd": 65,
+      "spe": 75
+    },
+    "abilities": [
+      "chlorophyll",
+      "insomnia",
+      "moody"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "scovillain-mega",
+        "nameJa": "Scovillain Mega",
+        "nameEn": "Mega Scovillain",
+        "types": [
+          "grass",
+          "fire"
+        ],
+        "baseStats": {
+          "hp": 65,
+          "atk": 138,
+          "def": 85,
+          "spa": 138,
+          "spd": 85,
+          "spe": 75
+        },
+        "ability": "spicy-spray"
+      }
+    ]
+  },
+  {
+    "id": "espathra",
+    "dexNo": 956,
+    "nameJa": "クエスパトラ",
+    "nameEn": "Espathra",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "atk": 60,
+      "def": 60,
+      "spa": 101,
+      "spd": 60,
+      "spe": 105
+    },
+    "abilities": [
+      "opportunist",
+      "frisk",
+      "speed-boost"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "tinkaton",
+    "dexNo": 959,
+    "nameJa": "デカヌチャン",
+    "nameEn": "Tinkaton",
+    "types": [
+      "fairy",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 75,
+      "def": 77,
+      "spa": 70,
+      "spd": 105,
+      "spe": 94
+    },
+    "abilities": [
+      "mold-breaker",
+      "own-tempo",
+      "pickpocket"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "palafin",
+    "dexNo": 964,
+    "nameJa": "イルカマン",
+    "nameEn": "Palafin",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 70,
+      "def": 72,
+      "spa": 53,
+      "spd": 62,
+      "spe": 100
+    },
+    "abilities": [
+      "zero-to-hero"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "orthworm",
+    "dexNo": 968,
+    "nameJa": "ミミズズ",
+    "nameEn": "Orthworm",
+    "types": [
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 145,
+      "spa": 60,
+      "spd": 55,
+      "spe": 65
+    },
+    "abilities": [
+      "earth-eater",
+      "sand-veil"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "glimmora",
+    "dexNo": 970,
+    "nameJa": "キラフロル",
+    "nameEn": "Glimmora",
+    "types": [
+      "rock",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "atk": 55,
+      "def": 90,
+      "spa": 130,
+      "spd": 81,
+      "spe": 86
+    },
+    "abilities": [
+      "toxic-debris",
+      "corrosion"
+    ],
+    "championsAvailable": true,
+    "megaFormsJson": [
+      {
+        "id": "glimmora-mega",
+        "nameJa": "Glimmora Mega",
+        "nameEn": "Mega Glimmora",
+        "types": [
+          "rock",
+          "poison"
+        ],
+        "baseStats": {
+          "hp": 83,
+          "atk": 90,
+          "def": 105,
+          "spa": 150,
+          "spd": 96,
+          "spe": 101
+        },
+        "ability": "adaptability"
+      }
+    ]
+  },
+  {
+    "id": "farigiraf",
+    "dexNo": 981,
+    "nameJa": "リキキリン",
+    "nameEn": "Farigiraf",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 120,
+      "atk": 90,
+      "def": 70,
+      "spa": 110,
+      "spd": 70,
+      "spe": 60
+    },
+    "abilities": [
+      "cud-chew",
+      "armor-tail",
+      "sap-sipper"
+    ],
     "championsAvailable": true
   },
   {
@@ -74,29 +5729,160 @@
     "dexNo": 983,
     "nameJa": "ドドゲザン",
     "nameEn": "Kingambit",
-    "types": ["dark", "steel"],
-    "baseStats": { "hp": 100, "atk": 135, "def": 120, "spa": 60, "spd": 85, "spe": 50 },
-    "abilities": ["defiant", "supreme-overlord", "pressure"],
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "atk": 135,
+      "def": 120,
+      "spa": 60,
+      "spd": 85,
+      "spe": 50
+    },
+    "abilities": [
+      "defiant",
+      "supreme-overlord",
+      "pressure"
+    ],
     "championsAvailable": true
   },
   {
-    "id": "tyranitar",
-    "dexNo": 248,
-    "nameJa": "バンギラス",
-    "nameEn": "Tyranitar",
-    "types": ["rock", "dark"],
-    "baseStats": { "hp": 100, "atk": 134, "def": 110, "spa": 95, "spd": 100, "spe": 61 },
-    "abilities": ["sand-stream", "unnerve"],
+    "id": "gholdengo",
+    "dexNo": 1000,
+    "nameJa": "サーフゴー",
+    "nameEn": "Gholdengo",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 87,
+      "atk": 60,
+      "def": 95,
+      "spa": 133,
+      "spd": 91,
+      "spe": 84
+    },
+    "abilities": [
+      "good-as-gold"
+    ],
     "championsAvailable": true
   },
   {
-    "id": "metagross",
-    "dexNo": 376,
-    "nameJa": "メタグロス",
-    "nameEn": "Metagross",
-    "types": ["steel", "psychic"],
-    "baseStats": { "hp": 80, "atk": 135, "def": 130, "spa": 95, "spd": 90, "spe": 70 },
-    "abilities": ["clear-body", "light-metal"],
+    "id": "iron-valiant",
+    "dexNo": 1006,
+    "nameJa": "テツノブジン",
+    "nameEn": "Iron Valiant",
+    "types": [
+      "fairy",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 130,
+      "def": 90,
+      "spa": 120,
+      "spd": 60,
+      "spe": 116
+    },
+    "abilities": [
+      "quark-drive"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "sinistcha",
+    "dexNo": 1013,
+    "nameJa": "ヤバソチャ",
+    "nameEn": "Sinistcha",
+    "types": [
+      "grass",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 71,
+      "atk": 60,
+      "def": 106,
+      "spa": 121,
+      "spd": 80,
+      "spe": 70
+    },
+    "abilities": [
+      "hospitality",
+      "heatproof"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "ogerpon-wellspring",
+    "dexNo": 1017,
+    "nameJa": "オーガポン(いどのめん)",
+    "nameEn": "Wellspring Mask Ogerpon",
+    "types": [
+      "grass",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 84,
+      "spa": 60,
+      "spd": 96,
+      "spe": 110
+    },
+    "abilities": [
+      "water-absorb"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "archaludon",
+    "dexNo": 1018,
+    "nameJa": "ブリジュラス",
+    "nameEn": "Archaludon",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "atk": 105,
+      "def": 130,
+      "spa": 125,
+      "spd": 65,
+      "spe": 85
+    },
+    "abilities": [
+      "stamina",
+      "sturdy",
+      "stalwart"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "hydrapple",
+    "dexNo": 1019,
+    "nameJa": "カミツオロチ",
+    "nameEn": "Hydrapple",
+    "types": [
+      "grass",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 106,
+      "atk": 80,
+      "def": 110,
+      "spa": 120,
+      "spd": 80,
+      "spe": 44
+    },
+    "abilities": [
+      "supersweet-syrup",
+      "regenerator",
+      "sticky-hold"
+    ],
     "championsAvailable": true
   }
 ]

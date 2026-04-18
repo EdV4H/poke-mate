@@ -1,11 +1,11 @@
 ---
-name: review-party
+name: poke-mate-review-party
 description: poke-mate の完成済みパーティのタイプ偏り・役割バランスを2〜3点に絞って指摘する。書き換えは合意後のみ。
 ---
 
 # review-party
 
-完成した（または完成間近の）パーティを客観的にレビューするスキル。`build-party-with-me` とは対照的に「評価」が主軸で、書き換えはユーザーの明示的な承認があった場合のみ行う。
+完成した（または完成間近の）パーティを客観的にレビューするスキル。`poke-mate-build-party-with-me` とは対照的に「評価」が主軸で、書き換えはユーザーの明示的な承認があった場合のみ行う。
 
 ## 入力
 
@@ -57,4 +57,4 @@ description: poke-mate の完成済みパーティのタイプ偏り・役割バ
 ## 設計メモ
 
 - このスキルは **read-heavy, write-minimal**
-- 具体的な書き換えは `build-party-with-me` に委譲してもよい
+- 具体的な書き換えは `poke-mate-build-party-with-me` に委譲してもよい
