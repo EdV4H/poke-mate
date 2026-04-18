@@ -17,6 +17,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "@edv4h/poke-mate-data-service": "workspace:*",
+    "@edv4h/poke-mate-damage-calc": "workspace:*",
     "@edv4h/poke-mate-shared-types": "workspace:*",
     "zod": "^3.24.1"
   },
