@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const masterPokemon = sqliteTable("master_pokemon", {
   id: text("id").primaryKey(),
@@ -30,22 +30,28 @@ export const parties = sqliteTable("parties", {
   version: integer("version").notNull().default(1),
 });
 
-export const pokemonSets = sqliteTable("pokemon_sets", {
-  id: text("id").primaryKey(),
-  partyId: text("party_id").notNull().references(() => parties.id, { onDelete: "cascade" }),
-  slot: integer("slot").notNull(),
-  speciesId: text("species_id").notNull(),
-  formeId: text("forme_id"),
-  natureId: text("nature_id"),
-  abilityId: text("ability_id"),
-  itemId: text("item_id"),
-  spJson: text("sp_json").notNull().default("{}"),
-  movesJson: text("moves_json").notNull().default("[]"),
-  isMegaTarget: integer("is_mega_target", { mode: "boolean" }).notNull().default(false),
-  origin: text("origin", { enum: ["home", "scout"] }).notNull().default("home"),
-  originMetaJson: text("origin_meta_json"),
-  version: integer("version").notNull().default(1),
-});
+export const pokemonSets = sqliteTable(
+  "pokemon_sets",
+  {
+    id: text("id").primaryKey(),
+    partyId: text("party_id").notNull().references(() => parties.id, { onDelete: "cascade" }),
+    slot: integer("slot").notNull(),
+    speciesId: text("species_id").notNull(),
+    formeId: text("forme_id"),
+    natureId: text("nature_id"),
+    abilityId: text("ability_id"),
+    itemId: text("item_id"),
+    spJson: text("sp_json").notNull().default("{}"),
+    movesJson: text("moves_json").notNull().default("[]"),
+    isMegaTarget: integer("is_mega_target", { mode: "boolean" }).notNull().default(false),
+    origin: text("origin", { enum: ["gui", "mcp", "scout"] }).notNull().default("gui"),
+    originMetaJson: text("origin_meta_json"),
+    version: integer("version").notNull().default(1),
+  },
+  (table) => ({
+    partySlotUnique: uniqueIndex("idx_pokemon_sets_party_slot").on(table.partyId, table.slot),
+  }),
+);
 
 export const changeEvents = sqliteTable("change_events", {
   id: integer("id").primaryKey({ autoIncrement: true }),

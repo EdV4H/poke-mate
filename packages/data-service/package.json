@@ -17,10 +17,11 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@edv4h/poke-mate-shared-types": "workspace:*",
     "@edv4h/poke-mate-master-data": "workspace:*",
-    "better-sqlite3": "^11.7.0",
-    "drizzle-orm": "^0.38.2"
+    "@edv4h/poke-mate-shared-types": "workspace:*",
+    "better-sqlite3": "^11.10.0",
+    "drizzle-orm": "^0.38.2",
+    "nanoid": "^5.0.9"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
