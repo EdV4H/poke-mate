@@ -30,11 +30,26 @@ function resolveElectronBinary(): string {
   // electron パッケージは require() すると実行ファイルの絶対パスを返す。
   // Electron ABI でビルドされた better-sqlite3 を MCP でも使うため、
   // Electron バイナリを ELECTRON_RUN_AS_NODE=1 で Node 代わりに使う。
-  const requireFromElectron = createRequire(join(ELECTRON_PKG_DIR, "package.json"));
-  const exe = requireFromElectron("electron") as string;
+  const anchor = join(ELECTRON_PKG_DIR, "package.json");
+  if (!existsSync(anchor)) {
+    throw new Error(
+      `${anchor} not found. Run \`pnpm install\` from the repo root to install workspace dependencies.`,
+    );
+  }
+  let exe: unknown;
+  try {
+    const requireFromElectron = createRequire(anchor);
+    exe = requireFromElectron("electron");
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
+    throw new Error(
+      `Failed to resolve the electron package from ${ELECTRON_PKG_DIR}. ` +
+        `Run \`pnpm install\` to install apps/electron dependencies. Cause: ${detail}`,
+    );
+  }
   if (typeof exe !== "string" || !existsSync(exe)) {
     throw new Error(
-      `Electron binary not found at ${String(exe)}. Run \`pnpm install\` and ensure apps/electron is built.`,
+      `Electron binary not found at ${String(exe)}. Run \`pnpm install\` and ensure apps/electron dependencies are installed.`,
     );
   }
   return exe;
