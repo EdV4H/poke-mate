@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 /**
- * Install poke-mate Claude Skills by symlinking `skills/*` into
- * `~/.claude/skills/poke-mate/*`.
+ * Install poke-mate Claude Skills by symlinking `skills/<name>` into
+ * `~/.claude/skills/poke-mate-<name>` (flat placement with prefix).
+ *
+ * Flat placement is required because Claude Code / Desktop only enumerate
+ * SKILL.md under ~/.claude/skills/<top-level>/. A nested layout like
+ * `~/.claude/skills/poke-mate/build-party-with-me/SKILL.md` is not picked up.
  *
  * Usage:
  *   tsx tools/install-skills.ts          # install (symlink)
@@ -16,7 +20,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const sourceRoot = join(repoRoot, "skills");
-const targetRoot = join(homedir(), ".claude", "skills", "poke-mate");
+const skillsRoot = join(homedir(), ".claude", "skills");
+const PREFIX = "poke-mate-";
+const LEGACY_NAMESPACE_DIR = join(skillsRoot, "poke-mate");
 
 type Mode = "install" | "dry" | "undo";
 
@@ -43,6 +49,31 @@ function existingSymlinkTarget(path: string): string | null {
   return null;
 }
 
+function cleanupLegacyNamespaceDir(mode: Mode): void {
+  // Old layout created ~/.claude/skills/poke-mate/<skill>/. Remove any of our
+  // symlinks inside it and the directory itself if it becomes empty.
+  if (!existsSync(LEGACY_NAMESPACE_DIR)) return;
+  const entries = readdirSync(LEGACY_NAMESPACE_DIR);
+  for (const entry of entries) {
+    const p = join(LEGACY_NAMESPACE_DIR, entry);
+    const linkTarget = existingSymlinkTarget(p);
+    const expected = join(sourceRoot, entry);
+    if (linkTarget === expected) {
+      console.log(`- unlink legacy ${p}`);
+      if (mode !== "dry") rmSync(p);
+    }
+  }
+  try {
+    const remaining = readdirSync(LEGACY_NAMESPACE_DIR);
+    if (remaining.length === 0) {
+      console.log(`- rmdir legacy ${LEGACY_NAMESPACE_DIR}`);
+      if (mode !== "dry") rmSync(LEGACY_NAMESPACE_DIR, { recursive: false });
+    }
+  } catch {
+    // ignore
+  }
+}
+
 function main(): void {
   const mode = parseMode(process.argv.slice(2));
   const skills = listSkills();
@@ -54,19 +85,19 @@ function main(): void {
 
   console.log(`poke-mate skills installer (mode=${mode})`);
   console.log(`  source: ${sourceRoot}`);
-  console.log(`  target: ${targetRoot}`);
+  console.log(`  target: ${skillsRoot}/${PREFIX}<name>`);
   console.log("");
 
-  if (mode === "install" || mode === "dry") {
-    if (!existsSync(targetRoot)) {
-      console.log(`+ mkdir ${targetRoot}`);
-      if (mode === "install") mkdirSync(targetRoot, { recursive: true });
-    }
+  cleanupLegacyNamespaceDir(mode);
+
+  if (!existsSync(skillsRoot)) {
+    console.log(`+ mkdir ${skillsRoot}`);
+    if (mode === "install") mkdirSync(skillsRoot, { recursive: true });
   }
 
   for (const name of skills) {
     const src = join(sourceRoot, name);
-    const dst = join(targetRoot, name);
+    const dst = join(skillsRoot, `${PREFIX}${name}`);
 
     if (mode === "undo") {
       const linkTarget = existingSymlinkTarget(dst);
@@ -83,7 +114,7 @@ function main(): void {
 
     const current = existingSymlinkTarget(dst);
     if (current === src) {
-      console.log(`  ok    ${name} already linked`);
+      console.log(`  ok    ${PREFIX}${name} already linked`);
       continue;
     }
     if (existsSync(dst)) {
