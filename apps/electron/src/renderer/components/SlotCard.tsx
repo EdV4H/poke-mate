@@ -89,6 +89,10 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
     // upsertSlot の最後で openParty が走り、その openParty 内で ensureMasters が
     // 呼ばれるため、ここでの明示的な ensureMasters は冗長。
     await upsertSlot(slot, chosen.id);
+    // 差し替え時は set.id は不変 (upsert 実装が同じ行を UPDATE するため) なので
+    // useEffect の set.id 依存では draft 同期が走らない。旧 draft を新ポケモンに
+    // 上書きするのを防ぐため、編集パネルを明示的に閉じて draft を捨てる。
+    setEditing(false);
     setSearching(false);
     setQuery("");
     setCandidates([]);
