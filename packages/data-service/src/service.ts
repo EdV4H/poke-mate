@@ -8,7 +8,8 @@ import type {
   SearchPokemonRequest,
 } from "@edv4h/poke-mate-shared-types";
 import { ChangeBus } from "./change-bus.js";
-import { changeEvents, masterPokemon } from "./schema.js";
+import { changeEvents, masterPokemon, workspaces } from "./schema.js";
+import { createPartyService, type PartyService } from "./services/party.js";
 
 export interface DataServiceOptions {
   dbPath: string;
@@ -16,7 +17,9 @@ export interface DataServiceOptions {
 
 export interface DataService {
   readonly bus: ChangeBus;
+  readonly party: PartyService;
   searchPokemon(req: SearchPokemonRequest): PokemonMaster[];
+  listPokemonMasters(options?: { championsOnly?: boolean; limit?: number }): PokemonMaster[];
   getPokemonDetails(speciesId: string): PokemonMaster | null;
   listChangeEventsSince(sinceId: number): ChangeEvent[];
   close(): void;
@@ -70,7 +73,7 @@ CREATE TABLE IF NOT EXISTS pokemon_sets (
   sp_json TEXT NOT NULL DEFAULT '{}',
   moves_json TEXT NOT NULL DEFAULT '[]',
   is_mega_target INTEGER NOT NULL DEFAULT 0,
-  origin TEXT NOT NULL DEFAULT 'home',
+  origin TEXT NOT NULL DEFAULT 'gui',
   origin_meta_json TEXT,
   version INTEGER NOT NULL DEFAULT 1
 );
@@ -90,11 +93,77 @@ CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_ja ON master_pokemon(name_ja)
 CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_en ON master_pokemon(name_en);
 `;
 
+export const DEFAULT_WORKSPACE_ID = "default";
+
+interface Migration {
+  version: number;
+  up: (sqlite: Database.Database) => void;
+}
+
+const MIGRATIONS: Migration[] = [
+  {
+    version: 1,
+    up: (sqlite) => {
+      sqlite.exec(MIGRATION_SQL);
+    },
+  },
+  {
+    version: 2,
+    up: (sqlite) => {
+      // pokemon_sets.origin の既存 'home' 行を 'gui' にバックフィル。
+      // Phase 0 時点の default 'home' が残っている場合のみ影響する。
+      sqlite.exec(`UPDATE pokemon_sets SET origin = 'gui' WHERE origin = 'home';`);
+    },
+  },
+  {
+    version: 3,
+    up: (sqlite) => {
+      // (party_id, slot) の UNIQUE INDEX を v1 済みの既存 DB にも適用する。
+      // 既存行に重複があれば slot の重複を検知してエラー化する（手動対応が必要）。
+      sqlite.exec(
+        `CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_sets_party_slot ON pokemon_sets(party_id, slot);`,
+      );
+    },
+  },
+];
+
 function applyMigrations(sqlite: Database.Database): void {
-  sqlite.exec(MIGRATION_SQL);
-  sqlite
-    .prepare("INSERT OR IGNORE INTO schema_migrations (version, applied_at) VALUES (?, ?)")
-    .run(1, new Date().toISOString());
+  sqlite.exec(
+    `CREATE TABLE IF NOT EXISTS schema_migrations (
+       version INTEGER PRIMARY KEY,
+       applied_at TEXT NOT NULL
+     );`,
+  );
+  // BEGIN IMMEDIATE で書き込みロックを取得してから version チェック/適用まで
+  // 1 トランザクションで行うことで、並行起動したプロセスとのレース条件を防ぐ。
+  // 二重 INSERT に対しては OR IGNORE で idempotent に倒す。
+  const checkApplied = sqlite.prepare(
+    "SELECT 1 FROM schema_migrations WHERE version = ?",
+  );
+  const record = sqlite.prepare(
+    "INSERT OR IGNORE INTO schema_migrations (version, applied_at) VALUES (?, ?)",
+  );
+  for (const m of MIGRATIONS) {
+    const tx = sqlite.transaction(() => {
+      if (checkApplied.get(m.version)) return;
+      m.up(sqlite);
+      record.run(m.version, new Date().toISOString());
+    });
+    tx.immediate();
+  }
+}
+
+function seedDefaultWorkspace(db: BetterSQLite3Database): void {
+  const ts = new Date().toISOString();
+  db.insert(workspaces)
+    .values({
+      id: DEFAULT_WORKSPACE_ID,
+      name: "Default",
+      createdAt: ts,
+      updatedAt: ts,
+    })
+    .onConflictDoNothing()
+    .run();
 }
 
 function seedMasterPokemon(db: BetterSQLite3Database, sqlite: Database.Database): void {
@@ -142,12 +211,20 @@ export function createDataService(options: DataServiceOptions): DataService {
 
   const db = drizzle(sqlite);
   applyMigrations(sqlite);
+  seedDefaultWorkspace(db);
   seedMasterPokemon(db, sqlite);
 
   const bus = new ChangeBus();
+  const party = createPartyService({
+    db,
+    sqlite,
+    bus,
+    defaultWorkspaceId: DEFAULT_WORKSPACE_ID,
+  });
 
   return {
     bus,
+    party,
 
     searchPokemon(req) {
       const trimmed = req.query.trim();
@@ -163,6 +240,14 @@ export function createDataService(options: DataServiceOptions): DataService {
         ? and(eq(masterPokemon.championsAvailable, true), nameMatch)
         : nameMatch;
       const rows = db.select().from(masterPokemon).where(where).limit(limit).all();
+      return rows.map(rowToPokemonMaster);
+    },
+
+    listPokemonMasters(options) {
+      const limit = Math.min(Math.max(options?.limit ?? 500, 1), 2000);
+      const where = options?.championsOnly ? eq(masterPokemon.championsAvailable, true) : undefined;
+      const query = db.select().from(masterPokemon);
+      const rows = (where ? query.where(where) : query).limit(limit).all();
       return rows.map(rowToPokemonMaster);
     },
 

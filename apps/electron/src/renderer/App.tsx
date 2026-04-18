@@ -1,86 +1,55 @@
 import { useEffect, useState } from "react";
-import type { PokemonMaster } from "@edv4h/poke-mate-shared-types";
+import { SearchPage } from "./pages/SearchPage.js";
+import { PartyListPage } from "./pages/PartyListPage.js";
+import { PartyBuilderPage } from "./pages/PartyBuilderPage.js";
+import { Toast } from "./components/Toast.js";
+import { usePartyStore } from "./stores/party-store.js";
+
+type View =
+  | { kind: "search" }
+  | { kind: "parties" }
+  | { kind: "builder"; partyId: string };
 
 export function App(): JSX.Element {
-  const [query, setQuery] = useState("");
-  const [championsOnly, setChampionsOnly] = useState(true);
-  const [results, setResults] = useState<PokemonMaster[]>([]);
-  const [loading, setLoading] = useState(false);
+  const init = usePartyStore((s) => s.init);
+  const [view, setView] = useState<View>({ kind: "parties" });
 
   useEffect(() => {
-    const trimmed = query.trim();
-    if (trimmed === "") {
-      setResults([]);
-      setLoading(false);
-      return;
-    }
-    const controller = { cancelled: false };
-    setLoading(true);
-    void window.pokeMate
-      .searchPokemon({ query: trimmed, championsOnly, limit: 50 })
-      .then((r) => {
-        if (!controller.cancelled) setResults(r);
-      })
-      .finally(() => {
-        if (!controller.cancelled) setLoading(false);
-      });
-    return () => {
-      controller.cancelled = true;
-    };
-  }, [query, championsOnly]);
+    void init();
+  }, [init]);
 
   return (
     <main className="container">
-      <header>
+      <header className="app-header">
         <h1>poke-mate</h1>
-        <p className="subtitle">Pokémon Champions 対戦研究ノート — Phase 0</p>
+        <nav>
+          <button
+            className={view.kind === "parties" || view.kind === "builder" ? "active" : ""}
+            onClick={() => setView({ kind: "parties" })}
+          >
+            パーティ
+          </button>
+          <button
+            className={view.kind === "search" ? "active" : ""}
+            onClick={() => setView({ kind: "search" })}
+          >
+            検索
+          </button>
+        </nav>
       </header>
 
-      <section className="search-bar">
-        <input
-          type="search"
-          aria-label="ポケモン検索"
-          placeholder="ポケモン名 / 英名 / ID で検索"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          autoFocus
-        />
-        <label>
-          <input
-            type="checkbox"
-            checked={championsOnly}
-            onChange={(e) => setChampionsOnly(e.target.checked)}
-          />
-          Champions プールのみ
-        </label>
-      </section>
-
-      {loading ? (
-        <p className="status">検索中…</p>
-      ) : results.length === 0 ? (
-        <p className="status">{query.trim() ? "該当なし" : "キーワードを入力してください"}</p>
-      ) : (
-        <ul className="results">
-          {results.map((p) => (
-            <li key={p.id}>
-              <div className="name">
-                <strong>{p.nameJa}</strong>
-                <span className="en">{p.nameEn}</span>
-                <span className="dex">#{p.dexNo}</span>
-              </div>
-              <div className="types">
-                {p.types.map((t) => (
-                  <span key={t} className={`type type-${t}`}>{t}</span>
-                ))}
-              </div>
-              <div className="stats">
-                H {p.baseStats.hp} / A {p.baseStats.atk} / B {p.baseStats.def} /
-                C {p.baseStats.spa} / D {p.baseStats.spd} / S {p.baseStats.spe}
-              </div>
-            </li>
-          ))}
-        </ul>
+      {view.kind === "search" && <SearchPage />}
+      {view.kind === "parties" && (
+        <PartyListPage onOpen={(partyId) => setView({ kind: "builder", partyId })} />
       )}
+      {view.kind === "builder" && (
+        <PartyBuilderPage
+          partyId={view.partyId}
+          onBack={() => setView({ kind: "parties" })}
+        />
+      )}
+
+      <Toast />
     </main>
   );
 }
