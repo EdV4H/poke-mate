@@ -25,7 +25,7 @@
       {
         "id": "venusaur-mega",
         "nameJa": "メガフシギバナ",
-        "nameEn": "Venusaur Mega",
+        "nameEn": "Mega Venusaur",
         "types": [
           "grass",
           "poison"
@@ -68,7 +68,7 @@
       {
         "id": "charizard-mega-x",
         "nameJa": "メガリザードンＸ",
-        "nameEn": "Charizard Mega X",
+        "nameEn": "Mega Charizard X",
         "types": [
           "fire",
           "dragon"
@@ -86,7 +86,7 @@
       {
         "id": "charizard-mega-y",
         "nameJa": "メガリザードンＹ",
-        "nameEn": "Charizard Mega Y",
+        "nameEn": "Mega Charizard Y",
         "types": [
           "fire",
           "flying"
@@ -128,7 +128,7 @@
       {
         "id": "blastoise-mega",
         "nameJa": "メガカメックス",
-        "nameEn": "Blastoise Mega",
+        "nameEn": "Mega Blastoise",
         "types": [
           "water"
         ],
@@ -170,7 +170,7 @@
       {
         "id": "beedrill-mega",
         "nameJa": "メガスピアー",
-        "nameEn": "Beedrill Mega",
+        "nameEn": "Mega Beedrill",
         "types": [
           "bug",
           "poison"
@@ -214,7 +214,7 @@
       {
         "id": "pidgeot-mega",
         "nameJa": "メガピジョット",
-        "nameEn": "Pidgeot Mega",
+        "nameEn": "Mega Pidgeot",
         "types": [
           "normal",
           "flying"
@@ -302,7 +302,7 @@
     "id": "raichu-alola",
     "dexNo": 26,
     "nameJa": "ライチュウ(アローラのすがた)",
-    "nameEn": "Raichu Alola",
+    "nameEn": "Alolan Raichu",
     "types": [
       "electric",
       "psychic"
@@ -346,7 +346,7 @@
       {
         "id": "clefable-mega",
         "nameJa": "Clefable Mega",
-        "nameEn": "Clefable Mega",
+        "nameEn": "Mega Clefable",
         "types": [
           "fairy",
           "flying"
@@ -389,7 +389,7 @@
     "id": "ninetales-alola",
     "dexNo": 38,
     "nameJa": "キュウコン(アローラのすがた)",
-    "nameEn": "Ninetales Alola",
+    "nameEn": "Alolan Ninetales",
     "types": [
       "ice",
       "fairy"
@@ -435,7 +435,7 @@
     "id": "arcanine-hisui",
     "dexNo": 59,
     "nameJa": "ウインディ(ヒスイのすがた)",
-    "nameEn": "Arcanine Hisui",
+    "nameEn": "Hisuian Arcanine",
     "types": [
       "fire",
       "rock"
@@ -481,7 +481,7 @@
       {
         "id": "alakazam-mega",
         "nameJa": "メガフーディン",
-        "nameEn": "Alakazam Mega",
+        "nameEn": "Mega Alakazam",
         "types": [
           "psychic"
         ],
@@ -546,7 +546,7 @@
       {
         "id": "victreebel-mega",
         "nameJa": "Victreebel Mega",
-        "nameEn": "Victreebel Mega",
+        "nameEn": "Mega Victreebel",
         "types": [
           "grass",
           "poison"
@@ -590,7 +590,7 @@
       {
         "id": "slowbro-mega",
         "nameJa": "メガヤドラン",
-        "nameEn": "Slowbro Mega",
+        "nameEn": "Mega Slowbro",
         "types": [
           "water",
           "psychic"
@@ -611,7 +611,7 @@
     "id": "slowbro-galar",
     "dexNo": 80,
     "nameJa": "ヤドラン(ガラルのすがた)",
-    "nameEn": "Slowbro Galar",
+    "nameEn": "Galarian Slowbro",
     "types": [
       "poison",
       "psychic"
@@ -656,7 +656,7 @@
       {
         "id": "gengar-mega",
         "nameJa": "メガゲンガー",
-        "nameEn": "Gengar Mega",
+        "nameEn": "Mega Gengar",
         "types": [
           "ghost",
           "poison"
@@ -699,7 +699,7 @@
       {
         "id": "kangaskhan-mega",
         "nameJa": "メガガルーラ",
-        "nameEn": "Kangaskhan Mega",
+        "nameEn": "Mega Kangaskhan",
         "types": [
           "normal"
         ],
@@ -742,7 +742,7 @@
       {
         "id": "starmie-mega",
         "nameJa": "Starmie Mega",
-        "nameEn": "Starmie Mega",
+        "nameEn": "Mega Starmie",
         "types": [
           "water",
           "psychic"
@@ -785,7 +785,7 @@
       {
         "id": "pinsir-mega",
         "nameJa": "メガカイロス",
-        "nameEn": "Pinsir Mega",
+        "nameEn": "Mega Pinsir",
         "types": [
           "bug",
           "flying"
@@ -829,7 +829,7 @@
     "id": "tauros-paldea-combat",
     "dexNo": 128,
     "nameJa": "ケンタロス(パルデアのすがた)",
-    "nameEn": "Tauros Paldea Combat Breed",
+    "nameEn": "Paldean Tauros (Combat Breed)",
     "types": [
       "fighting"
     ],
@@ -874,7 +874,7 @@
       {
         "id": "gyarados-mega",
         "nameJa": "メガギャラドス",
-        "nameEn": "Gyarados Mega",
+        "nameEn": "Mega Gyarados",
         "types": [
           "water",
           "dark"
@@ -1006,7 +1006,7 @@
       {
         "id": "aerodactyl-mega",
         "nameJa": "メガプテラ",
-        "nameEn": "Aerodactyl Mega",
+        "nameEn": "Mega Aerodactyl",
         "types": [
           "rock",
           "flying"
@@ -1072,7 +1072,7 @@
       {
         "id": "dragonite-mega",
         "nameJa": "Dragonite Mega",
-        "nameEn": "Dragonite Mega",
+        "nameEn": "Mega Dragonite",
         "types": [
           "dragon",
           "flying"
@@ -1114,7 +1114,7 @@
       {
         "id": "meganium-mega",
         "nameJa": "Meganium Mega",
-        "nameEn": "Meganium Mega",
+        "nameEn": "Mega Meganium",
         "types": [
           "grass",
           "fairy"
@@ -1157,7 +1157,7 @@
     "id": "typhlosion-hisui",
     "dexNo": 157,
     "nameJa": "バクフーン(ヒスイのすがた)",
-    "nameEn": "Typhlosion Hisui",
+    "nameEn": "Hisuian Typhlosion",
     "types": [
       "fire",
       "ghost"
@@ -1201,7 +1201,7 @@
       {
         "id": "feraligatr-mega",
         "nameJa": "Feraligatr Mega",
-        "nameEn": "Feraligatr Mega",
+        "nameEn": "Mega Feraligatr",
         "types": [
           "water",
           "dragon"
@@ -1267,7 +1267,7 @@
       {
         "id": "ampharos-mega",
         "nameJa": "メガデンリュウ",
-        "nameEn": "Ampharos Mega",
+        "nameEn": "Mega Ampharos",
         "types": [
           "electric",
           "dragon"
@@ -1403,7 +1403,7 @@
     "id": "slowking-galar",
     "dexNo": 199,
     "nameJa": "ヤドキング(ガラルのすがた)",
-    "nameEn": "Slowking Galar",
+    "nameEn": "Galarian Slowking",
     "types": [
       "poison",
       "psychic"
@@ -1473,7 +1473,7 @@
       {
         "id": "steelix-mega",
         "nameJa": "メガハガネール",
-        "nameEn": "Steelix Mega",
+        "nameEn": "Mega Steelix",
         "types": [
           "steel",
           "ground"
@@ -1517,7 +1517,7 @@
       {
         "id": "scizor-mega",
         "nameJa": "メガハッサム",
-        "nameEn": "Scizor Mega",
+        "nameEn": "Mega Scizor",
         "types": [
           "bug",
           "steel"
@@ -1561,7 +1561,7 @@
       {
         "id": "heracross-mega",
         "nameJa": "メガヘラクロス",
-        "nameEn": "Heracross Mega",
+        "nameEn": "Mega Heracross",
         "types": [
           "bug",
           "fighting"
@@ -1605,7 +1605,7 @@
       {
         "id": "skarmory-mega",
         "nameJa": "Skarmory Mega",
-        "nameEn": "Skarmory Mega",
+        "nameEn": "Mega Skarmory",
         "types": [
           "steel",
           "flying"
@@ -1649,7 +1649,7 @@
       {
         "id": "houndoom-mega",
         "nameJa": "メガヘルガー",
-        "nameEn": "Houndoom Mega",
+        "nameEn": "Mega Houndoom",
         "types": [
           "dark",
           "fire"
@@ -1692,7 +1692,7 @@
       {
         "id": "tyranitar-mega",
         "nameJa": "メガバンギラス",
-        "nameEn": "Tyranitar Mega",
+        "nameEn": "Mega Tyranitar",
         "types": [
           "rock",
           "dark"
@@ -1760,7 +1760,7 @@
       {
         "id": "gardevoir-mega",
         "nameJa": "メガサーナイト",
-        "nameEn": "Gardevoir Mega",
+        "nameEn": "Mega Gardevoir",
         "types": [
           "psychic",
           "fairy"
@@ -1804,7 +1804,7 @@
       {
         "id": "sableye-mega",
         "nameJa": "メガヤミラミ",
-        "nameEn": "Sableye Mega",
+        "nameEn": "Mega Sableye",
         "types": [
           "dark",
           "ghost"
@@ -1848,7 +1848,7 @@
       {
         "id": "aggron-mega",
         "nameJa": "メガボスゴドラ",
-        "nameEn": "Aggron Mega",
+        "nameEn": "Mega Aggron",
         "types": [
           "steel"
         ],
@@ -1890,7 +1890,7 @@
       {
         "id": "medicham-mega",
         "nameJa": "メガチャーレム",
-        "nameEn": "Medicham Mega",
+        "nameEn": "Mega Medicham",
         "types": [
           "fighting",
           "psychic"
@@ -1933,7 +1933,7 @@
       {
         "id": "manectric-mega",
         "nameJa": "メガライボルト",
-        "nameEn": "Manectric Mega",
+        "nameEn": "Mega Manectric",
         "types": [
           "electric"
         ],
@@ -1975,7 +1975,7 @@
       {
         "id": "sharpedo-mega",
         "nameJa": "メガサメハダー",
-        "nameEn": "Sharpedo Mega",
+        "nameEn": "Mega Sharpedo",
         "types": [
           "water",
           "dark"
@@ -2019,7 +2019,7 @@
       {
         "id": "camerupt-mega",
         "nameJa": "メガバクーダ",
-        "nameEn": "Camerupt Mega",
+        "nameEn": "Mega Camerupt",
         "types": [
           "fire",
           "ground"
@@ -2085,7 +2085,7 @@
       {
         "id": "altaria-mega",
         "nameJa": "メガチルタリス",
-        "nameEn": "Altaria Mega",
+        "nameEn": "Mega Altaria",
         "types": [
           "dragon",
           "fairy"
@@ -2172,7 +2172,7 @@
       {
         "id": "banette-mega",
         "nameJa": "メガジュペッタ",
-        "nameEn": "Banette Mega",
+        "nameEn": "Mega Banette",
         "types": [
           "ghost"
         ],
@@ -2212,7 +2212,7 @@
       {
         "id": "chimecho-mega",
         "nameJa": "Chimecho Mega",
-        "nameEn": "Chimecho Mega",
+        "nameEn": "Mega Chimecho",
         "types": [
           "psychic",
           "steel"
@@ -2255,7 +2255,7 @@
       {
         "id": "absol-mega",
         "nameJa": "メガアブソル",
-        "nameEn": "Absol Mega",
+        "nameEn": "Mega Absol",
         "types": [
           "dark"
         ],
@@ -2297,7 +2297,7 @@
       {
         "id": "glalie-mega",
         "nameJa": "メガオニゴーリ",
-        "nameEn": "Glalie Mega",
+        "nameEn": "Mega Glalie",
         "types": [
           "ice"
         ],
@@ -2339,7 +2339,7 @@
       {
         "id": "metagross-mega",
         "nameJa": "メガメタグロス",
-        "nameEn": "Metagross Mega",
+        "nameEn": "Mega Metagross",
         "types": [
           "steel",
           "psychic"
@@ -2543,7 +2543,7 @@
       {
         "id": "lopunny-mega",
         "nameJa": "メガミミロップ",
-        "nameEn": "Lopunny Mega",
+        "nameEn": "Mega Lopunny",
         "types": [
           "normal",
           "fighting"
@@ -2609,7 +2609,7 @@
       {
         "id": "garchomp-mega",
         "nameJa": "メガガブリアス",
-        "nameEn": "Garchomp Mega",
+        "nameEn": "Mega Garchomp",
         "types": [
           "dragon",
           "ground"
@@ -2653,7 +2653,7 @@
       {
         "id": "lucario-mega",
         "nameJa": "メガルカリオ",
-        "nameEn": "Lucario Mega",
+        "nameEn": "Mega Lucario",
         "types": [
           "fighting",
           "steel"
@@ -2742,7 +2742,7 @@
       {
         "id": "abomasnow-mega",
         "nameJa": "メガユキノオー",
-        "nameEn": "Abomasnow Mega",
+        "nameEn": "Mega Abomasnow",
         "types": [
           "grass",
           "ice"
@@ -2925,7 +2925,7 @@
       {
         "id": "gallade-mega",
         "nameJa": "メガエルレイド",
-        "nameEn": "Gallade Mega",
+        "nameEn": "Mega Gallade",
         "types": [
           "psychic",
           "fighting"
@@ -2968,7 +2968,7 @@
       {
         "id": "froslass-mega",
         "nameJa": "Froslass Mega",
-        "nameEn": "Froslass Mega",
+        "nameEn": "Mega Froslass",
         "types": [
           "ice",
           "ghost"
@@ -3055,7 +3055,7 @@
       {
         "id": "emboar-mega",
         "nameJa": "Emboar Mega",
-        "nameEn": "Emboar Mega",
+        "nameEn": "Mega Emboar",
         "types": [
           "fire",
           "fighting"
@@ -3098,7 +3098,7 @@
     "id": "samurott-hisui",
     "dexNo": 503,
     "nameJa": "ダイケンキ(ヒスイのすがた)",
-    "nameEn": "Samurott Hisui",
+    "nameEn": "Hisuian Samurott",
     "types": [
       "water",
       "dark"
@@ -3256,7 +3256,7 @@
       {
         "id": "excadrill-mega",
         "nameJa": "Excadrill Mega",
-        "nameEn": "Excadrill Mega",
+        "nameEn": "Mega Excadrill",
         "types": [
           "ground",
           "steel"
@@ -3299,7 +3299,7 @@
       {
         "id": "audino-mega",
         "nameJa": "メガタブンネ",
-        "nameEn": "Audino Mega",
+        "nameEn": "Mega Audino",
         "types": [
           "normal",
           "fairy"
@@ -3456,7 +3456,7 @@
     "id": "zoroark-hisui",
     "dexNo": 571,
     "nameJa": "ゾロアーク(ヒスイのすがた)",
-    "nameEn": "Zoroark Hisui",
+    "nameEn": "Hisuian Zoroark",
     "types": [
       "normal",
       "ghost"
@@ -3570,7 +3570,7 @@
       {
         "id": "chandelure-mega",
         "nameJa": "Chandelure Mega",
-        "nameEn": "Chandelure Mega",
+        "nameEn": "Mega Chandelure",
         "types": [
           "ghost",
           "fire"
@@ -3638,7 +3638,7 @@
     "id": "stunfisk-galar",
     "dexNo": 618,
     "nameJa": "マッギョ(ガラルのすがた)",
-    "nameEn": "Stunfisk Galar",
+    "nameEn": "Galarian Stunfisk",
     "types": [
       "ground",
       "steel"
@@ -3683,7 +3683,7 @@
       {
         "id": "golurk-mega",
         "nameJa": "Golurk Mega",
-        "nameEn": "Golurk Mega",
+        "nameEn": "Mega Golurk",
         "types": [
           "ground",
           "ghost"
@@ -3749,7 +3749,7 @@
     "id": "landorus-therian",
     "dexNo": 645,
     "nameJa": "ランドロス(れいじゅうフォルム)",
-    "nameEn": "Landorus Therian",
+    "nameEn": "Therian Landorus",
     "types": [
       "ground",
       "flying"
@@ -3793,7 +3793,7 @@
       {
         "id": "chesnaught-mega",
         "nameJa": "Chesnaught Mega",
-        "nameEn": "Chesnaught Mega",
+        "nameEn": "Mega Chesnaught",
         "types": [
           "grass",
           "fighting"
@@ -3836,7 +3836,7 @@
       {
         "id": "delphox-mega",
         "nameJa": "Delphox Mega",
-        "nameEn": "Delphox Mega",
+        "nameEn": "Mega Delphox",
         "types": [
           "fire",
           "psychic"
@@ -3879,7 +3879,7 @@
       {
         "id": "greninja-mega",
         "nameJa": "Greninja Mega",
-        "nameEn": "Greninja Mega",
+        "nameEn": "Mega Greninja",
         "types": [
           "water",
           "dark"
@@ -3992,7 +3992,7 @@
       {
         "id": "floette-mega",
         "nameJa": "Floette Mega",
-        "nameEn": "Floette Mega",
+        "nameEn": "Mega Floette",
         "types": [
           "fairy"
         ],
@@ -4079,7 +4079,7 @@
     "id": "meowstic",
     "dexNo": 678,
     "nameJa": "ニャオニクス",
-    "nameEn": "Meowstic Male",
+    "nameEn": "Meowstic",
     "types": [
       "psychic"
     ],
@@ -4101,7 +4101,7 @@
       {
         "id": "meowstic-mega",
         "nameJa": "Meowstic Mega",
-        "nameEn": "Meowstic Mega",
+        "nameEn": "Mega Meowstic",
         "types": [
           "psychic"
         ],
@@ -4121,7 +4121,7 @@
     "id": "aegislash",
     "dexNo": 681,
     "nameJa": "ギルガルド",
-    "nameEn": "Aegislash Shield",
+    "nameEn": "Aegislash",
     "types": [
       "steel",
       "ghost"
@@ -4323,7 +4323,7 @@
       {
         "id": "hawlucha-mega",
         "nameJa": "Hawlucha Mega",
-        "nameEn": "Hawlucha Mega",
+        "nameEn": "Mega Hawlucha",
         "types": [
           "fighting",
           "flying"
@@ -4391,7 +4391,7 @@
     "id": "goodra-hisui",
     "dexNo": 706,
     "nameJa": "ヌメルゴン(ヒスイのすがた)",
-    "nameEn": "Goodra Hisui",
+    "nameEn": "Hisuian Goodra",
     "types": [
       "steel",
       "dragon"
@@ -4462,7 +4462,7 @@
     "id": "gourgeist",
     "dexNo": 711,
     "nameJa": "パンプジン",
-    "nameEn": "Gourgeist Average",
+    "nameEn": "Gourgeist",
     "types": [
       "ghost",
       "grass"
@@ -4509,7 +4509,7 @@
     "id": "avalugg-hisui",
     "dexNo": 713,
     "nameJa": "クレベース(ヒスイのすがた)",
-    "nameEn": "Avalugg Hisui",
+    "nameEn": "Hisuian Avalugg",
     "types": [
       "ice",
       "rock"
@@ -4580,7 +4580,7 @@
     "id": "decidueye-hisui",
     "dexNo": 724,
     "nameJa": "ジュナイパー(ヒスイのすがた)",
-    "nameEn": "Decidueye Hisui",
+    "nameEn": "Hisuian Decidueye",
     "types": [
       "grass",
       "fighting"
@@ -4696,7 +4696,7 @@
       {
         "id": "crabominable-mega",
         "nameJa": "Crabominable Mega",
-        "nameEn": "Crabominable Mega",
+        "nameEn": "Mega Crabominable",
         "types": [
           "fighting",
           "ice"
@@ -4717,7 +4717,7 @@
     "id": "lycanroc",
     "dexNo": 745,
     "nameJa": "ルガルガン",
-    "nameEn": "Lycanroc Midday",
+    "nameEn": "Lycanroc",
     "types": [
       "rock"
     ],
@@ -4902,7 +4902,7 @@
     "id": "mimikyu",
     "dexNo": 778,
     "nameJa": "ミミッキュ",
-    "nameEn": "Mimikyu Disguised",
+    "nameEn": "Mimikyu",
     "types": [
       "ghost",
       "fairy"
@@ -4947,7 +4947,7 @@
       {
         "id": "drampa-mega",
         "nameJa": "Drampa Mega",
-        "nameEn": "Drampa Mega",
+        "nameEn": "Mega Drampa",
         "types": [
           "normal",
           "dragon"
@@ -4968,7 +4968,7 @@
     "id": "kommo-o",
     "dexNo": 784,
     "nameJa": "ジャラランガ",
-    "nameEn": "Kommo O",
+    "nameEn": "Kommo-o",
     "types": [
       "dragon",
       "fighting"
@@ -5133,7 +5133,7 @@
     "id": "mr-rime",
     "dexNo": 866,
     "nameJa": "バリコオル",
-    "nameEn": "Mr Rime",
+    "nameEn": "Mr. Rime",
     "types": [
       "ice",
       "psychic"
@@ -5201,7 +5201,7 @@
     "id": "morpeko",
     "dexNo": 877,
     "nameJa": "モルペコ",
-    "nameEn": "Morpeko Full Belly",
+    "nameEn": "Morpeko",
     "types": [
       "electric",
       "dark"
@@ -5295,7 +5295,7 @@
     "id": "basculegion",
     "dexNo": 902,
     "nameJa": "イダイトウ",
-    "nameEn": "Basculegion Male",
+    "nameEn": "Basculegion",
     "types": [
       "water",
       "ghost"
@@ -5412,7 +5412,7 @@
     "id": "maushold",
     "dexNo": 925,
     "nameJa": "イッカネズミ",
-    "nameEn": "Maushold Family Of Four",
+    "nameEn": "Maushold",
     "types": [
       "normal"
     ],
@@ -5550,7 +5550,7 @@
       {
         "id": "scovillain-mega",
         "nameJa": "Scovillain Mega",
-        "nameEn": "Scovillain Mega",
+        "nameEn": "Mega Scovillain",
         "types": [
           "grass",
           "fire"
@@ -5618,7 +5618,7 @@
     "id": "palafin",
     "dexNo": 964,
     "nameJa": "イルカマン",
-    "nameEn": "Palafin Zero",
+    "nameEn": "Palafin",
     "types": [
       "water"
     ],
@@ -5683,7 +5683,7 @@
       {
         "id": "glimmora-mega",
         "nameJa": "Glimmora Mega",
-        "nameEn": "Glimmora Mega",
+        "nameEn": "Mega Glimmora",
         "types": [
           "rock",
           "poison"
@@ -5819,7 +5819,7 @@
     "id": "ogerpon-wellspring",
     "dexNo": 1017,
     "nameJa": "オーガポン(いどのめん)",
-    "nameEn": "Ogerpon Wellspring Mask",
+    "nameEn": "Wellspring Mask Ogerpon",
     "types": [
       "grass",
       "water"

@@ -12,7 +12,9 @@
  * - Allowlist (packages/master-data/data/champions-allowlist.json) is the
  *   source of truth for which species/megas to include.
  * - PokeAPI responses are cached under .cache/pokeapi/ so re-runs are free.
- * - Rate limit: ~4 requests/second with concurrency=4.
+ * - Rate limit: concurrency=4 with a global minimum interval between requests,
+ *   giving ~4 requests/second. Enforced by a shared token-bucket in fetchJson
+ *   so parallel workers don't exceed the limit.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -90,6 +92,17 @@ function cachePathFor(pathname: string): string {
   return join(CACHE_DIR, `${safe}.json`);
 }
 
+// Shared token-bucket: allow one network hit per MIN_INTERVAL_MS across all
+// parallel workers. Cache hits are free and bypass this gate.
+const MIN_INTERVAL_MS = 250;
+let nextAllowedAt = 0;
+async function throttle(): Promise<void> {
+  const now = Date.now();
+  const wait = nextAllowedAt - now;
+  if (wait > 0) await sleep(wait);
+  nextAllowedAt = Math.max(now, nextAllowedAt) + MIN_INTERVAL_MS;
+}
+
 async function fetchJson(pathname: string, refresh: boolean): Promise<unknown> {
   const cachePath = cachePathFor(pathname);
   if (!refresh && existsSync(cachePath)) {
@@ -97,6 +110,7 @@ async function fetchJson(pathname: string, refresh: boolean): Promise<unknown> {
   }
   const url = `${POKEAPI_BASE}${pathname}`;
   for (let attempt = 0; attempt < 3; attempt++) {
+    await throttle();
     const res = await fetch(url);
     if (res.status === 429 || res.status >= 500) {
       const backoff = 500 * Math.pow(2, attempt);
@@ -199,7 +213,15 @@ function pickJa(names: PokeApiName[] | undefined): string | undefined {
   return hit?.name;
 }
 
+function pickEn(names: PokeApiName[] | undefined): string | undefined {
+  if (!names) return undefined;
+  return names.find((n) => n.language.name === "en")?.name;
+}
+
 function toTitleCase(slug: string): string {
+  // Fallback only — prefer PokeAPI's official English name (language=en) over
+  // this slug transform, because slug-based title-casing drops punctuation
+  // (e.g. kommo-o → "Kommo O", porygon-z → "Porygon Z").
   return slug.split("-").map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(" ");
 }
 
@@ -214,25 +236,32 @@ async function fetchBaseRecord(entry: AllowlistEntry, refresh: boolean): Promise
   // the species name ("ランドロス") as "<species>(<form>)" for readability.
   // A form is "alternate" when entry.speciesId is not the species' default variety.
   const speciesJa = pickJa(species.names);
+  const speciesEn = pickEn(species.names);
   let formSuffixJa: string | undefined;
+  let formSuffixEn: string | undefined;
   let formFullJa: string | undefined;
+  let formFullEn: string | undefined;
   const defaultVariety = species.varieties?.find((v) => v.is_default)?.pokemon.name;
   const isAltForm = defaultVariety !== undefined && entry.speciesId !== defaultVariety;
   if (isAltForm) {
     try {
       const form = (await fetchJson(`/pokemon-form/${entry.speciesId}`, refresh)) as PokeApiForm;
       formSuffixJa = pickJa(form.form_names);
+      formSuffixEn = pickEn(form.form_names);
       // /pokemon-form/.names is the full "アローラライチュウ" style if present.
       formFullJa = pickJa(form.names);
+      formFullEn = pickEn(form.names);
     } catch {
       // fall through to species name
     }
   }
 
   const combinedFormJa = formSuffixJa && speciesJa ? `${speciesJa}(${formSuffixJa})` : undefined;
+  const combinedFormEn = formSuffixEn && speciesEn ? `${speciesEn} (${formSuffixEn})` : undefined;
   const nameJa =
     entry.nameJaOverride ?? formFullJa ?? combinedFormJa ?? speciesJa ?? pokemon.name;
-  const nameEn = toTitleCase(pokemon.name);
+  const nameEn =
+    formFullEn ?? combinedFormEn ?? speciesEn ?? toTitleCase(pokemon.name);
   const id = entry.aliasId ?? entry.speciesId;
 
   return {
@@ -250,16 +279,18 @@ async function fetchBaseRecord(entry: AllowlistEntry, refresh: boolean): Promise
 async function fetchMegaForm(slug: string, refresh: boolean): Promise<MegaForm> {
   const pokemon = (await fetchJson(`/pokemon/${slug}`, refresh)) as PokeApiPokemon;
   let nameJa: string | undefined;
+  let nameEn: string | undefined;
   try {
     const form = (await fetchJson(`/pokemon-form/${slug}`, refresh)) as PokeApiForm;
-    nameJa = pickJa(form.form_names) ?? pickJa(form.names);
+    nameJa = pickJa(form.names) ?? pickJa(form.form_names);
+    nameEn = pickEn(form.names) ?? pickEn(form.form_names);
   } catch {
     // some forms lack /pokemon-form; fall back to slug.
   }
   return {
     id: slug,
     nameJa: nameJa ?? toTitleCase(slug),
-    nameEn: toTitleCase(slug),
+    nameEn: nameEn ?? toTitleCase(slug),
     types: normalizeTypes(pokemon),
     baseStats: normalizeStats(pokemon),
     ability: pokemon.abilities[0]?.ability.name ?? "unknown",
