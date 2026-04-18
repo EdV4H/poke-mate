@@ -376,7 +376,7 @@ async function main(): Promise<void> {
         case "suggest_party_slot": {
           const input = SuggestPartySlotInput.parse(req.params.arguments ?? {});
           const party = data.party.getParty(input.party_id);
-          if (!party) throw new Error(`Party not found: ${input.party_id}`);
+          if (!party) throw new NotFoundError("party", input.party_id);
 
           const candidateLimit = input.candidate_limit ?? 200;
           const pool = data.listPokemonMasters({ championsOnly: true, limit: candidateLimit });
@@ -406,7 +406,7 @@ async function main(): Promise<void> {
         case "analyze_type_coverage": {
           const input = AnalyzeTypeCoverageInput.parse(req.params.arguments ?? {});
           const party = data.party.getParty(input.party_id);
-          if (!party) throw new Error(`Party not found: ${input.party_id}`);
+          if (!party) throw new NotFoundError("party", input.party_id);
 
           const masterIndex = new Map<string, PokemonMaster>();
           for (const s of party.sets) {
@@ -472,6 +472,20 @@ async function main(): Promise<void> {
                 error: "NotFound",
                 entity_type: err.entityType,
                 entity_id: err.entityId,
+              }),
+            },
+          ],
+        };
+      }
+      if (err instanceof z.ZodError) {
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify({
+                error: "InvalidArguments",
+                issues: err.issues,
               }),
             },
           ],

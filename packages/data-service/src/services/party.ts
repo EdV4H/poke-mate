@@ -127,10 +127,11 @@ function insertChangeEvent(
   entityId: string,
   op: "create" | "update" | "delete",
   actor: Actor,
+  ts: string,
 ): number {
   const inserted = db
     .insert(changeEvents)
-    .values({ entityType, entityId, op, actor, ts: nowIso() })
+    .values({ entityType, entityId, op, actor, ts })
     .returning({ id: changeEvents.id })
     .get();
   if (!inserted) {
@@ -173,7 +174,7 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
             version: 1,
           })
           .run();
-        const eventId = insertChangeEvent(db, "party", id, "create", actor);
+        const eventId = insertChangeEvent(db, "party", id, "create", actor, ts);
         return eventId;
       });
       const changeEventId = tx();
@@ -245,7 +246,7 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
         if (result.changes === 0) {
           throw new VersionConflictError("party", partyId, expectedVersion);
         }
-        const eventId = insertChangeEvent(db, "party", partyId, "update", actor);
+        const eventId = insertChangeEvent(db, "party", partyId, "update", actor, ts);
         return eventId;
       });
       const changeEventId = tx();
@@ -269,7 +270,7 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
         if (result.changes === 0) {
           throw new NotFoundError("party", partyId);
         }
-        const eventId = insertChangeEvent(db, "party", partyId, "delete", actor);
+        const eventId = insertChangeEvent(db, "party", partyId, "delete", actor, ts);
         return eventId;
       });
       const changeEventId = tx();
@@ -355,23 +356,32 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
           .where(eq(parties.id, partyId))
           .run();
 
-        const eventId = insertChangeEvent(db, "pokemon_set", setId, op, actor);
-        return { eventId, setId, op };
+        const setEventId = insertChangeEvent(db, "pokemon_set", setId, op, actor, ts);
+        const partyEventId = insertChangeEvent(db, "party", partyId, "update", actor, ts);
+        return { setEventId, partyEventId, setId, op };
       });
-      const { eventId: changeEventId, setId, op } = tx();
+      const { setEventId, partyEventId, setId, op } = tx();
 
       const setRow = db.select().from(pokemonSets).where(eq(pokemonSets.id, setId)).get();
       if (!setRow) throw new Error("Slot row disappeared after upsert");
       const value = rowToSet(setRow);
       bus.emitChange({
-        id: changeEventId,
+        id: setEventId,
         entityType: "pokemon_set",
         entityId: setId,
         op,
         actor,
         ts,
       });
-      return { value, changeEventId };
+      bus.emitChange({
+        id: partyEventId,
+        entityType: "party",
+        entityId: partyId,
+        op: "update",
+        actor,
+        ts,
+      });
+      return { value, changeEventId: setEventId };
     },
 
     deletePartySlot(partyId, slot, actor) {
@@ -392,8 +402,8 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
           .set({ updatedAt: ts, version: partyRow.version + 1 })
           .where(eq(parties.id, partyId))
           .run();
-        const setEventId = insertChangeEvent(db, "pokemon_set", existing.id, "delete", actor);
-        const partyEventId = insertChangeEvent(db, "party", partyId, "update", actor);
+        const setEventId = insertChangeEvent(db, "pokemon_set", existing.id, "delete", actor, ts);
+        const partyEventId = insertChangeEvent(db, "party", partyId, "update", actor, ts);
         return { setEventId, partyEventId, setId: existing.id };
       });
       const { setEventId, partyEventId, setId } = tx();
