@@ -12,18 +12,12 @@
     "dev": "pnpm -r --parallel --filter=./apps/** dev",
     "typecheck": "pnpm -r typecheck",
     "lint": "pnpm -r lint",
-    "clean": "pnpm -r exec rm -rf dist node_modules/.cache"
+    "clean": "pnpm -r exec rimraf dist node_modules/.cache"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "rimraf": "^6.0.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3",
-      "electron",
-      "esbuild"
-    ]
   }
 }

@@ -10,7 +10,7 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json",
     "typecheck": "pnpm typecheck:node && pnpm typecheck:web",
     "start": "electron-vite preview",
-    "clean": "rm -rf out dist"
+    "clean": "rimraf out dist"
   },
   "dependencies": {
     "@edv4h/poke-mate-data-service": "workspace:*",

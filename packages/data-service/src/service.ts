@@ -84,7 +84,6 @@ CREATE TABLE IF NOT EXISTS change_events (
   ts TEXT NOT NULL
 );
 
-CREATE INDEX IF NOT EXISTS idx_change_events_id ON change_events(id);
 CREATE INDEX IF NOT EXISTS idx_parties_workspace ON parties(workspace_id);
 CREATE INDEX IF NOT EXISTS idx_pokemon_sets_party ON pokemon_sets(party_id);
 CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_ja ON master_pokemon(name_ja);
