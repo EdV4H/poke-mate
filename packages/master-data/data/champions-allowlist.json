@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "source": "ユーザー提供の Pokémon Champions 全278件内定ポケモンリスト (2026-04) + poke-mate 既存互換エントリ (ogerpon-wellspring, iron-valiant, landorus-therian, gholdengo)",
+  "source": "ユーザー提供の Pokémon Champions 全278件内定ポケモンリスト (2026-04)。ただし公式リストにないため gholdengo / iron-valiant / landorus-therian / ogerpon-wellspring は除外済み (DB 行は残るが champions_available=0 に落ちる)。",
   "entries": [
     { "speciesId": "venusaur", "dexNo": 3, "megas": ["venusaur-mega"] },
     { "speciesId": "charizard", "dexNo": 6, "megas": ["charizard-mega-x", "charizard-mega-y"] },
@@ -128,7 +128,6 @@
     { "speciesId": "golurk", "dexNo": 623, "megas": ["golurk-mega"] },
     { "speciesId": "hydreigon", "dexNo": 635, "megas": [] },
     { "speciesId": "volcarona", "dexNo": 637, "megas": [] },
-    { "speciesId": "landorus-therian", "dexNo": 645, "megas": [] },
     { "speciesId": "chesnaught", "dexNo": 652, "megas": ["chesnaught-mega"] },
     { "speciesId": "delphox", "dexNo": 655, "megas": ["delphox-mega"] },
     { "speciesId": "greninja", "dexNo": 658, "megas": ["greninja-mega"] },
@@ -212,10 +211,7 @@
     { "speciesId": "glimmora", "dexNo": 970, "megas": ["glimmora-mega"] },
     { "speciesId": "farigiraf", "dexNo": 981, "megas": [] },
     { "speciesId": "kingambit", "dexNo": 983, "megas": [] },
-    { "speciesId": "gholdengo", "dexNo": 1000, "megas": [] },
-    { "speciesId": "iron-valiant", "dexNo": 1006, "megas": [] },
     { "speciesId": "sinistcha", "dexNo": 1013, "megas": [] },
-    { "speciesId": "ogerpon-wellspring-mask", "dexNo": 1017, "aliasId": "ogerpon-wellspring", "megas": [] },
     { "speciesId": "archaludon", "dexNo": 1018, "megas": [] },
     { "speciesId": "hydrapple", "dexNo": 1019, "megas": [] }
   ]

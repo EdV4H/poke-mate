@@ -3861,28 +3861,6 @@
     "championsAvailable": true
   },
   {
-    "id": "landorus-therian",
-    "dexNo": 645,
-    "nameJa": "ランドロス(れいじゅうフォルム)",
-    "nameEn": "Therian Landorus",
-    "types": [
-      "ground",
-      "flying"
-    ],
-    "baseStats": {
-      "hp": 89,
-      "atk": 145,
-      "def": 90,
-      "spa": 105,
-      "spd": 80,
-      "spe": 91
-    },
-    "abilities": [
-      "intimidate"
-    ],
-    "championsAvailable": true
-  },
-  {
     "id": "chesnaught",
     "dexNo": 652,
     "nameJa": "ブリガロン",
@@ -5980,50 +5958,6 @@
     "championsAvailable": true
   },
   {
-    "id": "gholdengo",
-    "dexNo": 1000,
-    "nameJa": "サーフゴー",
-    "nameEn": "Gholdengo",
-    "types": [
-      "steel",
-      "ghost"
-    ],
-    "baseStats": {
-      "hp": 87,
-      "atk": 60,
-      "def": 95,
-      "spa": 133,
-      "spd": 91,
-      "spe": 84
-    },
-    "abilities": [
-      "good-as-gold"
-    ],
-    "championsAvailable": true
-  },
-  {
-    "id": "iron-valiant",
-    "dexNo": 1006,
-    "nameJa": "テツノブジン",
-    "nameEn": "Iron Valiant",
-    "types": [
-      "fairy",
-      "fighting"
-    ],
-    "baseStats": {
-      "hp": 74,
-      "atk": 130,
-      "def": 90,
-      "spa": 120,
-      "spd": 60,
-      "spe": 116
-    },
-    "abilities": [
-      "quark-drive"
-    ],
-    "championsAvailable": true
-  },
-  {
     "id": "sinistcha",
     "dexNo": 1013,
     "nameJa": "ヤバソチャ",
@@ -6043,28 +5977,6 @@
     "abilities": [
       "hospitality",
       "heatproof"
-    ],
-    "championsAvailable": true
-  },
-  {
-    "id": "ogerpon-wellspring",
-    "dexNo": 1017,
-    "nameJa": "オーガポン(いどのめん)",
-    "nameEn": "Wellspring Mask Ogerpon",
-    "types": [
-      "grass",
-      "water"
-    ],
-    "baseStats": {
-      "hp": 80,
-      "atk": 120,
-      "def": 84,
-      "spa": 60,
-      "spd": 96,
-      "spe": 110
-    },
-    "abilities": [
-      "water-absorb"
     ],
     "championsAvailable": true
   },
