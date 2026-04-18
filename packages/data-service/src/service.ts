@@ -125,6 +125,15 @@ const MIGRATIONS: Migration[] = [
       );
     },
   },
+  {
+    version: 4,
+    up: () => {
+      // Marker: seedMasterPokemon was switched from onConflictDoNothing to
+      // onConflictDoUpdate so that allowlist updates flow into existing DBs.
+      // No DDL change is required — the upsert semantics take effect on the
+      // next seedMasterPokemon() call after applyMigrations.
+    },
+  },
 ];
 
 function applyMigrations(sqlite: Database.Database): void {
@@ -170,19 +179,35 @@ function seedMasterPokemon(db: BetterSQLite3Database, sqlite: Database.Database)
   const rows = loadPokemonMaster();
   const insertMany = sqlite.transaction((items: PokemonMaster[]) => {
     for (const p of items) {
+      const values = {
+        id: p.id,
+        dexNo: p.dexNo,
+        nameJa: p.nameJa,
+        nameEn: p.nameEn,
+        typesJson: JSON.stringify(p.types),
+        baseStatsJson: JSON.stringify(p.baseStats),
+        abilitiesJson: JSON.stringify(p.abilities),
+        championsAvailable: p.championsAvailable,
+        megaFormsJson: p.megaFormsJson ? JSON.stringify(p.megaFormsJson) : null,
+      };
+      // Upsert: allowlist 更新が既存 DB の master_pokemon に流し込まれるよう、
+      // id をキーに全フィールドを上書きする。旧実装 (onConflictDoNothing) では
+      // pokemon.json を増やしても既存 DB には反映されなかった。
       db.insert(masterPokemon)
-        .values({
-          id: p.id,
-          dexNo: p.dexNo,
-          nameJa: p.nameJa,
-          nameEn: p.nameEn,
-          typesJson: JSON.stringify(p.types),
-          baseStatsJson: JSON.stringify(p.baseStats),
-          abilitiesJson: JSON.stringify(p.abilities),
-          championsAvailable: p.championsAvailable,
-          megaFormsJson: p.megaFormsJson ? JSON.stringify(p.megaFormsJson) : null,
+        .values(values)
+        .onConflictDoUpdate({
+          target: masterPokemon.id,
+          set: {
+            dexNo: values.dexNo,
+            nameJa: values.nameJa,
+            nameEn: values.nameEn,
+            typesJson: values.typesJson,
+            baseStatsJson: values.baseStatsJson,
+            abilitiesJson: values.abilitiesJson,
+            championsAvailable: values.championsAvailable,
+            megaFormsJson: values.megaFormsJson,
+          },
         })
-        .onConflictDoNothing()
         .run();
     }
   });
