@@ -39,6 +39,7 @@ export function App(): JSX.Element {
       <section className="search-bar">
         <input
           type="search"
+          aria-label="ポケモン検索"
           placeholder="ポケモン名 / 英名 / ID で検索"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

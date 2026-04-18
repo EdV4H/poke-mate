@@ -39,15 +39,22 @@ function registerIpc(service: DataService): void {
   });
 }
 
-app.whenReady().then(() => {
-  dataService = createDataService({ dbPath: resolveDbPath() });
-  registerIpc(dataService);
-  createWindow();
+app
+  .whenReady()
+  .then(() => {
+    dataService = createDataService({ dbPath: resolveDbPath() });
+    registerIpc(dataService);
+    createWindow();
 
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    app.on("activate", () => {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    });
+  })
+  .catch((err) => {
+    console.error("[poke-mate] fatal during startup:", err);
+    dataService?.close();
+    app.exit(1);
   });
-});
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
