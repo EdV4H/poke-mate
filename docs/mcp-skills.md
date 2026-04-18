@@ -22,7 +22,7 @@
 | `get_battle_session` | `session_id` | BattleSession |
 | `list_battle_logs` | `workspace_id, tags?` | BattleLog[] |
 | `get_battle_log` | `log_id, representation: "raw" \| "parsed"` | BattleLog（`format` は対戦形式 single/double と衝突するため `representation` を使う） |
-| `get_meta_snapshot` | `period?` | MetaSnapshot |
+| `get_meta_snapshot` | `season?, format?, rank_band?` | MetaSnapshot（省略時は現在シーズンの集約） |
 | `search_pokemon` | `query, regulation?` | PokemonMaster[] |
 | `get_pokemon_details` | `species_id` | PokemonMaster |
 | `get_move` | `move_id` | MoveMaster |
@@ -89,7 +89,7 @@ description: Review a Pokémon Champions team (6 Pokémon, single/double format)
 2. Call get_party(party_id)
 3. Call analyze_type_coverage(party)
 4. Call analyze_selection_patterns(party, top_archetypes) for common opponents this season
-5. Call get_meta_snapshot(season: current) to compare against meta
+5. Call get_meta_snapshot({ season: current_season, format: party.format }) to compare against meta
 6. Identify: 穴（弱点過多タイプ）, 役割の欠け, 速度ライン(Lv50実数値ベース), メガ枠の適切さ(1匹制約)
 7. 提案フェーズ: search_pokemon でChampionsプール内の代替候補を3つ、simulate_damage と suggest_sp_spread で裏取り
 8. ユーザー承認後、update_party_slot または update_training で反映

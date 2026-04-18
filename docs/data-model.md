@@ -22,13 +22,15 @@ master_abilities      (id, name_ja, name_en, description, effect_code,
 master_natures        (id, name_ja, plus_stat, minus_stat)
 master_type_chart     (attacker_type, defender_type, multiplier)
 master_mega_stones    (id, name_ja, species_id, forme_id, requires_omni_ring)
+                      -- requires_omni_ring: ゼンブイリング（キーアイテム）の所持を要求するか
 ```
 
 ### ユーザーデータ
 
 Champions仕様に合わせ、pokemon_setsから `level` / `ivs_json` / `happiness` を廃止し、
-努力値の代わりに**ステータスポイント（SP）**を持つ。`tera_type` はChampions非対応なので現状はオフ、
-将来実装された場合のみ使用。パーティは**6匹持ち**で、シングル時は3匹、ダブル時は4匹を選出する。
+努力値の代わりに**ステータスポイント（SP）**を持つ。`tera_type` はChampions非対応のため、
+現時点ではスキーマに含めず、将来実装された場合に追加する（マイグレーションで列追加）。
+パーティは**6匹持ち**で、シングル時は3匹、ダブル時は4匹を選出する。
 
 ```
 workspaces            (id, name, created_at, updated_at)
