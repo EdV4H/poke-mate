@@ -96,11 +96,50 @@ CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_en ON master_pokemon(name_en)
 
 export const DEFAULT_WORKSPACE_ID = "default";
 
+interface Migration {
+  version: number;
+  up: (sqlite: Database.Database) => void;
+}
+
+const MIGRATIONS: Migration[] = [
+  {
+    version: 1,
+    up: (sqlite) => {
+      sqlite.exec(MIGRATION_SQL);
+    },
+  },
+  {
+    version: 2,
+    up: (sqlite) => {
+      // pokemon_sets.origin の既存 'home' 行を 'gui' にバックフィル。
+      // Phase 0 時点の default 'home' が残っている場合のみ影響する。
+      sqlite.exec(`UPDATE pokemon_sets SET origin = 'gui' WHERE origin = 'home';`);
+    },
+  },
+];
+
 function applyMigrations(sqlite: Database.Database): void {
-  sqlite.exec(MIGRATION_SQL);
-  sqlite
-    .prepare("INSERT OR IGNORE INTO schema_migrations (version, applied_at) VALUES (?, ?)")
-    .run(1, new Date().toISOString());
+  sqlite.exec(
+    `CREATE TABLE IF NOT EXISTS schema_migrations (
+       version INTEGER PRIMARY KEY,
+       applied_at TEXT NOT NULL
+     );`,
+  );
+  const appliedRows = sqlite
+    .prepare("SELECT version FROM schema_migrations")
+    .all() as { version: number }[];
+  const applied = new Set(appliedRows.map((r) => r.version));
+  const record = sqlite.prepare(
+    "INSERT INTO schema_migrations (version, applied_at) VALUES (?, ?)",
+  );
+  for (const m of MIGRATIONS) {
+    if (applied.has(m.version)) continue;
+    const tx = sqlite.transaction(() => {
+      m.up(sqlite);
+      record.run(m.version, new Date().toISOString());
+    });
+    tx();
+  }
 }
 
 function seedDefaultWorkspace(db: BetterSQLite3Database): void {

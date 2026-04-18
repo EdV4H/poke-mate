@@ -6,6 +6,7 @@ export {
 } from "./service.js";
 export { ChangeBus, type ChangeEventPayload } from "./change-bus.js";
 export {
+  NotFoundError,
   VersionConflictError,
   type PartyService,
   type PartyMutationResult,

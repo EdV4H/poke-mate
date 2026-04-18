@@ -91,7 +91,24 @@ function main(): void {
       continue;
     }
     console.log(`+ link  ${dst} -> ${src}`);
-    if (mode === "install") symlinkSync(src, dst, "dir");
+    if (mode === "install") {
+      const symlinkType = process.platform === "win32" ? "junction" : "dir";
+      try {
+        symlinkSync(src, dst, symlinkType);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.error(`  FAIL  symlink ${dst}: ${msg}`);
+        if (process.platform === "win32") {
+          console.error(
+            `        On Windows, symlinks/junctions may require Developer Mode or admin privileges.`,
+          );
+          console.error(
+            `        Run as Administrator, or copy ${src} to ${dst} manually as a workaround.`,
+          );
+        }
+        throw err;
+      }
+    }
   }
 
   console.log("");

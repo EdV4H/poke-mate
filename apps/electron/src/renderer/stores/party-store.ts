@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import type { ChangeEvent, Party } from "@edv4h/poke-mate-shared-types";
 
+const DEFAULT_WORKSPACE_ID = "default";
+
 export interface FlashState {
   slot: number;
   at: number;
@@ -57,12 +59,21 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
 
   async refreshList() {
     set({ loading: true });
-    const list = await window.pokeMate.listParties();
+    const list = await window.pokeMate.listParties({ workspaceId: DEFAULT_WORKSPACE_ID });
     set({ parties: list, loading: false });
   },
 
   async openParty(partyId) {
     const party = await window.pokeMate.getParty({ partyId });
+    if (!party) {
+      set({
+        currentPartyId: null,
+        currentParty: null,
+        flash: null,
+        toast: "パーティを読み込めませんでした（削除された可能性があります）",
+      });
+      return;
+    }
     set({ currentPartyId: partyId, currentParty: party });
   },
 

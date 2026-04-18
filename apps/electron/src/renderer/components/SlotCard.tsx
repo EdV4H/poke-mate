@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { PokemonMaster, PokemonSet } from "@edv4h/poke-mate-shared-types";
 import { usePartyStore } from "../stores/party-store.js";
 
@@ -14,18 +14,23 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
   const [searching, setSearching] = useState(false);
   const [query, setQuery] = useState("");
   const [candidates, setCandidates] = useState<PokemonMaster[]>([]);
+  const searchTokenRef = useRef(0);
 
   async function doSearch(q: string): Promise<void> {
     setQuery(q);
-    if (q.trim() === "") {
+    const trimmed = q.trim();
+    if (trimmed === "") {
+      searchTokenRef.current += 1;
       setCandidates([]);
       return;
     }
+    const token = ++searchTokenRef.current;
     const results = await window.pokeMate.searchPokemon({
-      query: q,
+      query: trimmed,
       championsOnly: true,
       limit: 10,
     });
+    if (token !== searchTokenRef.current) return;
     setCandidates(results);
   }
 

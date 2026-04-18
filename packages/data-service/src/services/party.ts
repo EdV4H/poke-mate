@@ -1,5 +1,5 @@
 import type Database from "better-sqlite3";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import type { BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
 import { nanoid } from "nanoid";
 import type {
@@ -30,6 +30,16 @@ export class VersionConflictError extends Error {
       `Version conflict on ${entityType}:${entityId} (expected ${expectedVersion})`,
     );
     this.name = "VersionConflictError";
+  }
+}
+
+export class NotFoundError extends Error {
+  constructor(
+    public readonly entityType: "party" | "pokemon_set",
+    public readonly entityId: string,
+  ) {
+    super(`Not found: ${entityType}:${entityId}`);
+    this.name = "NotFoundError";
   }
 }
 
@@ -186,27 +196,33 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
     },
 
     listParties(workspaceId) {
-      const rows = workspaceId
+      const partyRows = workspaceId
         ? db.select().from(parties).where(eq(parties.workspaceId, workspaceId)).all()
         : db.select().from(parties).all();
-      return rows.map((row) => {
-        const setRows = db
-          .select()
-          .from(pokemonSets)
-          .where(eq(pokemonSets.partyId, row.id))
-          .orderBy(pokemonSets.slot)
-          .all();
-        return rowToParty(row, setRows.map(rowToSet));
-      });
+      if (partyRows.length === 0) return [];
+
+      const partyIds = partyRows.map((r) => r.id);
+      const setRows = db
+        .select()
+        .from(pokemonSets)
+        .where(inArray(pokemonSets.partyId, partyIds))
+        .orderBy(pokemonSets.slot)
+        .all();
+
+      const setsByParty = new Map<string, PokemonSet[]>();
+      for (const row of setRows) {
+        const list = setsByParty.get(row.partyId) ?? [];
+        list.push(rowToSet(row));
+        setsByParty.set(row.partyId, list);
+      }
+      return partyRows.map((row) => rowToParty(row, setsByParty.get(row.id) ?? []));
     },
 
     updateParty(partyId, patch, expectedVersion, actor) {
       const ts = nowIso();
       const tx = sqlite.transaction(() => {
-        const updateValues: Record<string, unknown> = { updatedAt: ts };
-        if (patch.name !== undefined) updateValues["name"] = patch.name;
-        if (patch.format !== undefined) updateValues["format"] = patch.format;
-        if (patch.notes !== undefined) updateValues["notes"] = patch.notes;
+        const existing = db.select().from(parties).where(eq(parties.id, partyId)).get();
+        if (!existing) throw new NotFoundError("party", partyId);
 
         const stmt = sqlite.prepare(
           `UPDATE parties SET name = COALESCE(?, name),
@@ -251,7 +267,7 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
       const tx = sqlite.transaction(() => {
         const result = db.delete(parties).where(eq(parties.id, partyId)).run();
         if (result.changes === 0) {
-          throw new Error(`Party not found: ${partyId}`);
+          throw new NotFoundError("party", partyId);
         }
         const eventId = insertChangeEvent(db, "party", partyId, "delete", actor);
         return eventId;
@@ -275,7 +291,7 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
       const ts = nowIso();
       const tx = sqlite.transaction(() => {
         const partyRow = db.select().from(parties).where(eq(parties.id, partyId)).get();
-        if (!partyRow) throw new Error(`Party not found: ${partyId}`);
+        if (!partyRow) throw new NotFoundError("party", partyId);
 
         const existing = db
           .select()
@@ -361,31 +377,43 @@ export function createPartyService(deps: PartyServiceDeps): PartyService {
     deletePartySlot(partyId, slot, actor) {
       const ts = nowIso();
       const tx = sqlite.transaction(() => {
+        const partyRow = db.select().from(parties).where(eq(parties.id, partyId)).get();
+        if (!partyRow) throw new NotFoundError("party", partyId);
         const existing = db
           .select()
           .from(pokemonSets)
           .where(and(eq(pokemonSets.partyId, partyId), eq(pokemonSets.slot, slot)))
           .get();
         if (!existing) {
-          throw new Error(`Slot not found: ${partyId}:${slot}`);
+          throw new NotFoundError("pokemon_set", `${partyId}:${slot}`);
         }
         db.delete(pokemonSets).where(eq(pokemonSets.id, existing.id)).run();
         db.update(parties)
-          .set({ updatedAt: ts })
+          .set({ updatedAt: ts, version: partyRow.version + 1 })
           .where(eq(parties.id, partyId))
           .run();
-        const eventId = insertChangeEvent(db, "pokemon_set", existing.id, "delete", actor);
-        return { eventId, setId: existing.id };
+        const setEventId = insertChangeEvent(db, "pokemon_set", existing.id, "delete", actor);
+        const partyEventId = insertChangeEvent(db, "party", partyId, "update", actor);
+        return { setEventId, partyEventId, setId: existing.id };
       });
-      const { eventId: changeEventId, setId } = tx();
+      const { setEventId, partyEventId, setId } = tx();
       bus.emitChange({
-        id: changeEventId,
+        id: setEventId,
         entityType: "pokemon_set",
         entityId: setId,
         op: "delete",
         actor,
         ts,
       });
+      bus.emitChange({
+        id: partyEventId,
+        entityType: "party",
+        entityId: partyId,
+        op: "update",
+        actor,
+        ts,
+      });
+      const changeEventId = setEventId;
       return { value: { partyId, slot }, changeEventId };
     },
   };

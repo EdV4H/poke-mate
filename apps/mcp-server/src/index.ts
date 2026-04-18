@@ -9,6 +9,7 @@ import { z } from "zod";
 import {
   createDataService,
   DEFAULT_WORKSPACE_ID,
+  NotFoundError,
   VersionConflictError,
 } from "@edv4h/poke-mate-data-service";
 import {
@@ -456,6 +457,21 @@ async function main(): Promise<void> {
                 entity_id: err.entityId,
                 expected_version: err.expectedVersion,
                 hint: "Re-fetch and retry with the latest version.",
+              }),
+            },
+          ],
+        };
+      }
+      if (err instanceof NotFoundError) {
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify({
+                error: "NotFound",
+                entity_type: err.entityType,
+                entity_id: err.entityId,
               }),
             },
           ],
