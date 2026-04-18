@@ -80,8 +80,9 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
   }
 
   async function pick(chosen: PokemonMaster): Promise<void> {
+    // upsertSlot の最後で openParty が走り、その openParty 内で ensureMasters が
+    // 呼ばれるため、ここでの明示的な ensureMasters は冗長。
     await upsertSlot(slot, chosen.id);
-    await usePartyStore.getState().ensureMasters([chosen.id]);
     setSearching(false);
     setQuery("");
     setCandidates([]);
@@ -96,10 +97,13 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
       const v = draftEvs[k] ?? 0;
       if (v > 0) spJson[k] = v;
     }
+    // 空文字は「未設定」扱いとして extra に入れずに送る。空文字を送ると DB 側で
+    // null ではなく "" が残り、表示側の `?? "未設定"` フォールバックが効かない。
+    const trimmedItem = draftItem.trim();
     await upsertSlot(slot, set.speciesId, {
-      natureId: draftNature || "",
-      abilityId: draftAbility || "",
-      itemId: draftItem.trim() || "",
+      ...(draftNature !== "" && { natureId: draftNature }),
+      ...(draftAbility !== "" && { abilityId: draftAbility }),
+      ...(trimmedItem !== "" && { itemId: trimmedItem }),
       moves,
       spJson,
     });
@@ -224,6 +228,7 @@ export function SlotCard({ slot, set, flash }: Props): JSX.Element {
               <input
                 key={i}
                 type="text"
+                aria-label={`わざ${i + 1}`}
                 value={draftMoves[i] ?? ""}
                 placeholder={`わざ${i + 1}`}
                 onChange={(e) => {

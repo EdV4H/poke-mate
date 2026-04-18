@@ -180,6 +180,9 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
     } else if (event.entityType === "pokemon_set" && current) {
       const refreshed = await window.pokeMate.getParty({ partyId: current.id });
       if (!refreshed) return;
+      // MCP 経由の変更で新しい speciesId が入ってきた場合、masterIndex に
+      // 無いとスロット表示が speciesId フォールバックになる。ここで補完する。
+      await get().ensureMasters(refreshed.sets.map((s) => s.speciesId));
       let changedSlot: number | null = null;
       for (const s of refreshed.sets) {
         if (s.id === event.entityId) {
