@@ -125,9 +125,20 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
     if (event.actor !== "mcp") return;
 
     const current = get().currentParty;
-    if (event.entityType === "party" && event.entityId === current?.id) {
-      await get().openParty(current.id);
+    const isCurrent = event.entityType === "party" && event.entityId === current?.id;
+
+    if (isCurrent && event.op === "update") {
+      await get().openParty(current!.id);
+      await get().refreshList();
       set({ toast: "Claude がパーティを更新しました" });
+    } else if (isCurrent && event.op === "delete") {
+      await get().refreshList();
+      set({
+        currentPartyId: null,
+        currentParty: null,
+        flash: null,
+        toast: "Claude がパーティを削除しました",
+      });
     } else if (event.entityType === "pokemon_set" && current) {
       const refreshed = await window.pokeMate.getParty({ partyId: current.id });
       if (!refreshed) return;
@@ -156,6 +167,8 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
     } else if (event.entityType === "party" && event.op === "create") {
       await get().refreshList();
       set({ toast: "Claude が新しいパーティを作成しました" });
+    } else if (event.entityType === "party" && event.op === "delete") {
+      await get().refreshList();
     }
   },
 

@@ -89,7 +89,6 @@ CREATE TABLE IF NOT EXISTS change_events (
 
 CREATE INDEX IF NOT EXISTS idx_parties_workspace ON parties(workspace_id);
 CREATE INDEX IF NOT EXISTS idx_pokemon_sets_party ON pokemon_sets(party_id);
-CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_sets_party_slot ON pokemon_sets(party_id, slot);
 CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_ja ON master_pokemon(name_ja);
 CREATE INDEX IF NOT EXISTS idx_master_pokemon_name_en ON master_pokemon(name_en);
 `;
@@ -114,6 +113,16 @@ const MIGRATIONS: Migration[] = [
       // pokemon_sets.origin の既存 'home' 行を 'gui' にバックフィル。
       // Phase 0 時点の default 'home' が残っている場合のみ影響する。
       sqlite.exec(`UPDATE pokemon_sets SET origin = 'gui' WHERE origin = 'home';`);
+    },
+  },
+  {
+    version: 3,
+    up: (sqlite) => {
+      // (party_id, slot) の UNIQUE INDEX を v1 済みの既存 DB にも適用する。
+      // 既存行に重複があれば slot の重複を検知してエラー化する（手動対応が必要）。
+      sqlite.exec(
+        `CREATE UNIQUE INDEX IF NOT EXISTS idx_pokemon_sets_party_slot ON pokemon_sets(party_id, slot);`,
+      );
     },
   },
 ];
