@@ -48,15 +48,15 @@
 
 ## Phase 1a: パーティ構築 × AI連携 貫通（目安 2 週間）★Critical Path
 
-**Goal**: GUI で 6 匹編成 → Claude が `review-party` Skill でレビュー → 承認で `update_party_slot` → GUI 即更新。
+**Goal**: GUI で 6匹編成（Champions仕様：Lv50/IV31固定、SP入力、メガ候補1匹、format=single/double）→ Claude が `review-party` Skill でレビュー → 承認で `update_party_slot` → GUI 即更新。
 
-- `packages/data-service`: PartyService 拡張（6スロット、持ち物/技/努力値/性格/テラス）
-- `apps/electron/src/renderer/routes/party/`: 構築画面（D&D、6スロット、技選択モーダル、努力値 UI）
+- `packages/data-service`: PartyService 拡張（6スロット、持ち物/技/特性/性格/SP、メガターゲットフラグ、format）
+- `apps/electron/src/renderer/routes/party/`: 構築画面（D&D、6スロット、技選択モーダル、SP配分UI、メガマーク、選出シナリオ保存）
 - `apps/electron/src/renderer/stores/party-store.ts`: Zustand + IPC 購読 + change-event 受信
-- `apps/mcp-server/src/tools/parties.ts`: Party CRUD 7ツール
+- `apps/mcp-server/src/tools/parties.ts`: Party CRUD + `create_party_selection`
 - `apps/electron/src/main/mcp-host.ts`: MCP 子プロセス起動、SQLite polling
-- `packages/damage-calc` 初版（type-effectiveness まで）
-- `apps/mcp-server/src/tools/calc.ts`: `analyze_type_coverage`
+- `packages/damage-calc` 初版（Lv50/IV31固定式、type-effectiveness、SP→実数値換算）
+- `apps/mcp-server/src/tools/calc.ts`: `compute_stats`, `analyze_type_coverage`, `analyze_selection_patterns`
 - `skills/review-party/SKILL.md`
 - `tools/install-skills.ts`（`~/.claude/skills/poke-mate/` に symlink）
 - `tools/register-mcp.ts`（`claude_desktop_config.json` 自動マージ）
@@ -65,28 +65,30 @@
 
 ## Phase 1b: ダメージ計算 & シミュレーション（目安 2 週間）
 
-- `packages/damage-calc` 本格化（`@smogon/calc` ベースでチャンピオンズ仕様に調整）
-- `packages/damage-calc/__tests__/`: 既知ケース 50 件以上
-- `apps/mcp-server/src/tools/calc.ts`: `simulate_damage`
-- `apps/electron/.../routes/battle/`: シミュレーション画面（攻守選択 → 技 → ダメージ幅、フィールド/天候/持ち物）
-- `skills/simulate-matchup/SKILL.md`
+- `packages/damage-calc` 本格化（`@smogon/calc` フォーク → Champions仕様適用：独自バランス、新特性4種、状態異常弱体、Lv50/IV31固定式）
+- `packages/damage-calc/__tests__/`: 既知ケース 50 件以上（Bulbapedia / 実機ログを出典）
+- `apps/mcp-server/src/tools/calc.ts`: `simulate_damage`, `simulate_mega_timing`, `suggest_sp_spread`
+- `apps/electron/.../routes/battle/`: シミュレーション画面（攻守選択 → 技 → ダメージ幅、フィールド/天候/持ち物、メガ切替、選出シナリオ連動）
+- `skills/simulate-matchup/SKILL.md`, `skills/optimize-training/SKILL.md`
 
 ---
 
 ## Phase 2a: 対戦ログ振り返り（目安 1.5 週間）
 
-- `packages/log-parser`: Showdown テキストパーサ（チャンピオンズ形式を抽象化）
+- `packages/log-parser`: 中間表現設計 + テキスト入力パーサ。公式リプレイ形式が公開され次第アダプタ追加（Champions側の仕様調査と並行）
 - `apps/mcp-server/src/tools/logs.ts`: `import_battle_log`, `get_battle_log`, `parse_battle_log_text`
-- `apps/electron/.../routes/log/`: ログ一覧 + 詳細 + ターンスクラバー
+- `apps/electron/.../routes/log/`: ログ一覧 + 詳細 + ターンスクラバー + 分岐点可視化
 - `skills/analyze-battle-log/SKILL.md`
+
+**補足**: Champions公式リプレイフォーマットは調査段階。Phase 2a開始時に最新状況を確認し、入手できなければ手動入力/テキスト貼り付けで貫通させる。
 
 ---
 
 ## Phase 2b: 環境メタ分析（目安 1.5 週間）
 
-- `packages/master-data`: メタスナップショットローダー（CSV/JSON）
-- `apps/mcp-server/src/tools/meta.ts`: `get_meta_snapshot`, `query_meta`
-- `apps/electron/.../routes/meta/`: 使用率ヒートマップ、技採用率、型構成分布
+- `packages/master-data`: シーズン(M-N)別メタスナップショットローダー（CSV/JSON）
+- `apps/mcp-server/src/tools/meta.ts`: `get_meta_snapshot`, `query_meta`（format × rank_band × season のキー）
+- `apps/electron/.../routes/meta/`: 使用率ヒートマップ、メガ別採用率、技採用率、型構成分布、シーズン遷移
 - `skills/meta-brief/SKILL.md`, `skills/counter-suggest/SKILL.md`
 
 ---
@@ -119,9 +121,10 @@
 
 ### Phase 1a 完了時の E2E シナリオ
 
-1. GUI でパーティ作成、6 匹登録
-2. Claude Desktop で「このパーティ（party_id）をレビューして」
-3. `review-party` Skill 起動、タイプ弱点を指摘
-4. 「ガブリアスをドラパルトに変えて」と指示
-5. MCP `update_party_slot` が実行される
-6. GUI にトースト表示、スロットが即座に書き換わる
+1. GUI でシングル用パーティを作成、Championsプールから6匹登録（うち1匹をメガ候補に）
+2. 各スロットにSP（ステータスポイント）/ 性格 / 特性 / 技4つ / 持ち物を設定
+3. Claude Desktop で「このパーティ（party_id）をレビューして。対メガリザY・メガガブ・受けループへの選出も考えて」
+4. `review-party` Skill 起動 → `analyze_type_coverage` + `analyze_selection_patterns` で弱点と推奨選出3セット提示
+5. 「6枠目を別案に変えて」と指示
+6. MCP `update_party_slot` と `update_training`（SP配分）が実行される
+7. GUI にトースト表示、スロットが即座に書き換わる
