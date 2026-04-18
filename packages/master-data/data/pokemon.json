@@ -1,0 +1,102 @@
+[
+  {
+    "id": "garchomp",
+    "dexNo": 445,
+    "nameJa": "ガブリアス",
+    "nameEn": "Garchomp",
+    "types": ["dragon", "ground"],
+    "baseStats": { "hp": 108, "atk": 130, "def": 95, "spa": 80, "spd": 85, "spe": 102 },
+    "abilities": ["sand-veil", "rough-skin"],
+    "championsAvailable": true
+  },
+  {
+    "id": "charizard",
+    "dexNo": 6,
+    "nameJa": "リザードン",
+    "nameEn": "Charizard",
+    "types": ["fire", "flying"],
+    "baseStats": { "hp": 78, "atk": 84, "def": 78, "spa": 109, "spd": 85, "spe": 100 },
+    "abilities": ["blaze", "solar-power"],
+    "championsAvailable": true
+  },
+  {
+    "id": "dragapult",
+    "dexNo": 887,
+    "nameJa": "ドラパルト",
+    "nameEn": "Dragapult",
+    "types": ["dragon", "ghost"],
+    "baseStats": { "hp": 88, "atk": 120, "def": 75, "spa": 100, "spd": 75, "spe": 142 },
+    "abilities": ["clear-body", "infiltrator", "cursed-body"],
+    "championsAvailable": true
+  },
+  {
+    "id": "gholdengo",
+    "dexNo": 1000,
+    "nameJa": "サーフゴー",
+    "nameEn": "Gholdengo",
+    "types": ["steel", "ghost"],
+    "baseStats": { "hp": 87, "atk": 60, "def": 95, "spa": 133, "spd": 91, "spe": 84 },
+    "abilities": ["good-as-gold"],
+    "championsAvailable": true
+  },
+  {
+    "id": "landorus-therian",
+    "dexNo": 645,
+    "nameJa": "ランドロス(れいじゅう)",
+    "nameEn": "Landorus-Therian",
+    "types": ["ground", "flying"],
+    "baseStats": { "hp": 89, "atk": 145, "def": 90, "spa": 105, "spd": 80, "spe": 91 },
+    "abilities": ["intimidate"],
+    "championsAvailable": true
+  },
+  {
+    "id": "iron-valiant",
+    "dexNo": 1006,
+    "nameJa": "テツノブジン",
+    "nameEn": "Iron Valiant",
+    "types": ["fairy", "fighting"],
+    "baseStats": { "hp": 74, "atk": 130, "def": 90, "spa": 120, "spd": 60, "spe": 116 },
+    "abilities": ["quark-drive"],
+    "championsAvailable": true
+  },
+  {
+    "id": "ogerpon-wellspring",
+    "dexNo": 1017,
+    "nameJa": "オーガポン(いど)",
+    "nameEn": "Ogerpon-Wellspring",
+    "types": ["grass", "water"],
+    "baseStats": { "hp": 80, "atk": 120, "def": 84, "spa": 60, "spd": 96, "spe": 110 },
+    "abilities": ["water-absorb"],
+    "championsAvailable": true
+  },
+  {
+    "id": "kingambit",
+    "dexNo": 983,
+    "nameJa": "ドドゲザン",
+    "nameEn": "Kingambit",
+    "types": ["dark", "steel"],
+    "baseStats": { "hp": 100, "atk": 135, "def": 120, "spa": 60, "spd": 85, "spe": 50 },
+    "abilities": ["defiant", "supreme-overlord", "pressure"],
+    "championsAvailable": true
+  },
+  {
+    "id": "tyranitar",
+    "dexNo": 248,
+    "nameJa": "バンギラス",
+    "nameEn": "Tyranitar",
+    "types": ["rock", "dark"],
+    "baseStats": { "hp": 100, "atk": 134, "def": 110, "spa": 95, "spd": 100, "spe": 61 },
+    "abilities": ["sand-stream", "unnerve"],
+    "championsAvailable": true
+  },
+  {
+    "id": "metagross",
+    "dexNo": 376,
+    "nameJa": "メタグロス",
+    "nameEn": "Metagross",
+    "types": ["steel", "psychic"],
+    "baseStats": { "hp": 80, "atk": 135, "def": 130, "spa": 95, "spd": 90, "spe": 70 },
+    "abilities": ["clear-body", "light-metal"],
+    "championsAvailable": true
+  }
+]
