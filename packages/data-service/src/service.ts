@@ -134,6 +134,18 @@ const MIGRATIONS: Migration[] = [
       // next seedMasterPokemon() call after applyMigrations.
     },
   },
+  {
+    version: 5,
+    up: () => {
+      // Marker: seedMasterPokemon now additionally flips champions_available
+      // to 0 for rows that are no longer present in the allowlist (pokemon.json).
+      // Needed to drop stale rows that the earlier loose allowlist seeded as
+      // championsAvailable=true — e.g. sceptile / blaziken / swampert / mawile /
+      // salamence, plus the legacy poke-mate compat entries (gholdengo /
+      // iron-valiant / landorus-therian / ogerpon-wellspring) that are not in
+      // the official Champions roster.
+    },
+  },
 ];
 
 function applyMigrations(sqlite: Database.Database): void {
@@ -177,6 +189,7 @@ function seedDefaultWorkspace(db: BetterSQLite3Database): void {
 
 function seedMasterPokemon(db: BetterSQLite3Database, sqlite: Database.Database): void {
   const rows = loadPokemonMaster();
+  const allowlistIds = new Set(rows.map((p) => p.id));
   const insertMany = sqlite.transaction((items: PokemonMaster[]) => {
     for (const p of items) {
       const values = {
@@ -209,6 +222,21 @@ function seedMasterPokemon(db: BetterSQLite3Database, sqlite: Database.Database)
           },
         })
         .run();
+    }
+    // allowlist から外れた既存行は championsAvailable=false に落とす。
+    // 行自体は残す (pokemon_sets.species_id 参照の孤児化を避ける) が、
+    // searchPokemon({ championsOnly: true }) と suggest のプールから外れる。
+    const existing = sqlite
+      .prepare("SELECT id FROM master_pokemon WHERE champions_available = 1")
+      .all() as { id: string }[];
+    const stale = existing.filter((r) => !allowlistIds.has(r.id)).map((r) => r.id);
+    if (stale.length > 0) {
+      const placeholders = stale.map(() => "?").join(",");
+      sqlite
+        .prepare(
+          `UPDATE master_pokemon SET champions_available = 0 WHERE id IN (${placeholders})`,
+        )
+        .run(...stale);
     }
   });
   insertMany(rows);

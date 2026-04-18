@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { PokemonMaster } from "@edv4h/poke-mate-shared-types";
+import { TYPE_NAME_JA } from "../i18n.js";
 
 export function SearchPage(): JSX.Element {
   const [query, setQuery] = useState("");
@@ -49,7 +50,7 @@ export function SearchPage(): JSX.Element {
             checked={championsOnly}
             onChange={(e) => setChampionsOnly(e.target.checked)}
           />
-          Champions プールのみ
+          Champions 参戦のみ
         </label>
       </div>
 
@@ -69,7 +70,7 @@ export function SearchPage(): JSX.Element {
               <div className="types">
                 {p.types.map((t) => (
                   <span key={t} className={`type type-${t}`}>
-                    {t}
+                    {TYPE_NAME_JA[t]}
                   </span>
                 ))}
               </div>

@@ -111,7 +111,8 @@ body {
   font-size: 12px;
 }
 
-.types {
+.types,
+.slot-types {
   margin: 6px 0;
   display: flex;
   gap: 4px;
@@ -354,6 +355,87 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
+}
+
+/* --- Slot edit panel --- */
+.slot-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.slot-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #141821;
+  border: 1px solid #2a2f3a;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.slot-edit label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.slot-edit label > span {
+  width: 56px;
+  color: #aaa;
+}
+.slot-edit input[type="text"],
+.slot-edit select {
+  flex: 1;
+  background: #0f131a;
+  border: 1px solid #2a2f3a;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.slot-edit fieldset {
+  border: 1px solid #2a2f3a;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.slot-edit fieldset legend {
+  color: #aaa;
+  padding: 0 6px;
+}
+.slot-ev-edit label {
+  gap: 6px;
+}
+.slot-ev-edit label > span {
+  width: 48px;
+  font-size: 11px;
+}
+.slot-ev-edit input[type="number"] {
+  width: 60px;
+  background: #0f131a;
+  border: 1px solid #2a2f3a;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.ev-over {
+  color: #ff7070;
+  font-weight: bold;
+}
+.slot-edit-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.slot-edit-actions .cancel {
+  background: transparent;
+  border: 1px solid #2a2f3a;
+  color: #888;
 }
 
 /* --- Toast --- */

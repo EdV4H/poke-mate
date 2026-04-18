@@ -826,9 +826,57 @@
     "championsAvailable": true
   },
   {
+    "id": "tauros-paldea-aqua-breed",
+    "dexNo": 128,
+    "nameJa": "ケンタロス(パルデアのすがた・ウォーター種)",
+    "nameEn": "Paldean Tauros (Aqua Breed)",
+    "types": [
+      "fighting",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "abilities": [
+      "intimidate",
+      "anger-point",
+      "cud-chew"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "tauros-paldea-blaze-breed",
+    "dexNo": 128,
+    "nameJa": "ケンタロス(パルデアのすがた・ブレイズ種)",
+    "nameEn": "Paldean Tauros (Blaze Breed)",
+    "types": [
+      "fighting",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 110,
+      "def": 105,
+      "spa": 30,
+      "spd": 70,
+      "spe": 100
+    },
+    "abilities": [
+      "intimidate",
+      "anger-point",
+      "cud-chew"
+    ],
+    "championsAvailable": true
+  },
+  {
     "id": "tauros-paldea-combat",
     "dexNo": 128,
-    "nameJa": "ケンタロス(パルデアのすがた)",
+    "nameJa": "ケンタロス(パルデアのすがた・コンバット種)",
     "nameEn": "Paldean Tauros (Combat Breed)",
     "types": [
       "fighting"
@@ -2314,49 +2362,6 @@
     ]
   },
   {
-    "id": "metagross",
-    "dexNo": 376,
-    "nameJa": "メタグロス",
-    "nameEn": "Metagross",
-    "types": [
-      "steel",
-      "psychic"
-    ],
-    "baseStats": {
-      "hp": 80,
-      "atk": 135,
-      "def": 130,
-      "spa": 95,
-      "spd": 90,
-      "spe": 70
-    },
-    "abilities": [
-      "clear-body",
-      "light-metal"
-    ],
-    "championsAvailable": true,
-    "megaFormsJson": [
-      {
-        "id": "metagross-mega",
-        "nameJa": "メガメタグロス",
-        "nameEn": "Mega Metagross",
-        "types": [
-          "steel",
-          "psychic"
-        ],
-        "baseStats": {
-          "hp": 80,
-          "atk": 145,
-          "def": 150,
-          "spa": 105,
-          "spd": 110,
-          "spe": 110
-        },
-        "ability": "tough-claws"
-      }
-    ]
-  },
-  {
     "id": "torterra",
     "dexNo": 389,
     "nameJa": "ドダイトス",
@@ -3001,6 +3006,116 @@
       "spa": 95,
       "spd": 77,
       "spe": 91
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rotom-fan",
+    "dexNo": 479,
+    "nameJa": "ロトム(スピンロトム)",
+    "nameEn": "Fan Rotom",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rotom-frost",
+    "dexNo": 479,
+    "nameJa": "ロトム(フロストロトム)",
+    "nameEn": "Frost Rotom",
+    "types": [
+      "electric",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rotom-heat",
+    "dexNo": 479,
+    "nameJa": "ロトム(ヒートロトム)",
+    "nameEn": "Heat Rotom",
+    "types": [
+      "electric",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rotom-mow",
+    "dexNo": 479,
+    "nameJa": "ロトム(カットロトム)",
+    "nameEn": "Mow Rotom",
+    "types": [
+      "electric",
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
+    },
+    "abilities": [
+      "levitate"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "rotom-wash",
+    "dexNo": 479,
+    "nameJa": "ロトム(ウォッシュロトム)",
+    "nameEn": "Wash Rotom",
+    "types": [
+      "electric",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spa": 105,
+      "spd": 107,
+      "spe": 86
     },
     "abilities": [
       "levitate"
@@ -3746,28 +3861,6 @@
     "championsAvailable": true
   },
   {
-    "id": "landorus-therian",
-    "dexNo": 645,
-    "nameJa": "ランドロス(れいじゅうフォルム)",
-    "nameEn": "Therian Landorus",
-    "types": [
-      "ground",
-      "flying"
-    ],
-    "baseStats": {
-      "hp": 89,
-      "atk": 145,
-      "def": 90,
-      "spa": 105,
-      "spd": 80,
-      "spe": 91
-    },
-    "abilities": [
-      "intimidate"
-    ],
-    "championsAvailable": true
-  },
-  {
     "id": "chesnaught",
     "dexNo": 652,
     "nameJa": "ブリガロン",
@@ -3970,18 +4063,18 @@
   {
     "id": "floette",
     "dexNo": 670,
-    "nameJa": "フラエッテ",
-    "nameEn": "Floette",
+    "nameJa": "フラエッテ(えいえんのはな)",
+    "nameEn": "Eternal Floette",
     "types": [
       "fairy"
     ],
     "baseStats": {
-      "hp": 54,
-      "atk": 45,
-      "def": 47,
-      "spa": 75,
-      "spd": 98,
-      "spe": 52
+      "hp": 74,
+      "atk": 65,
+      "def": 67,
+      "spa": 125,
+      "spd": 128,
+      "spe": 92
     },
     "abilities": [
       "flower-veil",
@@ -4078,7 +4171,7 @@
   {
     "id": "meowstic",
     "dexNo": 678,
-    "nameJa": "ニャオニクス",
+    "nameJa": "ニャオニクス(♂)",
     "nameEn": "Meowstic",
     "types": [
       "psychic"
@@ -4096,31 +4189,35 @@
       "infiltrator",
       "prankster"
     ],
-    "championsAvailable": true,
-    "megaFormsJson": [
-      {
-        "id": "meowstic-mega",
-        "nameJa": "Meowstic Mega",
-        "nameEn": "Mega Meowstic",
-        "types": [
-          "psychic"
-        ],
-        "baseStats": {
-          "hp": 74,
-          "atk": 48,
-          "def": 76,
-          "spa": 143,
-          "spd": 101,
-          "spe": 124
-        },
-        "ability": "trace"
-      }
-    ]
+    "championsAvailable": true
+  },
+  {
+    "id": "meowstic-female",
+    "dexNo": 678,
+    "nameJa": "ニャオニクス(メスのすがた)",
+    "nameEn": "Female Meowstic",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 74,
+      "atk": 48,
+      "def": 76,
+      "spa": 83,
+      "spd": 81,
+      "spe": 104
+    },
+    "abilities": [
+      "keen-eye",
+      "infiltrator",
+      "competitive"
+    ],
+    "championsAvailable": true
   },
   {
     "id": "aegislash",
     "dexNo": 681,
-    "nameJa": "ギルガルド",
+    "nameJa": "ギルガルド(シールドフォルム)",
     "nameEn": "Aegislash",
     "types": [
       "steel",
@@ -4132,6 +4229,28 @@
       "def": 140,
       "spa": 50,
       "spd": 140,
+      "spe": 60
+    },
+    "abilities": [
+      "stance-change"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "aegislash-blade",
+    "dexNo": 681,
+    "nameJa": "ギルガルド(ブレードフォルム)",
+    "nameEn": "Blade Aegislash",
+    "types": [
+      "steel",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "atk": 140,
+      "def": 50,
+      "spa": 140,
+      "spd": 50,
       "spe": 60
     },
     "abilities": [
@@ -4716,7 +4835,7 @@
   {
     "id": "lycanroc",
     "dexNo": 745,
-    "nameJa": "ルガルガン",
+    "nameJa": "ルガルガン(まひるのすがた)",
     "nameEn": "Lycanroc",
     "types": [
       "rock"
@@ -4733,6 +4852,50 @@
       "keen-eye",
       "sand-rush",
       "steadfast"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "lycanroc-dusk",
+    "dexNo": 745,
+    "nameJa": "ルガルガン(たそがれのすがた)",
+    "nameEn": "Dusk Lycanroc",
+    "types": [
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "atk": 117,
+      "def": 65,
+      "spa": 55,
+      "spd": 65,
+      "spe": 110
+    },
+    "abilities": [
+      "tough-claws"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "lycanroc-midnight",
+    "dexNo": 745,
+    "nameJa": "ルガルガン(まよなかのすがた)",
+    "nameEn": "Midnight Lycanroc",
+    "types": [
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "atk": 115,
+      "def": 75,
+      "spa": 55,
+      "spd": 75,
+      "spe": 82
+    },
+    "abilities": [
+      "keen-eye",
+      "vital-spirit",
+      "no-guard"
     ],
     "championsAvailable": true
   },
@@ -5200,8 +5363,30 @@
   {
     "id": "morpeko",
     "dexNo": 877,
-    "nameJa": "モルペコ",
+    "nameJa": "モルペコ(まんぷくもよう)",
     "nameEn": "Morpeko",
+    "types": [
+      "electric",
+      "dark"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spa": 70,
+      "spd": 58,
+      "spe": 97
+    },
+    "abilities": [
+      "hunger-switch"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "morpeko-hangry",
+    "dexNo": 877,
+    "nameJa": "モルペコ(はらぺこもよう)",
+    "nameEn": "Hangry Morpeko",
     "types": [
       "electric",
       "dark"
@@ -5305,6 +5490,30 @@
       "atk": 112,
       "def": 65,
       "spa": 80,
+      "spd": 75,
+      "spe": 78
+    },
+    "abilities": [
+      "swift-swim",
+      "adaptability",
+      "mold-breaker"
+    ],
+    "championsAvailable": true
+  },
+  {
+    "id": "basculegion-female",
+    "dexNo": 902,
+    "nameJa": "イダイトウ(メスのすがた)",
+    "nameEn": "Female Basculegion",
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "baseStats": {
+      "hp": 120,
+      "atk": 92,
+      "def": 65,
+      "spa": 100,
       "spd": 75,
       "spe": 78
     },
@@ -5568,29 +5777,6 @@
     ]
   },
   {
-    "id": "espathra",
-    "dexNo": 956,
-    "nameJa": "クエスパトラ",
-    "nameEn": "Espathra",
-    "types": [
-      "psychic"
-    ],
-    "baseStats": {
-      "hp": 95,
-      "atk": 60,
-      "def": 60,
-      "spa": 101,
-      "spd": 60,
-      "spe": 105
-    },
-    "abilities": [
-      "opportunist",
-      "frisk",
-      "speed-boost"
-    ],
-    "championsAvailable": true
-  },
-  {
     "id": "tinkaton",
     "dexNo": 959,
     "nameJa": "デカヌチャン",
@@ -5725,6 +5911,29 @@
     "championsAvailable": true
   },
   {
+    "id": "dudunsparce",
+    "dexNo": 982,
+    "nameJa": "ノココッチ",
+    "nameEn": "Dudunsparce",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 125,
+      "atk": 100,
+      "def": 80,
+      "spa": 85,
+      "spd": 75,
+      "spe": 55
+    },
+    "abilities": [
+      "serene-grace",
+      "run-away",
+      "rattled"
+    ],
+    "championsAvailable": true
+  },
+  {
     "id": "kingambit",
     "dexNo": 983,
     "nameJa": "ドドゲザン",
@@ -5749,50 +5958,6 @@
     "championsAvailable": true
   },
   {
-    "id": "gholdengo",
-    "dexNo": 1000,
-    "nameJa": "サーフゴー",
-    "nameEn": "Gholdengo",
-    "types": [
-      "steel",
-      "ghost"
-    ],
-    "baseStats": {
-      "hp": 87,
-      "atk": 60,
-      "def": 95,
-      "spa": 133,
-      "spd": 91,
-      "spe": 84
-    },
-    "abilities": [
-      "good-as-gold"
-    ],
-    "championsAvailable": true
-  },
-  {
-    "id": "iron-valiant",
-    "dexNo": 1006,
-    "nameJa": "テツノブジン",
-    "nameEn": "Iron Valiant",
-    "types": [
-      "fairy",
-      "fighting"
-    ],
-    "baseStats": {
-      "hp": 74,
-      "atk": 130,
-      "def": 90,
-      "spa": 120,
-      "spd": 60,
-      "spe": 116
-    },
-    "abilities": [
-      "quark-drive"
-    ],
-    "championsAvailable": true
-  },
-  {
     "id": "sinistcha",
     "dexNo": 1013,
     "nameJa": "ヤバソチャ",
@@ -5812,28 +5977,6 @@
     "abilities": [
       "hospitality",
       "heatproof"
-    ],
-    "championsAvailable": true
-  },
-  {
-    "id": "ogerpon-wellspring",
-    "dexNo": 1017,
-    "nameJa": "オーガポン(いどのめん)",
-    "nameEn": "Wellspring Mask Ogerpon",
-    "types": [
-      "grass",
-      "water"
-    ],
-    "baseStats": {
-      "hp": 80,
-      "atk": 120,
-      "def": 84,
-      "spa": 60,
-      "spd": 96,
-      "spe": 110
-    },
-    "abilities": [
-      "water-absorb"
     ],
     "championsAvailable": true
   },

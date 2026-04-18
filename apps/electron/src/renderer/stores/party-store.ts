@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { ChangeEvent, Party } from "@edv4h/poke-mate-shared-types";
+import type { ChangeEvent, Party, PokemonMaster, StatPoints } from "@edv4h/poke-mate-shared-types";
 
 const DEFAULT_WORKSPACE_ID = "default";
 
@@ -18,6 +18,8 @@ interface PartyStoreState {
   loading: boolean;
   flash: FlashState | null;
   toast: string | null;
+  masterIndex: Record<string, PokemonMaster>;
+  missingMasters: Set<string>;
 
   init(): Promise<void>;
   refreshList(): Promise<void>;
@@ -28,16 +30,19 @@ interface PartyStoreState {
     slot: number,
     speciesId: string,
     extra?: Partial<{
+      formeId: string;
       natureId: string;
       abilityId: string;
       itemId: string;
       moves: string[];
       isMegaTarget: boolean;
+      spJson: StatPoints;
     }>,
   ): Promise<void>;
   clearSlot(slot: number): Promise<void>;
   handleChangeEvent(event: ChangeEvent): Promise<void>;
   setToast(msg: string | null): void;
+  ensureMasters(speciesIds: string[]): Promise<void>;
 }
 
 const FLASH_DURATION_MS = 1800;
@@ -51,6 +56,8 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
   loading: false,
   flash: null,
   toast: null,
+  masterIndex: {},
+  missingMasters: new Set<string>(),
 
   async init() {
     await get().refreshList();
@@ -77,6 +84,37 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
       return;
     }
     set({ currentPartyId: partyId, currentParty: party });
+    await get().ensureMasters(party.sets.map((s) => s.speciesId));
+  },
+
+  async ensureMasters(speciesIds) {
+    const { masterIndex, missingMasters } = get();
+    // DB に存在しない (alias 不一致など) speciesId は missingMasters にネガティブ
+    // キャッシュして、openParty のたびに getPokemonDetails を叩き続けないようにする。
+    const missing = Array.from(new Set(speciesIds)).filter(
+      (id) => !(id in masterIndex) && !missingMasters.has(id),
+    );
+    if (missing.length === 0) return;
+    const fetched = await Promise.all(
+      missing.map((id) => window.pokeMate.getPokemonDetails({ speciesId: id })),
+    );
+    const updates: Record<string, PokemonMaster> = {};
+    const nullIds: string[] = [];
+    fetched.forEach((m, i) => {
+      const id = missing[i]!;
+      if (m) updates[id] = m;
+      else nullIds.push(id);
+    });
+    if (Object.keys(updates).length > 0 || nullIds.length > 0) {
+      set((s) => {
+        const nextMissing = nullIds.length > 0 ? new Set(s.missingMasters) : s.missingMasters;
+        for (const id of nullIds) nextMissing.add(id);
+        return {
+          masterIndex: { ...s.masterIndex, ...updates },
+          missingMasters: nextMissing,
+        };
+      });
+    }
   },
 
   closeParty() {
@@ -101,11 +139,13 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
       slot,
       set: {
         speciesId,
+        ...(extra?.formeId !== undefined && { formeId: extra.formeId }),
         ...(extra?.natureId !== undefined && { natureId: extra.natureId }),
         ...(extra?.abilityId !== undefined && { abilityId: extra.abilityId }),
         ...(extra?.itemId !== undefined && { itemId: extra.itemId }),
         ...(extra?.moves !== undefined && { movesJson: extra.moves }),
         ...(extra?.isMegaTarget !== undefined && { isMegaTarget: extra.isMegaTarget }),
+        ...(extra?.spJson !== undefined && { spJson: extra.spJson }),
       },
       ...(existing !== undefined && { expectedVersion: existing.version }),
     });
@@ -158,6 +198,9 @@ export const usePartyStore = create<PartyStoreState>((set, get) => ({
     } else if (event.entityType === "pokemon_set" && current) {
       const refreshed = await window.pokeMate.getParty({ partyId: current.id });
       if (!refreshed) return;
+      // MCP 経由の変更で新しい speciesId が入ってきた場合、masterIndex に
+      // 無いとスロット表示が speciesId フォールバックになる。ここで補完する。
+      await get().ensureMasters(refreshed.sets.map((s) => s.speciesId));
       let changedSlot: number | null = null;
       for (const s of refreshed.sets) {
         if (s.id === event.entityId) {
