@@ -1,0 +1,32 @@
+{
+  "name": "@edv4h/poke-mate-electron",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json",
+    "typecheck": "pnpm typecheck:node && pnpm typecheck:web",
+    "start": "electron-vite preview",
+    "clean": "rimraf out dist"
+  },
+  "dependencies": {
+    "@edv4h/poke-mate-data-service": "workspace:*",
+    "@edv4h/poke-mate-shared-types": "workspace:*",
+    "better-sqlite3": "^11.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.1",
+    "electron-vite": "^2.3.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}

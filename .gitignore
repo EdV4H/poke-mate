@@ -25,6 +25,7 @@ release/
 .vscode/
 .idea/
 *.swp
+.claude/
 
 # OS
 Thumbs.db
